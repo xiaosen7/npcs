@@ -1,0 +1,1 @@
+import "./gen-asset-components";
