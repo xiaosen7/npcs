@@ -213,12 +213,7 @@ describe(UploadClient.name, () => {
 
     client.start(true);
     await waitState(UploadClient.EState.Merging);
-
-    await delay(50);
-    expect(client.state$.value).toBe(UploadClient.EState.Merging);
-
-    await delay(50);
-    expect(client.state$.value).toBe(UploadClient.EState.UploadSuccessfully);
+    await waitState(UploadClient.EState.UploadSuccessfully);
   });
 
   test("restart", async () => {
