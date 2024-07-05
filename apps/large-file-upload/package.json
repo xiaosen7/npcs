@@ -10,6 +10,7 @@
     "build:next": "next build",
     "build:socket-server": "tsup socket-server.ts",
     "lint": "next lint",
+    "typecheck": "npx tsc --noEmit",
     "test": "vitest --run"
   },
   "dependencies": {
