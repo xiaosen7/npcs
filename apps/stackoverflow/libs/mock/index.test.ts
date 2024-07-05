@@ -22,6 +22,7 @@ describe("mock", () => {
     const tag = mock.tag();
     expect(tag).toEqual({
       id: expect.any(String),
+      creatorId: expect.any(String),
       createdAt: expect.any(Date),
       name: expect.any(String),
       description: expect.any(String),
@@ -57,6 +58,7 @@ describe("mock", () => {
     tags.forEach((tag) => {
       expect(tag).toEqual({
         id: expect.any(String),
+        creatorId: expect.any(String),
         createdAt: expect.any(Date),
         name: expect.any(String),
         description: expect.any(String),

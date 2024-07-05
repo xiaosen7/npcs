@@ -10,7 +10,7 @@
     "build:next": "next build",
     "build:storybook": "storybook build",
     "lint": "next lint",
-    "test": "vitest",
+    "test": "vitest --run",
     "prisma:studio": "dotenv -e .env.development -- npx prisma studio -b false",
     "prisma:sync:dev": "dotenv -e .env.development -- tsx .scripts/sync-prisma.ts",
     "typecheck": "npx tsc --noEmit",

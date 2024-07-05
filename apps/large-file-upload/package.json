@@ -10,7 +10,7 @@
     "build:next": "next build",
     "build:socket-server": "tsup socket-server.ts",
     "lint": "next lint",
-    "test": "vitest"
+    "test": "vitest --run"
   },
   "dependencies": {
     "@esbuild-plugins/tsconfig-paths": "^0.1.2",
