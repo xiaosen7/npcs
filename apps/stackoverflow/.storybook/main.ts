@@ -47,6 +47,6 @@ const config: StorybookConfig = {
       ],
     });
   },
-  staticDirs: process.env.NODE_ENV === "development" ? ["../public"] : [], // in build mode, it is built into public folder, so we didn't need to specify it.
+  staticDirs: ["../public"],
 };
 export default config;

@@ -3,17 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev & dotenv -e .env.development -- pnpm prisma studio -b false",
-    "build": "pnpm build:storybook && next build",
-    "vercel-build": "tsx .scripts/sync-prisma.ts && pnpm build",
-    "lint": "next lint",
+    "dev": "next dev",
+    "build": "run-p build:next build:storybook",
+    "start": "next start",
     "dev:storybook": "storybook dev -p 6006",
-    "build:storybook": "storybook build -o ./public/storybook-static",
+    "build:next": "next build",
+    "build:storybook": "storybook build",
+    "lint": "next lint",
     "test": "vitest",
-    "sync:prisma:dev": "dotenv -e .env.development -- tsx .scripts/sync-prisma.ts",
-    "gen:git-log-file": "mkdirp libs/shared/assets && git log -1 --pretty=format:\"%cd %h %s\" > libs/shared/assets/git.log",
-    "typecheck": "pnpm tsc --noemit",
-    "prepare": "husky & tsx .scripts/prepare & pnpm gen:git-log-file"
+    "prisma:studio": "dotenv -e .env.development -- npx prisma studio -b false",
+    "prisma:sync:dev": "dotenv -e .env.development -- tsx .scripts/sync-prisma.ts",
+    "typecheck": "npx tsc --noEmit",
+    "prepare": "npx prisma generate"
   },
   "prisma": {
     "schema": "libs/prisma/schema.prisma",
@@ -48,7 +49,6 @@
     "dotenv-cli": "^7.4.2",
     "fast-glob": "^3.3.2",
     "fs-extra": "^11.2.0",
-    "husky": "^9.0.11",
     "javascript-time-ago": "^2.5.10",
     "lodash-es": "^4.17.21",
     "lucide-react": "^0.379.0",
@@ -105,13 +105,5 @@
     "vitest": "^1.6.0",
     "webpack": "^5.91.0",
     "webpack-merge": "^5.10.0"
-  },
-  "pnpm": {
-    "peerDependencyRules": {
-      "allowedVersions": {
-        "react": "*"
-      }
-    }
-  },
-  "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a"
+  }
 }
