@@ -16,6 +16,7 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
+        run: corepack enable
         run: corepack install
 
       - name: Test
@@ -33,6 +34,7 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
+        run: corepack enable
         run: corepack install
 
       - name: Build
