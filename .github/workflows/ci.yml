@@ -2,33 +2,38 @@ name: CI
 on:
   push:
     branches: ["main"]
-  pull_request:
-    branches: ["main"]
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 2
+          fetch-depth: 0
+
       - uses: actions/setup-node@v3
         with:
           node-version: 20
-      - name: Rush Install
-        run: node common/scripts/install-run-rush.js install
+
+      - name: Install dependencies
+        run: corepack install
+
       - name: Test
-        run: node common/scripts/install-run-rush-pnpm.js test -r
+        run: pnpm nx run-many -t test
 
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 2
+          fetch-depth: 0
+
       - uses: actions/setup-node@v3
         with:
           node-version: 20
-      - name: Rush Install
-        run: node common/scripts/install-run-rush.js install
-      - name: Rush rebuild
-        run: node common/scripts/install-run-rush.js rebuild
+
+      - name: Install dependencies
+        run: corepack install
+
+      - name: Build
+        run: pnpm nx build large-file-upload

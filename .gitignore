@@ -116,3 +116,4 @@ dist-storybook/
 # Heft temporary files
 .cache/
 .heft/
+.nx

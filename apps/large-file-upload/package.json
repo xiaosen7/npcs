@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "run-p dev:next dev:socket-server",
-    "build": "run-p build:next build:socket-server",
+    "build": "run-p build:next",
     "dev:next": "next dev",
     "dev:socket-server": "tsx watch -r tsconfig-paths/register socket-server.ts",
     "build:next": "next build",

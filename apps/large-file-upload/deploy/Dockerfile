@@ -65,7 +65,7 @@ RUN npm i pm2@5.4.1 -g
 USER nextjs
 
 EXPOSE 3000
-EXPOSE 88
+EXPOSE 9999
 
 ENV PORT 3000
 
