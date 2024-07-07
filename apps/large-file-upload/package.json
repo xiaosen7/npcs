@@ -3,12 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "run-p dev:next dev:socket-server",
-    "build": "run-p build:next",
-    "dev:next": "next dev",
-    "dev:socket-server": "tsx watch -r tsconfig-paths/register socket-server.ts",
-    "build:next": "next build",
-    "build:socket-server": "tsup socket-server.ts",
+    "dev": "next dev",
+    "build": "next build",
     "lint": "next lint",
     "check-types": "npx tsc --noEmit",
     "test": "vitest --run"

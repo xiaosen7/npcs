@@ -1,5 +1,6 @@
 import { GitLog } from "@/shared/components/git-log";
 import { cn } from "@/shared/utils";
+// import "@/socket/start-socket-server";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";

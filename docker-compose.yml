@@ -1,0 +1,23 @@
+services:
+  postgres:
+    image: postgres:16
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_PASSWORD: 123456
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  app:
+    build: .
+    restart: always
+    # environment:
+    #   - TURBO_TOKEN=rIuM8sPR68dOokTcnVr6YiJr
+    #   - TURBO_TEAM=xiaosen7s-projects
+    #   - TURBO_REMOTE_ONLY=true
+    depends_on:
+      - postgres
