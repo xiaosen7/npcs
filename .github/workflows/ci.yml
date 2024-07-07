@@ -16,8 +16,8 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: corepack enable
-        run: corepack install
+        run: corepack enable pnpm
+        run: pnpm install --frozen-lockfile
 
       - name: Test
         run: pnpm nx run-many -t test
@@ -34,8 +34,8 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: corepack enable
-        run: corepack install
+        run: corepack enable pnpm
+        run: pnpm install --frozen-lockfile
 
       - name: Build
         run: pnpm nx build large-file-upload
