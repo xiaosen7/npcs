@@ -35,6 +35,5 @@ jobs:
       - name: Install dependencies
         run: corepack enable pnpm && pnpm install --frozen-lockfile
 
-      - run: pnpm nx connect
       - name: Build
-        run: pnpm nx build large-file-upload
+        run: pnpm nx connect && pnpm nx build large-file-upload
