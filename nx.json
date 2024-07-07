@@ -4,8 +4,20 @@
     "default": {
       "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build"]
+        "cacheableOperations": [
+          "build"
+        ]
       }
     }
-  }
+  },
+  "targetDefaults": {
+    "build": {
+      "outputs": [
+        "{projectRoot}/dist"
+      ],
+      "cache": true
+    }
+  },
+  "defaultBase": "main",
+  "nxCloudAccessToken": "ZmMzYTAyNjQtM2Y4Yi00MDA0LThhYzQtYTVmNzk5OTcxNDRlfHJlYWQtd3JpdGU="
 }

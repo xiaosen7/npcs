@@ -9,7 +9,7 @@ importers:
   .:
     devDependencies:
       nx:
-        specifier: ^19.4.1
+        specifier: 19.4.1
         version: 19.4.1
 
   apps/large-file-upload:

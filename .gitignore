@@ -117,3 +117,8 @@ dist-storybook/
 .cache/
 .heft/
 .nx
+
+
+
+.nx/cache
+.nx/workspace-data
