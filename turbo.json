@@ -12,5 +12,8 @@
       "persistent": true,
       "cache": false
     }
+  },
+  "remoteCache": {
+    "enabled": true
   }
 }
