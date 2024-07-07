@@ -8,6 +8,7 @@ const nextConfig = {
    */
   output: "standalone",
   distDir: "dist",
+  output: "standalone",
 };
 
 export default nextConfig;

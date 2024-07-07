@@ -122,3 +122,6 @@ dist-storybook/
 
 .nx/cache
 .nx/workspace-data
+
+# turbo
+.turbo

@@ -1,39 +1,36 @@
 name: CI
+
 on:
   push:
     branches: ["main"]
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20
-
-      - name: Install dependencies
-        run: corepack enable pnpm && pnpm install --frozen-lockfile
-
-      - name: Test
-        run: pnpm nx run-many -t test
-
   build:
+    name: Build and Test
+    timeout-minutes: 15
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+    # To use Remote Caching, uncomment the next lines and follow the steps below.
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+      TURBO_REMOTE_ONLY: true
 
-      - uses: actions/setup-node@v3
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: "pnpm"
 
       - name: Install dependencies
-        run: corepack enable pnpm && pnpm install --frozen-lockfile
+        run: corepack enable && pnpm install --frozen-lockfile
 
-      - name: Build
-        run: pnpm nx connect && pnpm nx build large-file-upload
+      - name: Type check
+        run: npx turbo check-types
