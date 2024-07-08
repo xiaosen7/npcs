@@ -32,7 +32,7 @@ jobs:
           cache: "pnpm"
 
       - name: Install dependencies
-        run: corepack enable && pnpm install --frozen-lockfile
+        run: corepack enable && corepack install && pnpm install --frozen-lockfile
 
       - name: Type check
         run: npx turbo check-types
