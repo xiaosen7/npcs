@@ -18,7 +18,7 @@ jobs:
       TURBO_REMOTE_ONLY: true
 
     steps:
-      - run: echo ${{vars.TURBO_TEAM}} echo ${{secrets.TURBO_TOKEN}}
+      - run: echo ${{vars.TURBO_TEAM}} ${{secrets.TURBO_TOKEN}}
 
       - name: Check out code
         uses: actions/checkout@v4
