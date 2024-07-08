@@ -27,7 +27,7 @@ jobs:
         uses: actions/setup-node@v4
 
       - name: Install dependencies
-        run: corepack enable && corepack install
+        run: corepack enable && corepack install && pnpm install --frozen-lockfile
 
       - name: Type check
         run: npx turbo check-types
