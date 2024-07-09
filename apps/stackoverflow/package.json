@@ -4,15 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "run-p build:next build:storybook",
+    "build": "next build",
     "start": "next start",
     "dev:storybook": "storybook dev -p 6006",
-    "build:next": "next build",
     "build:storybook": "storybook build",
     "lint": "next lint",
     "test": "vitest --run",
     "prisma:studio": "dotenv -e .env.development -- npx prisma studio -b false",
     "prisma:sync:dev": "dotenv -e .env.development -- tsx .scripts/sync-prisma.ts",
+    "prisma:sync": "tsx .scripts/sync-prisma.ts",
     "check-types": "npx tsc --noEmit",
     "prepare": "tsx ./.scripts/prepare.ts && prisma generate"
   },

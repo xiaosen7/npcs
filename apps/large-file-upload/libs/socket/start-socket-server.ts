@@ -34,8 +34,11 @@ function createSocketServer() {
   return server;
 }
 
-// @ts-ignore
-if (!global.socketServer) {
+if (
+  // @ts-ignore
+  !global.socketServer &&
+  process.env.NEXT_PHASE !== "phase-production-build"
+) {
   console.log("Creating socket server...");
   // @ts-ignore
   global.socketServer = createSocketServer();

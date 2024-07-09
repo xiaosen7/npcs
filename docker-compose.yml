@@ -1,0 +1,40 @@
+services:
+  # large-file-upload:
+  #   container_name: large-file-upload
+  #   build:
+  #     context: .
+  #     dockerfile: ./apps/large-file-upload/Dockerfile
+  #   restart: always
+  #   ports:
+  #     - 3000:3000
+
+  stackoverflow-postgres:
+    container_name: stackoverflow-postgres
+    image: postgres:16
+    restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    # or set shared memory limit when deploy via swarm stack
+    #volumes:
+    #  - type: tmpfs
+    #    target: /dev/shm
+    #    tmpfs:
+    #      size: 134217728 # 128*2^20 bytes = 128Mb
+    environment:
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - 5432:5432
+
+  stackoverflow:
+    container_name: stackoverflow
+    build:
+      context: .
+      dockerfile: ./apps/stackoverflow/Dockerfile
+      args:
+        - POSTGRES_PRISMA_URL=postgres://postgres:123456@stackoverflow-postgres:5432/stackoverflow
+        - POSTGRES_URL_NON_POOLING=postgres://postgres:123456@stackoverflow-postgres:5432/stackoverflow
+    restart: always
+    depends_on:
+      - stackoverflow-postgres
+    ports:
+      - 3000:3001

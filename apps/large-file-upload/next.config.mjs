@@ -7,8 +7,6 @@ const nextConfig = {
    * standalone: after next build, then teh node_modules/next directory will be empty, I don't know why
    */
   output: "standalone",
-  distDir: "dist",
-  output: "standalone",
 };
 
 export default nextConfig;
