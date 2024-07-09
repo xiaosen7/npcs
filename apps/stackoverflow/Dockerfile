@@ -1,20 +1,23 @@
-ARG POSTGRES_URL_NON_POOLING
-ARG POSTGRES_PRISMA_URL
 
 FROM node:18-alpine AS base
 
-ENV POSTGRES_PRISMA_URL=$POSTGRES_PRISMA_URL
-ENV POSTGRES_URL_NON_POOLING=$POSTGRES_URL_NON_POOLING
+ARG POSTGRES_PRISMA_URL
+ARG POSTGRES_URL_NON_POOLING
+ARG NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+ARG CLERK_SECRET_KEY
+
+ENV POSTGRES_PRISMA_URL=${POSTGRES_PRISMA_URL}
+ENV POSTGRES_URL_NON_POOLING=${POSTGRES_URL_NON_POOLING}
+ENV NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+ENV CLERK_SECRET_KEY=${CLERK_SECRET_KEY}
+
+RUN echo ${POSTGRES_PRISMA_URL} >> test.arg
 
 RUN apk update
 RUN apk add --no-cache libc6-compat
 
-RUN npm i nrm -g && nrm use taobao
+RUN npm i nrm http-server -g && nrm use taobao
 RUN npm i turbo -g
-
-
-
-
 
 # This Dockerfile is copy-pasted into our main docs at /docs/handbook/deploying-with-docker.
 # Make sure you update both files!
@@ -48,9 +51,9 @@ COPY turbo.json turbo.json
 # ENV TURBO_TOKEN=$TURBO_TOKEN
 
 # Run lifecycle scripts
-RUN pnpm i --frozen-lockfile 
+RUN pnpm i --frozen-lockfile
 RUN pnpm --filter=stackoverflow run prisma:sync
-RUN turbo build --filter=stackoverflow...
+RUN turbo build --env-mode=loose --filter=stackoverflow...
 
 FROM base AS runner
 WORKDIR /app
@@ -69,4 +72,5 @@ COPY --from=installer --chown=nextjs:nodejs /app/apps/stackoverflow/.next/standa
 COPY --from=installer --chown=nextjs:nodejs /app/apps/stackoverflow/.next/static ./apps/stackoverflow/.next/static
 COPY --from=installer --chown=nextjs:nodejs /app/apps/stackoverflow/public ./apps/stackoverflow/public
 
-CMD node apps/stackoverflow/server.js
+# CMD node apps/stackoverflow/server.js
+CMD http-server
