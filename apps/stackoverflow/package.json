@@ -13,8 +13,7 @@
     "prisma:studio": "dotenv -e .env.development -- npx prisma studio -b false",
     "prisma:sync:dev": "dotenv -e .env.development -- tsx .scripts/sync-prisma.ts",
     "prisma:sync": "tsx .scripts/sync-prisma.ts",
-    "check-types": "npx tsc --noEmit",
-    "prepare": "tsx ./.scripts/prepare.ts && prisma generate"
+    "check-types": "npx tsc --noEmit"
   },
   "prisma": {
     "schema": "libs/prisma/schema.prisma",

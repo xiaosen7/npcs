@@ -125,3 +125,6 @@ dist-storybook/
 
 # turbo
 .turbo
+
+# vscode
+*.code-workspace
