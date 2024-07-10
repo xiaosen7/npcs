@@ -47,7 +47,8 @@ COPY turbo.json turbo.json
 RUN pnpm i --frozen-lockfile
 WORKDIR /app/apps/stackoverflow
 RUN pnpm prisma generate
-RUN pnpm prisma db push --accept-data-loss --force-reset
+RUN --network=host nc -zv 127.0.0.1 5432 
+# RUN pnpm prisma db push --accept-data-loss --force-reset
 # RUN prisma db seed
 # WORKDIR /app
 # RUN turbo build --env-mode=loose --filter=stackoverflow...

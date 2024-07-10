@@ -15,17 +15,9 @@ services:
       POSTGRES_PASSWORD: 123456
     ports:
       - 5432:5432
-    networks:
-      - stack-network
 
   adminer:
     image: adminer
     restart: always
     ports:
       - 8080:8080
-    networks:
-      - stack-network
-
-networks:
-  stack-network:
-    driver: bridge
