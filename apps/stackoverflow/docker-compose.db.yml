@@ -13,17 +13,12 @@ services:
     #      size: 134217728 # 128*2^20 bytes = 128Mb
     environment:
       POSTGRES_PASSWORD: 123456
-    networks:
-      - stackoverflow-network
+    ports:
+      - 5432:5432
 
   stackoverflow-adminer:
     container_name: stackoverflow-adminer
     image: adminer
     restart: always
-    networks:
-      - stackoverflow-network
     ports:
       - 8080:8080
-
-networks:
-  stackoverflow-network:

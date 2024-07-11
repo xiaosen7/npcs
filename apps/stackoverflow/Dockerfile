@@ -49,26 +49,26 @@ WORKDIR /app/apps/stackoverflow
 RUN pnpm prisma generate
 RUN nc -zv 127.0.0.1 5432 
 RUN pnpm prisma db push --accept-data-loss --force-reset
-# RUN prisma db seed
-# WORKDIR /app
-# RUN turbo build --env-mode=loose --filter=stackoverflow...
+RUN pnpm prisma db seed
+WORKDIR /app
+RUN turbo build --env-mode=loose --filter=stackoverflow...
 
-# FROM base AS runner
-# WORKDIR /app
+FROM base AS runner
+WORKDIR /app
 
-# # Don't run production as root
-# RUN addgroup --system --gid 1001 nodejs
-# RUN adduser --system --uid 1001 nextjs
-# USER nextjs
+# Don't run production as root
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+USER nextjs
 
-# COPY --from=installer /app/apps/stackoverflow/next.config.mjs .
-# COPY --from=installer /app/apps/stackoverflow/package.json .
+COPY --from=installer /app/apps/stackoverflow/next.config.mjs .
+COPY --from=installer /app/apps/stackoverflow/package.json .
 
-# # Automatically leverage output traces to reduce image size
-# # https://nextjs.org/docs/advanced-features/output-file-tracing
-# COPY --from=installer --chown=nextjs:nodejs /app/apps/stackoverflow/.next/standalone ./
-# COPY --from=installer --chown=nextjs:nodejs /app/apps/stackoverflow/.next/static ./apps/stackoverflow/.next/static
-# COPY --from=installer --chown=nextjs:nodejs /app/apps/stackoverflow/public ./apps/stackoverflow/public
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=installer --chown=nextjs:nodejs /app/apps/stackoverflow/.next/standalone ./
+COPY --from=installer --chown=nextjs:nodejs /app/apps/stackoverflow/.next/static ./apps/stackoverflow/.next/static
+COPY --from=installer --chown=nextjs:nodejs /app/apps/stackoverflow/public ./apps/stackoverflow/public
 
-# CMD node apps/stackoverflow/server.js
-CMD http-server
+CMD ["node", "apps/stackoverflow/server.js"]
+# CMD http-server
