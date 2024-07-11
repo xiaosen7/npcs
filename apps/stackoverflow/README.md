@@ -16,12 +16,17 @@ Technology stack：Next.js、Prisma、Zod、Tailwindcss、Vitest、clsx、ahooks
 
 2. Setup database
 
-   Because this project use postgres to be the database, you can change the postgres url by modifying `.env.development` file, or if you have docker you can start the postgres database by run `docker-compose -f docker-compose.postgres.yml up -d`
+   Because this project use postgres to be the database, you can change the postgres url by modifying `.env.development` file, or if you have docker you can start the postgres database by run `docker compose -f docker-compose.db.yml up`, if you use the `docker-compose.db.yml`, you do not need to update the `.env.development` file.
 
    Then Run `npm run prisma:sync:dev`, this command will:
 
+   - Delete old data in database
    - Generate model typescript declarations
    - Push the state from your Prisma schema to your database
    - Generate seed data into your database
 
 3. Run `npm run dev` to start the development server, or run `npm run dev:storybook` to start the storybook server
+
+## Deploy this project
+
+run `docker compose -f docker-compose.db.yml` first, and then run `docker compose -f docker-compose.yml`
