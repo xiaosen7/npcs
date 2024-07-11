@@ -1,8 +1,7 @@
-version: "3.9"
-
 services:
-  db:
-    image: postgres
+  stackoverflow-postgres:
+    container_name: stackoverflow-postgres
+    image: postgres:16
     restart: always
     # set shared memory limit when using docker-compose
     shm_size: 128mb
@@ -12,10 +11,19 @@ services:
     #    target: /dev/shm
     #    tmpfs:
     #      size: 134217728 # 128*2^20 bytes = 128Mb
-    volumes:
-      - ./.build/postgresql-data:/var/lib/postgresql/data
-    container_name: postgres
     environment:
       POSTGRES_PASSWORD: 123456
+    networks:
+      - stackoverflow-network
+
+  stackoverflow-adminer:
+    container_name: stackoverflow-adminer
+    image: adminer
+    restart: always
+    networks:
+      - stackoverflow-network
     ports:
-      - 5432:5432
+      - 8080:8080
+
+networks:
+  stackoverflow-network:
