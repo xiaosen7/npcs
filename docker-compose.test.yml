@@ -1,8 +1,0 @@
-services:
-  app:
-    container_name: app
-    build:
-      context: .
-      dockerfile: ./Dockerfile.test
-      args:
-        - argName=true
