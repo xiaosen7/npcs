@@ -5,15 +5,6 @@ on:
     branches:
       - main
 
-env:
-  IMAGE_NAME: ${{ github.actor }}/large-file-upload:latest
-  DOCKERFILE: ./deploy/Dockerfile
-  POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-  NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}}
-  CLERK_SECRET_KEY: ${{secrets.CLERK_SECRET_KEY}}
-  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-
 jobs:
   deploy:
     name: Deploy Image
@@ -28,8 +19,13 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           port: ${{ secrets.VPS_PORT }}
           script: |
+            export POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
+            export NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
+            export CLERK_SECRET_KEY=${{ secrets.CLERK_SECRET_KEY }}
+            export TURBO_TEAM=${{ secrets.TURBO_TEAM }}
+            export TURBO_TOKEN=${{ secrets.TURBO_TOKEN }}
+
             cd ${{ secrets.VPS_WORK_DIR }} 
-            echo $IMAGE_NAME
             git pull --rebase
             bash ./deploy.sh
             exit
