@@ -4,6 +4,9 @@ services:
     build:
       context: ../../../
       dockerfile: ./apps/large-file-upload/deploy/Dockerfile
+      args:
+        - TURBO_TEAM=${TURBO_TEAM}
+        - TURBO_TOKEN=${TURBO_TOKEN}
     restart: always
     ports:
       - 3000:3000
