@@ -16,7 +16,9 @@ Technology stack：Next.js、Prisma、Zod、Tailwindcss、Vitest、clsx、ahooks
 
 2. Setup database
 
-   Because this project use postgres to be the database, you can change the postgres url by modifying `.env.development` file, or if you have docker you can start the postgres database by run `docker compose -f docker-compose.db.yml up`, if you use the `docker-compose.db.yml`, you do not need to update the `.env.development` file.
+   Because this project use postgres to be the database, you can change the postgres url by modifying `.env.development` file
+
+   if you have installed docker, you can run `./setup-database.sh` script to setup database, then you do not need to update the `.env.development` file.
 
    Then Run `npm run prisma:sync:dev`, this command will:
 

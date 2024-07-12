@@ -2,8 +2,8 @@ services:
   stackoverflow:
     container_name: stackoverflow-next.js
     build:
-      context: ../../
-      dockerfile: ./apps/stackoverflow/Dockerfile
+      context: ../../../
+      dockerfile: ./apps/stackoverflow/deploy/Dockerfile
       args:
         - POSTGRES_PRISMA_URL=postgres://postgres:123456@127.0.0.1:5432/stackoverflow
         - POSTGRES_URL_NON_POOLING=postgres://postgres:123456@127.0.0.1:5432/stackoverflow
