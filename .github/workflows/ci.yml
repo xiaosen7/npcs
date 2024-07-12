@@ -4,12 +4,12 @@ on:
   push:
     branches:
       - main
-      
+
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.actor }}/large-file-upload:latest
   DOCKERFILE: ./deploy/Dockerfile
-  
+
 jobs:
   deploy:
     name: Deploy Image
@@ -25,6 +25,6 @@ jobs:
           port: ${{ secrets.VPS_PORT }}
           script: |
             cd ${{ secrets.VPS_WORK_DIR }} 
-            git pull
+            git pull --rebase
             bash ./deploy.sh
             exit
