@@ -2,8 +2,8 @@ services:
   large-file-upload:
     container_name: large-file-upload
     build:
-      context: .
-      dockerfile: ./Dockerfile
+      context: ../../
+      dockerfile: ./apps/large-file-upload/Dockerfile
     restart: always
     ports:
       - 3000:3000

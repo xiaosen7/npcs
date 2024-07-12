@@ -3,7 +3,7 @@ FROM node:18-alpine AS base
 RUN apk update
 RUN apk add --no-cache libc6-compat
 
-RUN npm i nrm -g && nrm use taobao
+# RUN npm i nrm -g && nrm use taobao
 RUN npm i turbo -g
 
 # This Dockerfile is copy-pasted into our main docs at /docs/handbook/deploying-with-docker.
