@@ -1,0 +1,11 @@
+{
+  "name": "@next.js-practical-cases/mock",
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@types/lodash-es": "^4.17.12",
+    "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "typescript": "5.5.3"
+  }
+}

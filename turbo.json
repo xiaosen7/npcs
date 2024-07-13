@@ -9,6 +9,12 @@
     "check-types": {
       "dependsOn": ["^check-types"]
     },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "test": {
+      "inputs": ["app/**", "libs/**", "package.json"]
+    },
     "dev": {
       "persistent": true,
       "cache": false
