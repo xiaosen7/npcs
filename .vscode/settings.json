@@ -1,6 +1,8 @@
 {
   "eslint.workingDirectories": [
     { "pattern": "apps/*/" },
-    { "pattern": "configs/*/" }
+    { "pattern": "configs/*/" },
+    { "pattern": "libs/*/" },
+    { "pattern": "dbs/*/" }
   ]
 }

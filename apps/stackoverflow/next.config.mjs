@@ -37,7 +37,7 @@ const nextConfig = {
     ],
   },
   eslint: {
-    dirs: ["app", "libs"],
+    dirs: ["app", "libs", "scripts", "storybook"],
   },
   webpack(config) {
     return merge(config, {

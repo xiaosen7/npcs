@@ -18,7 +18,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["libs/shared/**"],
+      files: ["types/**"],
       rules: {
         "import/no-cycle": "off",
       },
