@@ -1,4 +1,4 @@
-import { AsyncQueue } from "@/upload/utils/async-queue";
+import { AsyncQueue } from "@next.js-practical-cases/upload/upload/utils/async-queue";
 import { firstValueFrom } from "rxjs";
 import { expectTime, nameOf } from "../../../test-utils";
 

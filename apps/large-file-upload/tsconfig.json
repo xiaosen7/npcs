@@ -1,24 +1,17 @@
 {
   "extends": "@next.js-practical-cases/tsconfig",
   "compilerOptions": {
+    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@/*": [
-        "./libs/*"
-      ]
+      "@/*": ["./libs/*"]
     },
-    "types": [
-      "vitest/globals"
-    ],
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ]
+    "types": ["vitest/globals"],
+    "lib": ["dom", "dom.iterable", "esnext"]
   },
   "include": [
     "next-env.d.ts",
@@ -27,7 +20,5 @@
     ".next/types/**/*.ts",
     ".storybook/*"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
