@@ -16,12 +16,4 @@ module.exports = {
       },
     ],
   },
-  overrides: [
-    {
-      files: ["types/**"],
-      rules: {
-        "import/no-cycle": "off",
-      },
-    },
-  ],
 };
