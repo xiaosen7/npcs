@@ -56,7 +56,7 @@
   },
   "devDependencies": {
     "@next.js-practical-cases/eslint-config": "workspace:*",
-    "@next.js-practical-cases/tsconfig": "workspace:*",
+    "@next.js-practical-cases/typescript-config": "workspace:*",
     "@testing-library/react": "^16.0.0",
     "@types/multistream": "^4.1.3",
     "@types/node": "^20.14.0",

@@ -1,5 +1,5 @@
 {
-  "extends": "@next.js-practical-cases/tsconfig",
+  "extends": "@next.js-practical-cases/typescript-config",
   "compilerOptions": {
     "baseUrl": ".",
     "plugins": [

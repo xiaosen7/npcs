@@ -1,5 +1,5 @@
 {
-  "extends": "@next.js-practical-cases/tsconfig",
+  "extends": "@next.js-practical-cases/typescript-config",
   "compilerOptions": {
     "plugins": [
       {
@@ -7,26 +7,11 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./libs/*"
-      ]
+      "@/*": ["./libs/*"]
     },
-    "types": [
-      "vitest/globals"
-    ],
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ]
+    "types": ["vitest/globals"],
+    "lib": ["dom", "dom.iterable", "esnext"]
   },
-  "include": [
-    "next-env.d.ts",
-    ".next/types/**/*.ts",
-    "**/*.ts",
-    "**/*.tsx",
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

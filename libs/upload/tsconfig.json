@@ -1,19 +1,9 @@
 {
+  "extends": "@next.js-practical-cases/typescript-config",
   "compilerOptions": {
-    "baseUrl": ".",
-    "target": "ES2022",
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
     "paths": {
-      "@next.js-practical-cases/upload/*": ["./src/*"]
+      "@next.js-practical-cases/upload/*": ["./*"]
     }
   }
 }
+~

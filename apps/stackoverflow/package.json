@@ -101,7 +101,7 @@
     "vitest": "^1.6.0",
     "webpack": "^5.91.0",
     "webpack-merge": "^5.10.0",
-    "@next.js-practical-cases/tsconfig": "workspace:*",
+    "@next.js-practical-cases/typescript-config": "workspace:*",
     "@next.js-practical-cases/eslint-config": "workspace:*"
   }
 }
