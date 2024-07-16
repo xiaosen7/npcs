@@ -13,7 +13,7 @@ FROM base AS builder
 # Set working directory
 WORKDIR /app
 COPY . .
-RUN turbo prune large-file-upload --docker
+RUN turbo prune @next.js-practical-cases/large-file-upload --docker
 
 # Add lockfile and package.json's of isolated subworkspace
 FROM base AS installer
@@ -36,7 +36,7 @@ ENV TURBO_TEAM=$TURBO_TEAM
 ARG TURBO_TOKEN
 ENV TURBO_TOKEN=$TURBO_TOKEN
 
-RUN npx turbo build --filter=large-file-upload...
+RUN npx turbo build --filter=@next.js-practical-cases/large-file-upload...
 
 FROM base AS runner
 WORKDIR /app

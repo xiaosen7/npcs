@@ -26,7 +26,7 @@ RUN npm i turbo -g
 FROM base AS builder
 WORKDIR /app
 COPY . .
-RUN turbo prune stackoverflow --docker
+RUN turbo prune @next.js-practical-cases/stackoverflow --docker
 
 # First install the dependencies (as they change less often)
 FROM base AS installer
@@ -45,7 +45,7 @@ RUN pnpm i --frozen-lockfile
 WORKDIR /app/apps/stackoverflow
 RUN pnpm prisma:sync
 WORKDIR /app
-RUN turbo build --env-mode=loose --filter=stackoverflow...
+RUN turbo build --env-mode=loose --filter=@next.js-practical-cases/...
 
 # Copy the built app to the runner
 FROM base AS runner
