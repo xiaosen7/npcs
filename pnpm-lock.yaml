@@ -145,9 +145,6 @@ importers:
       uuid:
         specifier: ^10.0.0
         version: 10.0.0
-      vite-plugin-tsconfig-paths:
-        specifier: ^1.4.1
-        version: 1.4.1(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10)(terser@5.31.2))
     devDependencies:
       '@next.js-practical-cases/eslint-config':
         specifier: workspace:*
@@ -176,15 +173,9 @@ importers:
       '@types/uuid':
         specifier: ^10.0.0
         version: 10.0.0
-      '@vitejs/plugin-react':
-        specifier: ^4.3.1
-        version: 4.3.1(vite@5.3.3(@types/node@20.14.10)(terser@5.31.2))
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      jsdom:
-        specifier: ^24.1.0
-        version: 24.1.0(bufferutil@4.0.8)(utf-8-validate@6.0.3)
       postcss:
         specifier: ^8.4.39
         version: 8.4.39
@@ -203,9 +194,6 @@ importers:
       typescript:
         specifier: 5.5.3
         version: 5.5.3
-      vitest:
-        specifier: ^1.6.0
-        version: 1.6.0(@edge-runtime/vm@3.2.0)(@types/node@20.14.10)(jsdom@24.1.0(bufferutil@4.0.8)(utf-8-validate@6.0.3))(terser@5.31.2)
 
   apps/stackoverflow:
     dependencies:
