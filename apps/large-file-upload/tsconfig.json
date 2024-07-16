@@ -10,7 +10,6 @@
     "paths": {
       "@/*": ["./libs/*"]
     },
-    "types": ["vitest/globals"],
     "lib": ["dom", "dom.iterable", "esnext"]
   },
   "include": [

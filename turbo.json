@@ -4,7 +4,7 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "esm/**"],
-      "inputs": ["app/**", "libs/**", "src/**", "package.json"]
+      "inputs": ["app/**", "libs/**", "src/**", "tsconfig.json", "package.json"]
     },
     "check-types": {
       "dependsOn": ["^check-types"]
@@ -13,7 +13,15 @@
       "dependsOn": ["^lint"]
     },
     "test": {
-      "inputs": ["app/**", "libs/**", "package.json"]
+      "dependsOn": ["^test"],
+      "inputs": [
+        "app/**",
+        "libs/**",
+        "src/**",
+        "tsconfig.json",
+        "package.json",
+        "tests/**"
+      ]
     },
     "dev": {
       "persistent": true,
