@@ -1,5 +1,12 @@
 FROM node:18-alpine AS base
 
+# Uncomment and use build args to enable remote caching
+ARG TURBO_TEAM
+ENV TURBO_TEAM=$TURBO_TEAM
+
+ARG TURBO_TOKEN
+ENV TURBO_TOKEN=$TURBO_TOKEN
+
 RUN apk update
 RUN apk add --no-cache libc6-compat
 
@@ -23,19 +30,14 @@ WORKDIR /app
 COPY .gitignore .gitignore
 COPY --from=builder /app/out/json/ .
 COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
-RUN corepack enable && pnpm i --frozen-lockfile
+RUN corepack enable && pnpm i --frozen-lockfile --ignore-scripts
 
 # Build the project
 COPY --from=builder /app/out/full/ .
 COPY turbo.json turbo.json
 
-# Uncomment and use build args to enable remote caching
-ARG TURBO_TEAM
-ENV TURBO_TEAM=$TURBO_TEAM
-
-ARG TURBO_TOKEN
-ENV TURBO_TOKEN=$TURBO_TOKEN
-
+# Run the lifecycle scripts
+RUN pnpm i --frozen-lockfile
 RUN npx turbo build --filter=@next.js-practical-cases/large-file-upload...
 
 FROM base AS runner
