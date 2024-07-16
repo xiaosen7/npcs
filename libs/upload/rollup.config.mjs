@@ -7,7 +7,6 @@ import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
 import preserveDirectives from "rollup-plugin-preserve-directives";
 import { typescriptPaths } from "rollup-plugin-typescript-paths";
-import webWorkerLoader from "rollup-plugin-web-worker-loader";
 
 /** @type {import('rollup').RollupOptions} */
 export default {
@@ -28,15 +27,16 @@ export default {
     buildDelay: 300,
   },
   plugins: [
-    typescript({ jsx: "react" }),
+    typescript({ jsx: "react", tsconfig: "./tsconfig.build.json" }),
     resolve(),
     commonjs(),
-    typescriptPaths(),
+    typescriptPaths({
+      tsConfigPath: "./tsconfig.build.json",
+    }),
     peerDepsExternal({
       includeDependencies: true,
     }),
     preserveDirectives(),
-    webWorkerLoader(),
     postcss({ extract: true }),
   ],
   onwarn: (warning, warn) => {
