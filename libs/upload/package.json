@@ -8,7 +8,7 @@
     "test": "vitest --run"
   },
   "exports": {
-    "./index.css": "./esm/index.css",
+    "./styles.css": "./esm/styles.css",
     ".": "./esm/index.js"
   },
   "dependencies": {
@@ -41,6 +41,7 @@
     "uuid": "^10.0.0"
   },
   "devDependencies": {
+    "@next.js-practical-cases/rollup-config": "workspace:*",
     "@next.js-practical-cases/eslint-config": "workspace:*",
     "@next.js-practical-cases/tailwind-config": "workspace:*",
     "@next.js-practical-cases/typescript-config": "workspace:*",

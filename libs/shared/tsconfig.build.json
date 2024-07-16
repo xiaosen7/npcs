@@ -1,9 +1,0 @@
-{
-  "extends": ".",
-  "compilerOptions": {
-    "declaration": true,
-    "outDir": "./esm",
-    "rootDir": "./src"
-  },
-  "exclude": ["src/**/*.stories.tsx"]
-}

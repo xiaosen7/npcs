@@ -38,6 +38,7 @@ const nextConfig = {
   },
   eslint: {
     dirs: ["app", "libs", "scripts", "storybook"],
+    ignoreDuringBuilds: true,
   },
   webpack(config) {
     return merge(config, {

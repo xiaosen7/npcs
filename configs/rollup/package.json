@@ -1,0 +1,19 @@
+{
+  "name": "@next.js-practical-cases/rollup-config",
+  "version": "0.1.0",
+  "main": "./rollup.config.mjs",
+  "dependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "fast-glob": "^3.3.2",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-preserve-directives": "^0.4.0",
+    "rollup-plugin-typescript-paths": "^1.5.0",
+    "rollup-plugin-web-worker-loader": "^1.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10"
+  }
+}
