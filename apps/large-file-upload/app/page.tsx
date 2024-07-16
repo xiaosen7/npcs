@@ -1,6 +1,8 @@
-import { configuration, Upload } from "@next.js-practical-cases/upload";
-import { uploadActions } from "@next.js-practical-cases/upload/actions";
-import { startWebsocketServer } from "@next.js-practical-cases/upload/socket/utils/start-socket-server";
+import {
+  configuration,
+  startWebsocketServer,
+  Upload,
+} from "@next.js-practical-cases/upload/server";
 import { FileSystemStorage } from "@next.js-practical-cases/upload/upload/models/storages/file-system";
 import path from "path";
 
@@ -18,7 +20,7 @@ if (process.env.NEXT_PHASE !== "phase-production-build") {
 export default function Home() {
   return (
     <div className="m-auto w-2/3 min-w-96">
-      <Upload actions={uploadActions} />
+      <Upload />
     </div>
   );
 }
