@@ -1,6 +1,9 @@
 
 FROM node:18-alpine AS base
 
+ARG APP_DIR
+ARG APP_PACKAGE_NAME
+
 # Set args to env
 # postgres
 ARG POSTGRES_PRISMA_URL
@@ -26,11 +29,12 @@ RUN npm i turbo -g
 FROM base AS builder
 WORKDIR /app
 COPY . .
-RUN turbo prune @next.js-practical-cases/stackoverflow --docker
+RUN turbo prune ${APP_PACKAGE_NAME} --docker
 
 # First install the dependencies (as they change less often)
 FROM base AS installer
 WORKDIR /app
+# First install the dependencies (as they change less often)
 COPY .gitignore .gitignore
 COPY --from=builder /app/out/json/ .
 COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
@@ -42,10 +46,10 @@ COPY turbo.json turbo.json
 # Run the lifecycle scripts
 RUN pnpm i --frozen-lockfile
 # seed database
-WORKDIR /app/apps/stackoverflow
+WORKDIR /app/${APP_DIR}
 RUN pnpm prisma:sync
 WORKDIR /app
-RUN turbo build --env-mode=loose --filter=@next.js-practical-cases/...
+RUN turbo build --env-mode=loose --filter=${APP_PACKAGE_NAME}...
 
 # Copy the built app to the runner
 FROM base AS runner
@@ -54,12 +58,14 @@ WORKDIR /app
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 USER nextjs
-COPY --from=installer /app/apps/stackoverflow/next.config.mjs .
-COPY --from=installer /app/apps/stackoverflow/package.json .
+COPY --from=installer /app/${APP_DIR}/next.config.mjs .
+COPY --from=installer /app/${APP_DIR}/package.json .
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=installer --chown=nextjs:nodejs /app/apps/stackoverflow/.next/standalone ./
-COPY --from=installer --chown=nextjs:nodejs /app/apps/stackoverflow/.next/static ./apps/stackoverflow/.next/static
-COPY --from=installer --chown=nextjs:nodejs /app/apps/stackoverflow/public ./apps/stackoverflow/public
+COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/.next/standalone ./
+COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/.next/static ./${APP_DIR}/.next/static
+COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/public ./${APP_DIR}/public
 
-CMD ["node", "apps/stackoverflow/server.js"]
+WORKDIR /app/${APP_DIR}
+
+CMD ["node", "server.js"]

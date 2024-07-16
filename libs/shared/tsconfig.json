@@ -1,0 +1,10 @@
+{
+  "extends": "@next.js-practical-cases/typescript-config",
+  "compilerOptions": {
+    "types": ["vitest/globals"],
+    "declaration": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}

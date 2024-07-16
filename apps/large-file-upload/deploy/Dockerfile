@@ -1,31 +1,28 @@
+
 FROM node:18-alpine AS base
 
-# Uncomment and use build args to enable remote caching
-ARG TURBO_TEAM
-ENV TURBO_TEAM=$TURBO_TEAM
+ARG APP_DIR
+ARG APP_PACKAGE_NAME
 
+# turbo
+ARG TURBO_TEAM
+ENV TURBO_TEAM=${TURBO_TEAM}
 ARG TURBO_TOKEN
-ENV TURBO_TOKEN=$TURBO_TOKEN
+ENV TURBO_TOKEN=${TURBO_TOKEN}
 
 RUN apk update
 RUN apk add --no-cache libc6-compat
 
-# RUN npm i nrm -g && nrm use taobao
 RUN npm i turbo -g
 
-# This Dockerfile is copy-pasted into our main docs at /docs/handbook/deploying-with-docker.
-# Make sure you update both files!
-
 FROM base AS builder
-# Set working directory
 WORKDIR /app
 COPY . .
-RUN turbo prune @next.js-practical-cases/large-file-upload --docker
+RUN turbo prune ${APP_PACKAGE_NAME} --docker
 
-# Add lockfile and package.json's of isolated subworkspace
+# First install the dependencies (as they change less often)
 FROM base AS installer
 WORKDIR /app
-
 # First install the dependencies (as they change less often)
 COPY .gitignore .gitignore
 COPY --from=builder /app/out/json/ .
@@ -35,26 +32,27 @@ RUN corepack enable && pnpm i --frozen-lockfile --ignore-scripts
 # Build the project
 COPY --from=builder /app/out/full/ .
 COPY turbo.json turbo.json
-
 # Run the lifecycle scripts
 RUN pnpm i --frozen-lockfile
-RUN npx turbo build --filter=@next.js-practical-cases/large-file-upload...
+# seed database
+WORKDIR /app
+RUN turbo build --env-mode=loose --filter=${APP_PACKAGE_NAME}...
 
+# Copy the built app to the runner
 FROM base AS runner
 WORKDIR /app
-
 # Don't run production as root
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 USER nextjs
-
-COPY --from=installer /app/apps/large-file-upload/next.config.mjs .
-COPY --from=installer /app/apps/large-file-upload/package.json .
-
+COPY --from=installer /app/${APP_DIR}/next.config.mjs .
+COPY --from=installer /app/${APP_DIR}/package.json .
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=installer --chown=nextjs:nodejs /app/apps/large-file-upload/.next/standalone ./
-COPY --from=installer --chown=nextjs:nodejs /app/apps/large-file-upload/.next/static ./apps/large-file-upload/.next/static
-COPY --from=installer --chown=nextjs:nodejs /app/apps/large-file-upload/public ./apps/large-file-upload/public
+COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/.next/standalone ./
+COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/.next/static ./${APP_DIR}/.next/static
+COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/public ./${APP_DIR}/public
 
-CMD node apps/large-file-upload/server.js
+WORKDIR /app/${APP_DIR}
+
+CMD ["node", "server.js"]

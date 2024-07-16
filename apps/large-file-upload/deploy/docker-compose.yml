@@ -1,3 +1,5 @@
+name: "nextjs-practical-cases"
+
 services:
   large-file-upload:
     container_name: large-file-upload
@@ -7,6 +9,8 @@ services:
       args:
         - TURBO_TEAM=${TURBO_TEAM}
         - TURBO_TOKEN=${TURBO_TOKEN}
+        - APP_DIR=apps/large-file-upload
+        - APP_PACKAGE_NAME=@next.js-practical-cases/large-file-upload
     restart: always
     ports:
       - 3000:3000
