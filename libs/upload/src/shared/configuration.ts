@@ -1,5 +1,5 @@
-import { type UploadStorage } from "@next.js-practical-cases/upload/server/storages/base";
-import { MemoryStorage } from "@next.js-practical-cases/upload/server/storages/memory";
+import { type UploadStorage } from "@server/storages/base";
+import { MemoryStorage } from "@server/storages/memory";
 import { entries, set } from "lodash-es";
 
 interface IConfiguration {

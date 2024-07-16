@@ -1,13 +1,10 @@
-import {
-  IUploadClientActions,
-  IWrapServerActions,
-} from "@next.js-practical-cases/upload/shared/actions";
-import { configuration } from "@next.js-practical-cases/upload/shared/configuration";
+import { IUploadClientActions, IWrapServerActions } from "@shared/actions";
+import { configuration } from "@shared/configuration";
 
-import { deconstructFormData } from "@next.js-practical-cases/upload/shared/form";
+import { deconstructFormData } from "@shared/form";
 import { Readable } from "stream";
 
-import { IWrapServerAction } from "@next.js-practical-cases/upload/shared/actions";
+import { IWrapServerAction } from "@shared/actions";
 import { IUploadChunkData } from "../shared/chunk";
 import { ERROR_SET } from "./errors";
 import { UploadSlicer } from "./slicer";

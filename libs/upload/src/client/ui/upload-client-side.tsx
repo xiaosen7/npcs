@@ -17,8 +17,8 @@ import { Observable } from "rxjs";
 import { IUploadClientActions, IWrapServerActions } from "../../shared/actions";
 import { IUploadSetting, UploadSetting } from "./setting";
 
-import { configuration } from "@next.js-practical-cases/upload/shared/configuration";
-import { useIsClient } from "@next.js-practical-cases/upload/shared/next";
+import { configuration } from "@shared/configuration";
+import { useIsClient } from "@shared/next";
 import { io } from "socket.io-client";
 import { unwrapActions } from "../actions";
 import { DEFAULTS } from "../defaults";
@@ -139,7 +139,7 @@ export const UploadClientSide: React.FC<IUploadProps> = ({
       <div className="flex gap-4 px-4">
         <Input
           multiple
-          className="flex-1 text-[0]"
+          className="upload-flex-1 upload-text-[0]"
           type="file"
           value={""}
           onChange={onChange}

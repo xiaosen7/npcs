@@ -4,7 +4,7 @@ export function calculateChunksHashByWorker(
 ) {
   return new Promise<string>((resolve, reject) => {
     // 添加 worker 属性，webworker
-    const worker = new Worker(new URL("./worker.ts", import.meta.url));
+    const worker = new Worker(new URL("./worker.js", import.meta.url));
     worker.postMessage(chunks);
     worker.onmessage = (e) => {
       const { hash, progress, error } = e.data;

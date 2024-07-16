@@ -1,9 +1,10 @@
 import {
   configuration,
+  FileSystemStorage,
   startWebsocketServer,
   Upload,
-} from "@next.js-practical-cases/upload/server";
-import { FileSystemStorage } from "@next.js-practical-cases/upload/upload/models/storages/file-system";
+} from "@next.js-practical-cases/upload";
+import "@next.js-practical-cases/upload/index.css";
 import path from "path";
 
 configuration.set({

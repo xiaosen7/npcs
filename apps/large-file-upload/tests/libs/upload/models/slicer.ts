@@ -20,8 +20,8 @@ export function createSlicer() {
   };
 }
 
-import { ERRORS } from "@next.js-practical-cases/upload/shared/constants/errors";
 import { MemoryReadableStream as CustomReadableStream } from "@next.js-practical-cases/upload/upload/models/storages/memory";
+import { ERRORS } from "@shared/constants/errors";
 import { nameOf } from "../../../test-utils";
 
 describe(UploadSlicer.name, () => {

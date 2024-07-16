@@ -1,4 +1,4 @@
-import { Md5HashCalculator } from "@next.js-practical-cases/upload/shared/hash";
+import { Md5HashCalculator } from "@shared/hash";
 import { readBlob } from "../../chunks";
 
 self.onmessage = async (e) => {

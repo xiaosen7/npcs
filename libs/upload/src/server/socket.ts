@@ -1,4 +1,4 @@
-import { ISocketIO } from "@next.js-practical-cases/upload/shared/socket";
+import { ISocketIO } from "@shared/socket";
 import { get } from "lodash-es";
 
 /**
