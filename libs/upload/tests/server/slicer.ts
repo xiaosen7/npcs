@@ -1,8 +1,13 @@
-import { DEFAULTS } from "@next.js-practical-cases/upload/upload/constants/defaults";
+import { DEFAULTS } from "@server/defaults";
 import { range } from "lodash-es";
 
-import { UploadSlicer } from "@next.js-practical-cases/upload/upload/models/slicer";
-import { MemoryStorage } from "@next.js-practical-cases/upload/upload/models/storages/memory";
+import { ERRORS } from "@server/errors";
+import { UploadSlicer } from "@server/slicer";
+import {
+  MemoryReadableStream as CustomReadableStream,
+  MemoryStorage,
+} from "@server/storages/memory";
+import { nameOf } from "../test-utils";
 
 export function createSlicer() {
   const hash = "";
@@ -19,10 +24,6 @@ export function createSlicer() {
     clear: () => MemoryStorage.clear(),
   };
 }
-
-import { MemoryReadableStream as CustomReadableStream } from "@next.js-practical-cases/upload/upload/models/storages/memory";
-import { ERRORS } from "@shared/constants/errors";
-import { nameOf } from "../../../test-utils";
 
 describe(UploadSlicer.name, () => {
   let { slicer, hash, storage, clear } = createSlicer();

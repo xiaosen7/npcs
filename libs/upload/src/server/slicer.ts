@@ -2,14 +2,10 @@ import MultiStream from "multistream";
 import { Readable } from "stream";
 import { IHashCalculator, Md5HashCalculator } from "../shared/hash";
 import { validateChunkIndices } from "./chunks";
+import { DEFAULTS } from "./defaults";
 import { ERRORS } from "./errors";
 import { UploadStorage } from "./storages/base";
 import { pump } from "./streams";
-
-const DEFAULTS = {
-  chunksDir: "chunks",
-  mergedFileName: "merged",
-} as const;
 
 export class UploadSlicer {
   #rootDir: string;

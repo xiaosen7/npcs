@@ -2,11 +2,11 @@ import {
   EUploadClientState,
   IUploadClientActions,
   UploadClient,
-} from "@next.js-practical-cases/upload/upload/models/client";
+} from "@client/ui/client";
 import { filter, firstValueFrom } from "rxjs";
-import { nameOf } from "../../../test-utils";
+import { nameOf } from "../../test-utils";
 
-vi.mock("@next.js-practical-cases/upload/upload/workers/calculate-hash", () => {
+vi.mock("@client/workers/calculate-hash", () => {
   return {
     calculateChunksHashByWorker(
       chunks: Blob[],

@@ -2,8 +2,7 @@ import {
   MemoryReadableStream,
   MemoryStorage,
   MemoryWritableStream,
-} from "@next.js-practical-cases/upload/upload/models/storages/memory";
-import { describe, expect, it } from "vitest";
+} from "@server/storages/memory";
 
 describe("MemoryStorage", () => {
   beforeEach(() => {

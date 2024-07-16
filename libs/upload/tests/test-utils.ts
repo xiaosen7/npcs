@@ -1,6 +1,17 @@
-import { SocketClient } from "@/socket/models/client";
-import { SocketServer } from "@/socket/models/server";
+import { SocketClient } from "@client/socket";
+import { SocketServer } from "@server/socket";
 import EventEmitter from "events";
+
+export function nameOf<TObject>(obj: TObject, key: keyof TObject): string;
+export function nameOf<TObject>(key: keyof TObject): string;
+export function nameOf(key1: any, key2?: any): any {
+  return key2 ?? key1;
+}
+
+export function expectTime(time: number, expectedTime: number, allowDiff = 10) {
+  expect(time).toBeGreaterThanOrEqual(expectedTime - allowDiff);
+  expect(time).toBeLessThanOrEqual(expectedTime + allowDiff);
+}
 
 export class MockSocket extends EventEmitter {
   send = vi.fn();

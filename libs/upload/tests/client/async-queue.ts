@@ -1,6 +1,6 @@
-import { AsyncQueue } from "@next.js-practical-cases/upload/upload/utils/async-queue";
+import { AsyncQueue } from "@client/async-queue";
 import { firstValueFrom } from "rxjs";
-import { expectTime, nameOf } from "../../../test-utils";
+import { expectTime, nameOf } from "../test-utils";
 
 describe(AsyncQueue.name, () => {
   vi.useFakeTimers();

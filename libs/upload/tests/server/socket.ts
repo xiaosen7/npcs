@@ -1,4 +1,4 @@
-import { createSockets } from "./test-utils";
+import { createSockets } from "../test-utils";
 
 describe("SocketServer", () => {
   test("setupLister", async () => {

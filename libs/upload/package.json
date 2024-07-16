@@ -4,7 +4,8 @@
     "check-types": "tsc --noEmit",
     "lint": "eslint",
     "build": "rollup -c",
-    "dev": "rollup -c --watch"
+    "dev": "rollup -c --watch",
+    "test": "vitest --run"
   },
   "exports": {
     "./index.css": "./esm/index.css",
@@ -55,6 +56,7 @@
     "@types/rollup-plugin-peer-deps-external": "^2.2.5",
     "@types/spark-md5": "^3.0.4",
     "@types/uuid": "^10.0.0",
+    "@vitejs/plugin-react": "^4.3.1",
     "eslint": "^8.57.0",
     "fast-glob": "^3.3.2",
     "rollup": "^4.18.1",
@@ -66,6 +68,8 @@
     "tailwindcss": "^3.4.5",
     "tslib": "^2.6.3",
     "tsup": "^8.1.0",
-    "typescript": "5.5.3"
+    "typescript": "5.5.3",
+    "vite-plugin-tsconfig-paths": "^1.4.1",
+    "vitest": "^1.6.0"
   }
 }

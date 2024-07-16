@@ -1,5 +1,5 @@
-import { validateChunkIndices } from "@next.js-practical-cases/upload/upload/utils/chunks";
-import { ERRORS } from "@shared/constants/errors";
+import { validateChunkIndices } from "@server/chunks";
+import { ERRORS } from "@server/errors";
 
 describe("chunks", () => {
   describe("checkChunks", () => {

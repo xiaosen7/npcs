@@ -1,4 +1,4 @@
-import { createSockets } from "./test-utils";
+import { createSockets } from "../test-utils";
 
 describe("SocketClient", () => {
   const name = "name";
