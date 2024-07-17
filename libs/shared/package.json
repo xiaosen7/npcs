@@ -6,6 +6,7 @@
     "build": "rollup -c",
     "dev": "rollup -c --watch",
     "test": "vitest --run",
+    "test:watch": "vitest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -16,6 +17,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
+    "@next.js-practical-cases/storybook-config": "workspace:^",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-label": "^2.1.0",

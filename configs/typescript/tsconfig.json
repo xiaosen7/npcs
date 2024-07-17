@@ -12,5 +12,5 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true
-  }
+  },
 }

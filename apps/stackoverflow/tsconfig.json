@@ -12,6 +12,6 @@
     "types": ["vitest/globals"],
     "lib": ["dom", "dom.iterable", "esnext"]
   },
-  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "./storybook/**/*", "**/*.stories.*"]
+  "include": ["./**/*", "./.storybook/**/*"],
+  "exclude": ["./node_modules", "./.next"]
 }

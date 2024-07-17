@@ -1,4 +1,4 @@
-import { mp } from "@/jsx";
+import { cn, mp } from "@/jsx";
 
 describe("jsx", () => {
   describe("mp", () => {
@@ -27,6 +27,12 @@ describe("jsx", () => {
 
     it("should not merge if not valid jsx", () => {
       expect(mp({}, null as any)).toEqual(null);
+    });
+  });
+
+  describe("cn", () => {
+    it("should merge", () => {
+      expect(cn("p-6", "pt-32")).toMatch("p-6 pt-32");
     });
   });
 });

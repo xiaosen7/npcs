@@ -4,7 +4,14 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "esm/**"],
-      "inputs": ["app/**", "libs/**", "src/**", "tsconfig.json", "package.json"]
+      "inputs": [
+        "app/**",
+        "libs/**",
+        "src/**",
+        "tsconfig.json",
+        "package.json",
+        "tailwind.config.*"
+      ]
     },
     "check-types": {
       "dependsOn": ["^check-types"]
@@ -13,7 +20,6 @@
       "dependsOn": ["^lint"]
     },
     "test": {
-      "dependsOn": ["^test"],
       "inputs": [
         "app/**",
         "libs/**",
@@ -24,6 +30,10 @@
       ]
     },
     "dev": {
+      "persistent": true,
+      "cache": false
+    },
+    "test:watch": {
       "persistent": true,
       "cache": false
     }
