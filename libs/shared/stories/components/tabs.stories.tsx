@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/tabs";
 
 export default {
   component: Tabs,

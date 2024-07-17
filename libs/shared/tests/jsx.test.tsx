@@ -1,5 +1,4 @@
-import { ISafeAny } from "../types";
-import { mp } from "./jsx";
+import { mp } from "@/jsx";
 
 describe("jsx", () => {
   describe("mp", () => {
@@ -27,7 +26,7 @@ describe("jsx", () => {
     });
 
     it("should not merge if not valid jsx", () => {
-      expect(mp({}, null as ISafeAny)).toEqual(null);
+      expect(mp({}, null as any)).toEqual(null);
     });
   });
 });

@@ -1,4 +1,4 @@
-import { getUrl } from "./url";
+import { getUrl } from "@/shared/utils/url";
 
 describe("url", () => {
   describe("getUrl", () => {

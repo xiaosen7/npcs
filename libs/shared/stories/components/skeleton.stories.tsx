@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
 
-import { Skeleton } from "./skeleton";
+import { Skeleton } from "@/components/skeleton";
 
 export default {
   component: Skeleton,

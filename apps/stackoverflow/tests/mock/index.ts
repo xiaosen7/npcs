@@ -1,4 +1,4 @@
-import { mock } from ".";
+import { mock } from "@/mock";
 
 describe("mock", () => {
   test("user", () => {

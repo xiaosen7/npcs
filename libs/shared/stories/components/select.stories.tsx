@@ -6,7 +6,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/shared";
+} from "@/components";
 
 export default {
   component: Select,

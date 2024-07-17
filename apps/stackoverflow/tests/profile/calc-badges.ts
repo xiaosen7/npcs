@@ -1,4 +1,4 @@
-import { calcBadges } from ".";
+import { calcBadges } from "@/profile/utils";
 
 describe("profile utils", () => {
   test("calcBadges", () => {

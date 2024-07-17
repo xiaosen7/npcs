@@ -1,9 +1,9 @@
 import { Meta } from "@storybook/react";
 import React from "react";
 
-import { Button } from "./button";
-import { Toaster } from "./toaster";
-import { useToast } from "./use-toast";
+import { Button } from "@/components/button";
+import { Toaster } from "@/components/toaster";
+import { useToast } from "@/components/use-toast";
 
 const StoryDecorator = (Story: React.FC) => (
   <>

@@ -14,8 +14,8 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
-} from "@/shared";
-import { Input } from "./input";
+} from "@/components";
+import { Input } from "@/components/input";
 
 export default {
   component: Input,

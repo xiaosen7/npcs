@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
 
-import { Textarea } from "./textarea";
+import { Textarea } from "@/components/textarea";
 
 export default {
   component: Textarea,

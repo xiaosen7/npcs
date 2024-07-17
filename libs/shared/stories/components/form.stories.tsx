@@ -1,6 +1,16 @@
 import { Meta, StoryFn } from "@storybook/react";
 
-import { ISafeAny } from "@/shared";
+import { Button } from "@/components/button";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/form";
+import { Input } from "@/components/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { capitalCase } from "change-case";
 import {
@@ -10,17 +20,6 @@ import {
   useForm,
 } from "react-hook-form";
 import { z } from "zod";
-import { Button } from "./button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "./form";
-import { Input } from "./input";
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -91,7 +90,7 @@ export const Base: StoryFn<typeof Form> = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>{capitalCase(label)}</FormLabel>
-                <FormControl>{renderControl(field as ISafeAny)}</FormControl>
+                <FormControl>{renderControl(field as any)}</FormControl>
                 <FormDescription>{description}</FormDescription>
                 <FormMessage />
               </FormItem>

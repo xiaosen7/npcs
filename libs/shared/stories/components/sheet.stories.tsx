@@ -11,7 +11,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/shared";
+} from "@/components";
 
 export default {
   component: Input,
