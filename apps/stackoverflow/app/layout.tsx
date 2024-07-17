@@ -2,6 +2,7 @@ import { actions } from "@/actions";
 import { Toaster } from "@/shared";
 import { ThemeProvider } from "@/theme";
 import { ClerkProvider } from "@clerk/nextjs";
+import "@next.js-practical-cases/shared/styles.css";
 import { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import React from "react";

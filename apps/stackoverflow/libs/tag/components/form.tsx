@@ -2,7 +2,7 @@
 
 import {
   EFormTopic,
-  Form,
+  FormBuilder,
   IFormComponentProps,
   IFormItems,
   Input,
@@ -56,6 +56,11 @@ export const TagForm: React.FC<ITagFormProps> = (props) => {
 
   return mp(
     props,
-    <Form items={items} schema={schema} topic={EFormTopic.Tag} {...formProps} />
+    <FormBuilder
+      items={items}
+      schema={schema}
+      topic={EFormTopic.Tag}
+      {...formProps}
+    />
   );
 };

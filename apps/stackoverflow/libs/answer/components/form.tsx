@@ -1,7 +1,13 @@
 "use client";
 
 import { MarkdownEditor } from "@/markdown";
-import { EFormTopic, Form, IFormComponentProps, IFormItem, mp } from "@/shared";
+import {
+  EFormTopic,
+  FormBuilder,
+  IFormComponentProps,
+  IFormItem,
+  mp,
+} from "@/shared";
 import React from "react";
 import { z } from "zod";
 import { ANSWER_SCHEMA } from "../constants";
@@ -21,7 +27,7 @@ const items: IFormItem<z.infer<typeof ANSWER_SCHEMA>>[] = [
 export const AnswerForm: React.FC<IAnswerFormProps> = (props) => {
   return mp(
     props,
-    <Form
+    <FormBuilder
       items={items}
       schema={ANSWER_SCHEMA}
       submitAlign="right"

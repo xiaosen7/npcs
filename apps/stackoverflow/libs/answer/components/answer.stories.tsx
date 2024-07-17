@@ -19,7 +19,7 @@ export default {
       voted: false,
     },
   },
-} as Meta<typeof Answer>;
+} satisfies Meta<typeof Answer>;
 
 export const Base: StoryFn<typeof Answer> = (args) => <Answer {...args} />;
 export const Editable: StoryFn<typeof Answer> = (props) => {

@@ -1,5 +1,4 @@
 export * from "./array";
-export * from "./clsx";
 export * from "./filter";
 export * from "./formatter";
 export * from "./jsx";

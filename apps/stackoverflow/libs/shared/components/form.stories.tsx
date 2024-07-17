@@ -1,7 +1,7 @@
 import { EFormTopic, Input } from "@/shared";
 import { Meta, StoryFn } from "@storybook/react";
 import { z } from "zod";
-import { Form, IFormItem } from "./form";
+import { FormBuilder, IFormItem } from "./form";
 
 const schema = z.object({
   username: z.string().min(2, {
@@ -28,17 +28,17 @@ const items: IFormItem<IValues>[] = [
 ];
 
 export default {
-  component: Form,
-} as Meta<typeof Form>;
+  component: FormBuilder,
+} as Meta<typeof FormBuilder>;
 
-export const Base: StoryFn<typeof Form> = () => {
+export const Base: StoryFn<typeof FormBuilder> = () => {
   const onSubmit = async (values: IValues) => {
     alert(JSON.stringify(values));
     await new Promise((resolve) => setTimeout(resolve, 1000));
   };
 
   return (
-    <Form
+    <FormBuilder
       items={items}
       schema={schema}
       topic={EFormTopic.Profile}
