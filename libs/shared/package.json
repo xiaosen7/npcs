@@ -2,7 +2,7 @@
   "name": "@next.js-practical-cases/shared",
   "scripts": {
     "check-types": "tsc --noEmit",
-    "lint": "eslint ./src ./tests ./stories",
+    "lint": "eslint .",
     "build": "rollup -c",
     "dev": "rollup -c --watch",
     "test": "vitest --run",

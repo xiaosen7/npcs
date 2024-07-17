@@ -7,11 +7,26 @@
       }
     ],
     "paths": {
-      "@/*": ["./libs/*"]
+      "@/*": [
+        "./libs/*"
+      ]
     },
-    "types": ["vitest/globals"],
-    "lib": ["dom", "dom.iterable", "esnext"]
+    "types": [
+      "vitest/globals"
+    ],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ]
   },
-  "include": ["./**/*", "./.storybook/**/*"],
-  "exclude": ["./node_modules", "./.next"]
+  "include": [
+    "./**/*",
+    "./.storybook/**/*",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "./node_modules",
+    "./.next"
+  ]
 }

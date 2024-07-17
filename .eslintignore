@@ -1,0 +1,7 @@
+.next
+public
+esm
+dist
+.turbo
+.rollup.cache
+node_modules
