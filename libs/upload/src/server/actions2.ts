@@ -11,7 +11,6 @@ import { UploadSlicer } from "./slicer";
 
 function wrapAction<T extends (...args: any) => Promise<any>>(actionFn: T) {
   async function wrappedAction(...args: any) {
-    "use server";
     let data: T | undefined;
     let error: Error | undefined;
     try {
@@ -41,7 +40,6 @@ function wrapAction<T extends (...args: any) => Promise<any>>(actionFn: T) {
 
 export const uploadActions = {
   uploadChunk: wrapAction(async (formData: FormData) => {
-    "use server";
     const { hash, chunk, index } =
       deconstructFormData<IUploadChunkData>(formData);
     const slicer = new UploadSlicer(hash, configuration.storage);
@@ -55,22 +53,18 @@ export const uploadActions = {
     }
   }),
   fileExists: wrapAction(async (hash: string) => {
-    "use server";
     const slicer = new UploadSlicer(hash, configuration.storage);
     return await slicer.fileExists();
   }),
   chunkExists: wrapAction(async (hash: string, index: number) => {
-    "use server";
     const slicer = new UploadSlicer(hash, configuration.storage);
     return await slicer.chunkExists(index);
   }),
   merge: wrapAction(async (hash: string) => {
-    "use server";
     const slicer = new UploadSlicer(hash, configuration.storage);
     await slicer.merge();
   }),
   getLastExistedChunkIndex: wrapAction(async (hash) => {
-    "use server";
     const slicer = new UploadSlicer(hash, configuration.storage);
     return slicer.getLastExistedChunkIndex();
   }),

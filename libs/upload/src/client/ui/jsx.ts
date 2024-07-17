@@ -1,5 +1,5 @@
+import { cn } from "@next.js-practical-cases/shared/jsx";
 import React from "react";
-import { cn } from "./class-name";
 
 /**
  * merge props with jsx

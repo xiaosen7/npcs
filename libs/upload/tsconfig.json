@@ -1,7 +1,6 @@
 {
   "extends": "@next.js-practical-cases/typescript-config",
   "compilerOptions": {
-    "types": ["vitest/globals"],
     "paths": {
       "@server/*": ["./src/server/*"],
       "@client/*": ["./src/client/*"],

@@ -1,7 +1,7 @@
 import { createServer } from "node:http";
 import { Server } from "socket.io";
 import { IUploadClientActions } from "../shared/actions";
-import { uploadActions } from "./actions";
+import { uploadActions } from "./actions2";
 import { DEFAULTS } from "./defaults";
 import { SocketServer } from "./socket";
 

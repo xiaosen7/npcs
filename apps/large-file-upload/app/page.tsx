@@ -4,7 +4,7 @@ import {
   startWebsocketServer,
   Upload,
 } from "@next.js-practical-cases/upload";
-import "@next.js-practical-cases/upload/index.css";
+import "@next.js-practical-cases/upload/styles.css";
 import path from "path";
 
 configuration.set({

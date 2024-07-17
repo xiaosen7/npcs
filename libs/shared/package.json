@@ -2,15 +2,15 @@
   "name": "@next.js-practical-cases/shared",
   "scripts": {
     "check-types": "tsc --noEmit",
-    "lint": "eslint",
+    "lint": "eslint ./src",
     "build": "rollup -c",
     "dev": "rollup -c --watch",
     "test": "vitest --run"
   },
   "exports": {
-    "./styles.css": "./dist/styles.css",
-    "./jsx": "./dist/jsx.js",
-    "./components": "./dist/components/index.js"
+    "./styles.css": "./esm/styles.css",
+    "./jsx": "./esm/jsx.js",
+    "./components": "./esm/components/index.js"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.1",

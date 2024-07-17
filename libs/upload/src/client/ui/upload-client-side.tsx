@@ -17,6 +17,12 @@ import { Observable } from "rxjs";
 import { IUploadClientActions, IWrapServerActions } from "../../shared/actions";
 import { IUploadSetting, UploadSetting } from "./setting";
 
+import {
+  Badge,
+  Input,
+  Progress,
+} from "@next.js-practical-cases/shared/components";
+import { cn } from "@next.js-practical-cases/shared/jsx";
 import { configuration } from "@shared/configuration";
 import { useIsClient } from "@shared/next";
 import { io } from "socket.io-client";
@@ -24,15 +30,11 @@ import { unwrapActions } from "../actions";
 import { DEFAULTS } from "../defaults";
 import { ESupportedProtocol } from "../protocol";
 import { SocketClient } from "../socket";
-import { cn } from "./class-name";
 import { UploadClient } from "./client";
 import { formatFileSize } from "./format-file-size";
 import { formatTimeBySeconds } from "./format-time";
 import { mp } from "./jsx";
 import { Loading } from "./loading";
-import { Badge } from "./shad-ui/badge";
-import { Input } from "./shad-ui/input";
-import { Progress } from "./shad-ui/progress";
 
 const AUTO_UPLOAD = true;
 
@@ -137,13 +139,7 @@ export const UploadClientSide: React.FC<IUploadProps> = ({
       </div>
 
       <div className="flex gap-4 px-4">
-        <Input
-          multiple
-          className="upload-flex-1 upload-text-[0]"
-          type="file"
-          value={""}
-          onChange={onChange}
-        />
+        <Input multiple type="file" value={""} onChange={onChange} />
       </div>
 
       <div ref={scrollContainerRef} className="h-64 overflow-auto">
