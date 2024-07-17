@@ -1,3 +1,6 @@
 {
-  "extends": ["@next.js-practical-cases/eslint-config"]
+  "extends": [
+    "@next.js-practical-cases/eslint-config",
+    "plugin:storybook/recommended"
+  ]
 }
