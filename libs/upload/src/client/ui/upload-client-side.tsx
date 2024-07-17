@@ -205,9 +205,7 @@ const UploadSingleFile = memo(function UploadSingleFile(
           {file.name}
         </div>
 
-        <Badge className="mr-2 w-[90px] justify-center" variant={"secondary"}>
-          {protocol}
-        </Badge>
+        <Badge className="mr-2 w-[90px] justify-center">{protocol}</Badge>
       </div>
 
       <div

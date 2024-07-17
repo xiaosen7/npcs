@@ -16,7 +16,7 @@ export const Tag = (props: ITagProps) => {
     props,
     <Linkable href={linkable ? `/tags/${tag.id}` : undefined}>
       <div className="flex justify-between gap-2">
-        <Badge className="justify-center gap-1">
+        <Badge className="text-light400_light500 justify-center gap-1 background-light800_dark300">
           <span className="whitespace-nowrap">{tag.name}</span> {extra}
         </Badge>
 
