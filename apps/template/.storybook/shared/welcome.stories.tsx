@@ -4,6 +4,9 @@ import { Welcome } from "@/shared/components/welcome";
 
 export default {
   component: Welcome,
+  args: {
+    className: "border",
+  },
 } as Meta<typeof Welcome>;
 
 export const Base: StoryFn<typeof Welcome> = (args) => {
