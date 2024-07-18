@@ -18,7 +18,7 @@ RUN npm i turbo -g
 FROM base AS builder
 WORKDIR /app
 COPY . .
-RUN turbo prune ${APP_PACKAGE_NAME} --docker
+RUN npx turbo prune ${APP_PACKAGE_NAME} --docker
 
 # First install the dependencies (as they change less often)
 FROM base AS installer
@@ -36,7 +36,7 @@ COPY turbo.json turbo.json
 RUN pnpm i --frozen-lockfile
 # seed database
 WORKDIR /app
-RUN turbo build --env-mode=loose --filter=${APP_PACKAGE_NAME}...
+RUN npx turbo build --env-mode=loose --filter=${APP_PACKAGE_NAME}...
 
 # Copy the built app to the runner
 FROM base AS runner

@@ -13,7 +13,9 @@
   "exports": {
     "./styles.css": "./esm/styles.css",
     "./jsx": "./esm/jsx.js",
-    "./components": "./esm/components/index.js"
+    "./components": "./esm/components/index.js",
+    "./component-type": "./esm/component-type.js",
+    "./react-helpers": "./esm/react-helpers.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
