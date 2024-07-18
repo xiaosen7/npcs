@@ -1,5 +1,5 @@
 {
-  "name": "@next.js-practical-cases/template",
+  "name": "@npc/template",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,17 +14,17 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@next.js-practical-cases/shared": "workspace:^",
-    "@next.js-practical-cases/tailwind-config": "workspace:^",
+    "@npc/shared": "workspace:^",
+    "@npc/tailwind-config": "workspace:^",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
-    "@next.js-practical-cases/eslint-config": "workspace:*",
-    "@next.js-practical-cases/storybook-config": "workspace:^",
-    "@next.js-practical-cases/typescript-config": "workspace:*",
-    "@next.js-practical-cases/vitest-config": "workspace:^",
+    "@npc/eslint-config": "workspace:*",
+    "@npc/storybook-config": "workspace:^",
+    "@npc/typescript-config": "workspace:*",
+    "@npc/vitest-config": "workspace:^",
     "@playwright/test": "^1.45.2",
     "@storybook/nextjs": "^8.2.4",
     "@storybook/react": "^8.2.4",

@@ -1,1 +1,1 @@
-# @next.js-practical-cases/template
+# @npc/template

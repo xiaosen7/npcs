@@ -1,5 +1,5 @@
 {
-  "name": "@next.js-practical-cases/vitest-config",
+  "name": "@npc/vitest-config",
   "version": "0.1.0",
   "main": "./vitest.config.mjs",
   "dependencies": {

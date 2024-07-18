@@ -1,5 +1,5 @@
 {
-  "name": "@next.js-practical-cases/upload",
+  "name": "@npc/upload",
   "scripts": {
     "check-types": "tsc --noEmit",
     "lint": "eslint ./src",
@@ -12,8 +12,8 @@
     ".": "./esm/index.js"
   },
   "dependencies": {
-    "@next.js-practical-cases/shared": "workspace:^",
-    "@next.js-practical-cases/storybook-config": "workspace:^",
+    "@npc/shared": "workspace:^",
+    "@npc/storybook-config": "workspace:^",
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-popover": "^1.1.1",
@@ -43,11 +43,11 @@
     "uuid": "^10.0.0"
   },
   "devDependencies": {
-    "@next.js-practical-cases/eslint-config": "workspace:*",
-    "@next.js-practical-cases/rollup-config": "workspace:*",
-    "@next.js-practical-cases/tailwind-config": "workspace:*",
-    "@next.js-practical-cases/typescript-config": "workspace:*",
-    "@next.js-practical-cases/vitest-config": "workspace:^",
+    "@npc/eslint-config": "workspace:*",
+    "@npc/rollup-config": "workspace:*",
+    "@npc/tailwind-config": "workspace:*",
+    "@npc/typescript-config": "workspace:*",
+    "@npc/vitest-config": "workspace:^",
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",

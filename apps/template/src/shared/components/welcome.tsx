@@ -1,7 +1,7 @@
 import {
   IComponentBaseProps,
   mp,
-} from "@next.js-practical-cases/shared/react-helpers";
+} from "@npc/shared/react-helpers";
 import Image from "next/image";
 import React from "react";
 

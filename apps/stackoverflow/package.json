@@ -1,5 +1,5 @@
 {
-  "name": "@next.js-practical-cases/stackoverflow",
+  "name": "@npc/stackoverflow",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -24,9 +24,9 @@
     "@clerk/nextjs": "^5.2.3",
     "@faker-js/faker": "^8.4.1",
     "@hookform/resolvers": "^3.9.0",
-    "@next.js-practical-cases/shared": "workspace:^",
-    "@next.js-practical-cases/storybook-config": "workspace:^",
-    "@next.js-practical-cases/tailwind-config": "workspace:^",
+    "@npc/shared": "workspace:^",
+    "@npc/storybook-config": "workspace:^",
+    "@npc/tailwind-config": "workspace:^",
     "@prisma/client": "^5.16.2",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-label": "^2.1.0",
@@ -73,9 +73,9 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.1",
-    "@next.js-practical-cases/eslint-config": "workspace:*",
-    "@next.js-practical-cases/typescript-config": "workspace:*",
-    "@next.js-practical-cases/vitest-config": "workspace:^",
+    "@npc/eslint-config": "workspace:*",
+    "@npc/typescript-config": "workspace:*",
+    "@npc/vitest-config": "workspace:^",
     "@storybook/blocks": "^8.2.4",
     "@storybook/nextjs": "^8.2.4",
     "@storybook/react": "^8.2.4",

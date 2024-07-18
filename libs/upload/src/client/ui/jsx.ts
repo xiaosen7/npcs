@@ -1,4 +1,4 @@
-import { cn } from "@next.js-practical-cases/shared/jsx";
+import { cn } from "@npc/shared/jsx";
 import React from "react";
 
 /**

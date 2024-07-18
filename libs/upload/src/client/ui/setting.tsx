@@ -3,8 +3,8 @@ import {
   Slider,
   ToggleGroup,
   ToggleGroupItem,
-} from "@next.js-practical-cases/shared/components";
-import { cn } from "@next.js-practical-cases/shared/jsx";
+} from "@npc/shared/components";
+import { cn } from "@npc/shared/jsx";
 
 import { useControllableValue } from "ahooks";
 import { values } from "lodash-es";

@@ -10,7 +10,7 @@ services:
         - TURBO_TEAM=${TURBO_TEAM}
         - TURBO_TOKEN=${TURBO_TOKEN}
         - APP_DIR=apps/template
-        - APP_PACKAGE_NAME=@next.js-practical-cases/template
+        - APP_PACKAGE_NAME=@npc/template
     restart: always
     ports:
       - 3000:3000

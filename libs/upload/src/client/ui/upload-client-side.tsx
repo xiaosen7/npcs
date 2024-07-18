@@ -17,12 +17,8 @@ import { Observable } from "rxjs";
 import { IUploadClientActions, IWrapServerActions } from "../../shared/actions";
 import { IUploadSetting, UploadSetting } from "./setting";
 
-import {
-  Badge,
-  Input,
-  Progress,
-} from "@next.js-practical-cases/shared/components";
-import { cn } from "@next.js-practical-cases/shared/jsx";
+import { Badge, Input, Progress } from "@npc/shared/components";
+import { cn } from "@npc/shared/jsx";
 import { configuration } from "@shared/configuration";
 import { useIsClient } from "@shared/next";
 import { io } from "socket.io-client";

@@ -1,4 +1,4 @@
-import sharedConfig from "@next.js-practical-cases/storybook-config";
+import sharedConfig from "@npc/storybook-config";
 import type { StorybookConfig } from "@storybook/nextjs";
 
 const config: StorybookConfig = {

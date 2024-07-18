@@ -1,3 +1,5 @@
+name: "nextjs-practical-cases"
+
 services:
   stackoverflow:
     container_name: stackoverflow-next.js
@@ -12,7 +14,7 @@ services:
         - TURBO_TEAM=${TURBO_TEAM}
         - TURBO_TOKEN=${TURBO_TOKEN}
         - APP_DIR=apps/stackoverflow
-        - APP_PACKAGE_NAME=@next.js-practical-cases/stackoverflow
+        - APP_PACKAGE_NAME=@npc/stackoverflow
       network: host
     restart: always
     environment:

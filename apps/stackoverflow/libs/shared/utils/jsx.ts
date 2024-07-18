@@ -1,1 +1,1 @@
-export * from "@next.js-practical-cases/shared/jsx";
+export * from "@npc/shared/jsx";

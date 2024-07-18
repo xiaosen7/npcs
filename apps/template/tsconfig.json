@@ -1,5 +1,5 @@
 {
-  "extends": "@next.js-practical-cases/typescript-config",
+  "extends": "@npc/typescript-config",
   "compilerOptions": {
     "plugins": [
       {
@@ -7,7 +7,7 @@
       }
     ],
     "paths": {
-      "@/*": ["./libs/*"]
+      "@/*": ["./src/*"]
     },
     "types": ["vitest/globals"],
     "lib": ["dom", "dom.iterable", "esnext"]

@@ -3,8 +3,8 @@ import {
   FileSystemStorage,
   startWebsocketServer,
   Upload,
-} from "@next.js-practical-cases/upload";
-import "@next.js-practical-cases/upload/styles.css";
+} from "@npc/upload";
+import "@npc/upload/styles.css";
 import path from "path";
 
 configuration.set({

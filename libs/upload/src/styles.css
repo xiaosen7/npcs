@@ -1,4 +1,4 @@
-@import url("@next.js-practical-cases/shared/styles.css");
+@import url("@npc/shared/styles.css");
 
 @tailwind base;
 @tailwind components;

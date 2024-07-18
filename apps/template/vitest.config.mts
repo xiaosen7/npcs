@@ -1,3 +1,3 @@
-import config from "@next.js-practical-cases/vitest-config";
+import config from "@npc/vitest-config";
 
 export default config;

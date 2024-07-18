@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("@next.js-practical-cases/shared/styles.css");
+@import url("@npc/shared/styles.css");
 @import url("@/theme/styles/index.css");
 
 body {
