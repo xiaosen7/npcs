@@ -1,1 +1,1 @@
-turbo lint
+npx lint-staged

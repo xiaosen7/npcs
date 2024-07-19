@@ -10,10 +10,17 @@
   },
   "devDependencies": {
     "husky": "^9.1.1",
+    "lint-staged": "^15.2.7",
     "turbo": "^2.0.6"
   },
   "engines": {
     "node": ">=18"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,css}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   },
   "resolutions": {
     "@typescript-eslint/typescript-estree": "7.16.0",
