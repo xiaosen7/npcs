@@ -13,31 +13,15 @@
         "tailwind.config.*"
       ]
     },
-    "check-types": {
-      "dependsOn": ["^check-types"]
-    },
-    "lint": {
-      "dependsOn": ["^lint"]
-    },
-    "test": {
-      "inputs": [
-        "app/**",
-        "libs/**",
-        "src/**",
-        "tsconfig.json",
-        "package.json",
-        "tests/**"
-      ]
-    },
+    "check-types": {},
+    "lint": {},
+    "test": {},
+    "test:changed": {},
     "dev": {
       "persistent": true,
       "cache": false
     },
     "test:watch": {
-      "persistent": true,
-      "cache": false
-    },
-    "test:changed": {
       "persistent": true,
       "cache": false
     }

@@ -1,0 +1,21 @@
+name: Deploy next.js-practical-cases
+
+on:
+  push:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    env:
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Setup Nodejs
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version: 20
+      - run: corepack enable pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm turbo test lint check-types
