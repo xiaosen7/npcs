@@ -11,6 +11,8 @@
     "lint": "next lint",
     "test:e2e": "playwright test",
     "test": "vitest --run",
+    "test:watch": "vitest watch",
+    "test:changed": "vitest run --changed",
     "check-types": "tsc --noEmit"
   },
   "dependencies": {

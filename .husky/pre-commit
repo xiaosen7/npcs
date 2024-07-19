@@ -1,1 +1,1 @@
-npx lint-staged
+turbo test:changed && npx lint-staged

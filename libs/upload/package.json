@@ -5,7 +5,9 @@
     "lint": "eslint ./src",
     "build": "rollup -c",
     "dev": "rollup -c --watch",
-    "test": "vitest --run"
+    "test": "vitest --run",
+    "test:watch": "vitest watch",
+    "test:changed": "vitest run --changed"
   },
   "exports": {
     "./styles.css": "./esm/styles.css",

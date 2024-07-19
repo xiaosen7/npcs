@@ -6,7 +6,8 @@
     "build": "rollup -c",
     "dev": "rollup -c --watch",
     "test": "vitest --run",
-    "test:watch": "vitest",
+    "test:watch": "vitest watch",
+    "test:changed": "vitest run --changed",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

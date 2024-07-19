@@ -36,6 +36,10 @@
     "test:watch": {
       "persistent": true,
       "cache": false
+    },
+    "test:changed": {
+      "persistent": true,
+      "cache": false
     }
   },
   "remoteCache": {

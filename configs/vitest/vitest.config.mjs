@@ -1,4 +1,5 @@
 import react from "@vitejs/plugin-react";
+import { existsSync } from "fs";
 import tsConfigPaths from "vite-plugin-tsconfig-paths";
 import { configDefaults, defineConfig } from "vitest/config";
 
@@ -14,6 +15,6 @@ export default defineConfig({
       "./tests/setup.ts",
       "./tests/e2e",
     ],
-    setupFiles: "./tests/setup.ts",
+    setupFiles: existsSync("./tests/setup.ts") ? "./tests/setup.ts" : undefined,
   },
 });
