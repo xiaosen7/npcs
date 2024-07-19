@@ -1,5 +1,5 @@
+import { cn } from "@npc/shared/jsx";
 import React from "react";
-import { cn } from "./class-name";
 
 /**
  * merge props with jsx

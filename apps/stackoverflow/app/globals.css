@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("@npc/shared/styles.css");
 @import url("@/theme/styles/index.css");
 
 body {

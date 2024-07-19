@@ -3,7 +3,7 @@
 import {
   EFormTopic,
   EFormType,
-  Form,
+  FormBuilder,
   IFormComponentProps,
   IFormItems,
   mp,
@@ -47,7 +47,7 @@ export interface IProfileFormProps
 export const ProfileForm: React.FC<IProfileFormProps> = (props) => {
   return mp(
     props,
-    <Form
+    <FormBuilder
       items={items}
       schema={PROFILE_SCHEMA}
       submitAlign="right"

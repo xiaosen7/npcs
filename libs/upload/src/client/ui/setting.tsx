@@ -1,7 +1,10 @@
-import { cn } from "./class-name";
-import { Label } from "./shad-ui/label";
-import { Slider } from "./shad-ui/slider";
-import { ToggleGroup, ToggleGroupItem } from "./shad-ui/toggle-group";
+import {
+  Label,
+  Slider,
+  ToggleGroup,
+  ToggleGroupItem,
+} from "@npc/shared/components";
+import { cn } from "@npc/shared/jsx";
 
 import { useControllableValue } from "ahooks";
 import { values } from "lodash-es";

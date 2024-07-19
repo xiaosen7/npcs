@@ -133,3 +133,4 @@ dist-storybook/
 #rollup
 .rollup.cache
 esm
+*storybook.log

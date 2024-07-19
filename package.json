@@ -3,13 +3,24 @@
   "private": true,
   "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a",
   "scripts": {
-    "postinstall": "turbo build --filter='./libs/*'"
+    "postinstall": "turbo build --filter='./libs/*'",
+    "dev:libs": "turbo dev --filter='./libs/*'",
+    "build:libs": "turbo build --filter='./libs/*'",
+    "prepare": "husky"
   },
   "devDependencies": {
+    "husky": "^9.1.1",
+    "lint-staged": "^15.2.7",
     "turbo": "^2.0.6"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=18"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,css}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   },
   "resolutions": {
     "@typescript-eslint/typescript-estree": "7.16.0",

@@ -8,8 +8,8 @@ import { z } from "zod";
 import { EFormTopic, EFormType } from "../constants";
 import { useForm } from "../hooks";
 import { IComponentBaseProps, ISafeAny } from "../types";
-import { Button, Input, toast } from "../ui";
 import {
+  Button,
   FormControl,
   FormDescription,
   FormField,
@@ -17,7 +17,9 @@ import {
   FormLabel,
   FormMessage,
   Form as FormUI,
-} from "../ui/form";
+  Input,
+  toast,
+} from "../ui";
 import { cn, mp, removeNilKeys } from "../utils";
 
 type _IFormItem<
@@ -65,7 +67,7 @@ export interface IFormProps<TSchema extends z.ZodObject<ISafeAny>>
   topic?: EFormTopic;
 }
 
-export const Form = <TSchema extends z.ZodObject<ISafeAny>>(
+export const FormBuilder = <TSchema extends z.ZodObject<ISafeAny>>(
   props: IFormProps<TSchema>
 ) => {
   const {

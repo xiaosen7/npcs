@@ -3,7 +3,7 @@ import { MarkdownEditor } from "@/markdown";
 import {
   EFormTopic,
   EFormType,
-  Form,
+  FormBuilder,
   IFormComponentProps,
   IFormItems,
   ITag,
@@ -59,7 +59,7 @@ export const QuestionForm = <TTag extends ITag>(
 
   return mp(
     props,
-    <Form
+    <FormBuilder
       items={getItems(tagsEditor, props.type === EFormType.Edit)}
       schema={QUESTION_SCHEMA}
       topic={EFormTopic.Question}

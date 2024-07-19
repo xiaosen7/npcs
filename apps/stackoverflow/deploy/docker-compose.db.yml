@@ -1,3 +1,5 @@
+name: "nextjs-practical-cases"
+
 services:
   stackoverflow-postgres:
     container_name: stackoverflow-postgres

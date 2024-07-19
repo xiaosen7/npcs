@@ -9,10 +9,8 @@ import { IUploadChunkData } from "../shared/chunk";
 import { ERROR_SET } from "./errors";
 import { UploadSlicer } from "./slicer";
 
-export function wrapAction<T extends (...args: any) => Promise<any>>(
-  actionFn: T
-) {
-  return (async (...args: any) => {
+function wrapAction<T extends (...args: any) => Promise<any>>(actionFn: T) {
+  async function wrappedAction(...args: any) {
     "use server";
     let data: T | undefined;
     let error: Error | undefined;
@@ -36,7 +34,9 @@ export function wrapAction<T extends (...args: any) => Promise<any>>(
           }
         : undefined,
     };
-  }) as IWrapServerAction<T>;
+  }
+
+  return wrappedAction as IWrapServerAction<T>;
 }
 
 export const uploadActions = {

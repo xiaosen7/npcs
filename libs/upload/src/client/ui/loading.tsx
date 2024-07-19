@@ -4,5 +4,5 @@ import React from "react";
 export interface ILoadingProps {}
 
 export const Loading: React.FC<ILoadingProps> = () => {
-  return <ReloadIcon className="h-4 w-4 animate-spin" />;
+  return <ReloadIcon className="size-4 animate-spin" />;
 };

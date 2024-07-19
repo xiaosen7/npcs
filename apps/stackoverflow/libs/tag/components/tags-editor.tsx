@@ -151,7 +151,7 @@ export const TagsEditor = <TSearchedTag extends ITag>(
                     onClick={() => onClickTagCard(item)}
                   >
                     <TagCard
-                      className="border-none shadow-none hover:bg-light-800 dark:hover:bg-background"
+                      className="border-none rounded-sm shadow-none hover:bg-light-800 dark:hover:bg-background"
                       linkable={false}
                       tag={item}
                       totalQuestions={
