@@ -17,7 +17,7 @@
     "node": ">=18"
   },
   "lint-staged": {
-    "*.{ts,tsx,css}": [
+    "*.{ts,tsx}": [
       "prettier --write",
       "eslint --fix"
     ]
