@@ -25,6 +25,7 @@
     "@clerk/nextjs": "^5.2.3",
     "@faker-js/faker": "^8.4.1",
     "@hookform/resolvers": "^3.9.0",
+    "@npc/playwright-config": "workspace:^",
     "@npc/shared": "workspace:^",
     "@npc/storybook-config": "workspace:^",
     "@npc/tailwind-config": "workspace:^",

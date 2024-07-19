@@ -15,7 +15,28 @@
     },
     "check-types": {},
     "lint": {},
-    "test": {},
+    "test": {
+      "inputs": [
+        "app/**",
+        "libs/**",
+        "src/**",
+        "tests/**",
+        "tsconfig.json",
+        "package.json"
+      ]
+    },
+    "test:e2e": {
+      "inputs": [
+        "app/**",
+        "libs/**",
+        "src/**",
+        "tests-e2e/**",
+        "tsconfig.json",
+        "package.json",
+        "tailwind.config.*"
+      ],
+      "outputs": ["playwright-report/**"]
+    },
     "test:changed": {},
     "dev": {
       "persistent": true,

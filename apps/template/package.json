@@ -16,6 +16,7 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@npc/playwright-config": "workspace:^",
     "@npc/shared": "workspace:^",
     "@npc/tailwind-config": "workspace:^",
     "next": "14.2.5",

@@ -13,7 +13,6 @@ export default defineConfig({
       ...configDefaults.exclude,
       "**/test-utils.ts",
       "./tests/setup.ts",
-      "./tests/e2e",
     ],
     setupFiles: existsSync("./tests/setup.ts") ? "./tests/setup.ts" : undefined,
   },
