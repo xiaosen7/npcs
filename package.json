@@ -5,9 +5,11 @@
   "scripts": {
     "postinstall": "turbo build --filter='./libs/*'",
     "dev:libs": "turbo dev --filter='./libs/*'",
-    "build:libs": "turbo build --filter='./libs/*'"
+    "build:libs": "turbo build --filter='./libs/*'",
+    "prepare": "husky"
   },
   "devDependencies": {
+    "husky": "^9.1.1",
     "turbo": "^2.0.6"
   },
   "engines": {
