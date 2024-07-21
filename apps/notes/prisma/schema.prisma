@@ -8,10 +8,9 @@ datasource db {
 }
 
 model User {
-  id       String @id @default(uuid())
-  username String
-  password String
-  notes    Note[]
+  id      String @id @default(uuid())
+  clerkId String @unique
+  notes   Note[]
 }
 
 model Note {
@@ -22,4 +21,5 @@ model Note {
   updatedAt DateTime @updatedAt
   author    User     @relation(fields: [authorId], references: [id])
   authorId  String
+  color     String
 }

@@ -1,20 +1,9 @@
-import { createTheme } from "@npc/theme";
+"use client";
 
-export enum ETheme {
-  Light = "light",
-  Dark = "dark",
-}
+import { createTheme, ETheme } from "@npc/theme/light-dark";
 
-export const { SyncElementClass, ToggleTheme, useTheme } = createTheme({
+const { SyncElementClass, ToggleTheme, useTheme } = createTheme({
   defaultValue: ETheme.Dark,
-  ui: [
-    {
-      icon: "🌙",
-      value: ETheme.Dark,
-    },
-    {
-      icon: "☀️",
-      value: ETheme.Light,
-    },
-  ],
 });
+
+export { ETheme, SyncElementClass, ToggleTheme, useTheme };

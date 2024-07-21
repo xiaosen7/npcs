@@ -13,17 +13,13 @@ import { typescriptPaths } from "rollup-plugin-typescript-paths";
 
 /** @type {import('rollup').RollupOptions} */
 export default {
-  input: fg.sync(["./src/**/*.{ts,tsx,css}", "!**/*.stories.*"]),
+  input: fg.sync(["./src/**/*.{ts,tsx,css}"]),
   output: {
     format: "esm",
     preserveModules: true,
     preserveModulesRoot: "./src",
     dir: "./esm",
     sourcemap: true,
-  },
-  watch: {
-    include: "./src",
-    buildDelay: 300,
   },
   plugins: [
     typescript({

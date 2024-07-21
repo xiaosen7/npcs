@@ -4,15 +4,10 @@
 
 @import url("@npc/shared/styles.css");
 @import url("@npc/theme/styles.css");
+@import url("@/theme/variables.css");
 
-@layer utilities {
-  .custom-utility {
-    background-image: linear-gradient(#3490dc, #6574cd);
-  }
-}
-
-@layer components {
-  .custom-component {
-    background-image: linear-gradient(#3490dc, #6574cd);
-  }
+body,
+html {
+  max-width: 1024px;
+  margin: auto;
 }

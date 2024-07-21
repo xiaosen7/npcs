@@ -13,6 +13,10 @@
         "tailwind.config.*"
       ]
     },
+    "build:watch": {
+      "persistent": true,
+      "cache": false
+    },
     "check-types": {},
     "lint": {},
     "test": {
@@ -42,6 +46,7 @@
       "persistent": true,
       "cache": false
     },
+
     "test:watch": {
       "persistent": true,
       "cache": false

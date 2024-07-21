@@ -6,5 +6,5 @@ export interface IDefaultLayoutProps extends IComponentBaseProps {
 }
 
 export const DefaultLayout: React.FC<IDefaultLayoutProps> = (props) => {
-  return mp(props, <div>{props.children}</div>);
+  return mp(props, <div className="px-6 py-12">{props.children}</div>);
 };
