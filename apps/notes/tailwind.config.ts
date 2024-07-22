@@ -4,16 +4,6 @@ import type { Config } from "tailwindcss";
 const config: Config = {
   content: ["./{src,.storybook}/**/*.{tsx,css}"],
   theme: {
-    colors: {
-      "gray-300": "rgba(var(--gray-300), <alpha-value>)",
-      "green-300": "rgba(var(--green-300), <alpha-value>)",
-      "red-300": "rgba(var(--red-300), <alpha-value>)",
-    },
-    textColor: ({ theme }) => ({
-      ...theme("colors"),
-      primary: "rgba(var(--text-primary), <alpha-value>)",
-      secondary: "rgba(var(--text-secondary), <alpha-value>)",
-    }),
     fontSize: {
       base: "18px",
       lg: "20px",
@@ -37,6 +27,15 @@ const config: Config = {
       backgroundColor: {
         primary: "rgba(var(--bg-primary), <alpha-value>)",
         secondary: "rgba(var(--bg-secondary), <alpha-value>)",
+      },
+      colors: {
+        "gray-300": "rgba(var(--gray-300), <alpha-value>)",
+        "green-300": "rgba(var(--green-300), <alpha-value>)",
+        "red-300": "rgba(var(--red-300), <alpha-value>)",
+      },
+      textColor: {
+        primary: "rgba(var(--text-primary), <alpha-value>)",
+        secondary: "rgba(var(--text-secondary), <alpha-value>)",
       },
     },
   },

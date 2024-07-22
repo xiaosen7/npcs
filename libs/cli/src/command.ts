@@ -5,7 +5,7 @@ import { z } from "zod";
 export type IOptionsValidation = z.ZodObject<any>;
 
 export abstract class Command<
-  TOptionsValidation extends IOptionsValidation,
+  TOptionsValidation extends IOptionsValidation = z.ZodObject<any>,
   TOptions = z.infer<TOptionsValidation>,
 > {
   readonly cmd;
@@ -64,8 +64,12 @@ export abstract class Command<
    * Log success.
    * @param args
    */
-  info(...args: any[]) {
-    console.log(`@npx/cli ${this.name}:`, ...args);
+  log(...args: any[]) {
+    console.log(`[@npx/cli ${this.name}]:`, ...args);
+  }
+
+  warn(...args: any[]) {
+    console.warn(`[@npx/cli ${this.name}]:`, ...args);
   }
 
   /**
@@ -73,6 +77,6 @@ export abstract class Command<
    * @param args
    */
   throwError(message: string): never {
-    throw new Error(`@npx/cli ${this.name}: ${message}`);
+    throw new Error(`[@npx/cli ${this.name}]: ${message}`);
   }
 }

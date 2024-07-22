@@ -14,7 +14,6 @@
     "prisma:studio": "dotenv -e .env.development -- prisma studio -b false",
     "prisma:sync:dev": "dotenv -e .env.development -- tsx scripts/sync-prisma.ts",
     "prisma:sync": "tsx scripts/sync-prisma.ts",
-    "prepare": "prisma generate && tsx scripts/prepare.ts",
     "check-types": "tsc --noEmit"
   },
   "prisma": {

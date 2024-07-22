@@ -12,6 +12,9 @@ export namespace fake {
       title: faker.lorem.paragraph(1),
       content: faker.lorem.paragraph(),
       color: faker.color.rgb(),
+      authorId: faker.string.uuid(),
+      createdAt: faker.date.recent(),
+      updatedAt: faker.date.recent(),
     };
   }
 

@@ -1,6 +1,6 @@
-import { nunito } from "@/font";
-import { ETheme, SyncElementClass, useTheme } from "@/theme";
-import { DARK, LIGHT } from "@/theme/variables";
+import { nunito } from "@libs/font";
+import { ETheme, SyncElementClass, useTheme } from "@libs/theme";
+import { DARK, LIGHT } from "@libs/theme/variables";
 import {
   INITIAL_VIEWPORTS,
   MINIMAL_VIEWPORTS,

@@ -1,25 +1,21 @@
-import { actions } from "@/actions";
-import { NoteEdit } from "@/note/edit";
-import { ENoteEditMode } from "@/note/types";
-import { prisma } from "@/prisma/client";
 import { faker } from "@faker-js/faker";
+import { actions } from "@libs/actions";
+import { NoteEdit } from "@libs/components/edit/edit";
+import { ENoteEditMode } from "@libs/components/edit/types";
+import { INoteValidationInfer } from "@libs/components/edit/validation";
+import { prisma } from "@libs/prisma/client";
 import { IPageProps } from "@npc/shared/react-helpers";
 import { redirect } from "next/navigation";
 import React from "react";
 
 const AddPage: React.FC<IPageProps> = async (props) => {
-  const save = async ({
-    title,
-    content,
-  }: {
-    title: string;
-    content: string;
-  }) => {
+  const save = async ({ title, content }: INoteValidationInfer) => {
     "use server";
     await prisma.note.create({
       data: {
         title,
         content,
+        // TODO user pick a color
         color: faker.color.rgb(),
         author: {
           connect: await actions.user.getCurrentOrThrow(),
@@ -30,7 +26,7 @@ const AddPage: React.FC<IPageProps> = async (props) => {
     redirect("/");
   };
 
-  return <NoteEdit defaultMode={ENoteEditMode.Edit} save={save} />;
+  return <NoteEdit actions={{ save }} defaultMode={ENoteEditMode.Edit} />;
 };
 
 export default AddPage;

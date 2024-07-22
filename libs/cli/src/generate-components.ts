@@ -35,6 +35,10 @@ export class CommandGenerateComponents extends Command<
   async action() {
     const { publicDir } = this.options!;
 
+    if (!fsx.existsSync(publicDir)) {
+      this.throwError(`Public directory not found: ${publicDir}`);
+    }
+
     const assetPaths = await fg(["**/*.{svg,png,jpg}"], {
       cwd: publicDir,
       absolute: true,
@@ -68,7 +72,7 @@ export class CommandGenerateComponents extends Command<
 
     const handlebarsFilePath = join(templatesDir, `${dirname(url)}.handlebars`);
     if (!fsx.existsSync(handlebarsFilePath)) {
-      console.warn(`Template file not found: ${handlebarsFilePath}`);
+      this.warn(`Template file not found: ${handlebarsFilePath}`);
       return;
     }
 
@@ -94,6 +98,6 @@ export class CommandGenerateComponents extends Command<
 
     await fsx.ensureFile(outputPath);
     await fsx.writeFile(outputPath, content);
-    this.info("Generated:", outputPath);
+    this.log("Generated:", outputPath);
   }
 }

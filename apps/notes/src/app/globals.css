@@ -4,7 +4,7 @@
 
 @import url("@npc/shared/styles.css");
 @import url("@npc/theme/styles.css");
-@import url("@/theme/variables.css");
+@import url("@libs/theme/variables.css");
 
 body,
 html {

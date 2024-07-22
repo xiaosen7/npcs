@@ -15,8 +15,11 @@
     "./styles.css": "./esm/styles.css",
     "./jsx": "./esm/jsx.js",
     "./components": "./esm/components/index.js",
+    "./components/*": "./esm/components/*",
+    "./hooks/*": "./esm/hooks/*.js",
     "./component-type": "./esm/component-type.js",
-    "./react-helpers": "./esm/react-helpers.js"
+    "./react-helpers": "./esm/react-helpers.js",
+    "./router/*": "./esm/router/*"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -39,6 +42,7 @@
     "change-case": "^5.4.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "embla-carousel-react": "^8.1.7",
     "filesize": "^10.1.4",
     "lodash-es": "^4.17.21",
     "lucide-react": "^0.396.0",
