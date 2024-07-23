@@ -13,7 +13,7 @@ env:
 
 jobs:
   publish:
-    name: Publish 
+    name: Publish Image
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +25,7 @@ jobs:
         run: |
           export APP_DIR=${{ env.APP_DIR }} APP_PACKAGE_NAME=${{ env.APP_PACKAGE_NAME }} IMAGE_NAME=${{ env.IMAGE_NAME }}
           bash ./build.sh
-          docker push ${{ env.IMAGE_NAME }}
+          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
   deploy:
     needs: publish
