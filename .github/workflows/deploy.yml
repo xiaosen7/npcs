@@ -23,7 +23,7 @@ jobs:
           echo ${{ secrets.PAT }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
       - name: Build and Push Image
         run: |
-          export APP_DIR=${{ env.APP_DIR }} APP_PACKAGE_NAME=${{ env.APP_PACKAGE_NAME }} IMAGE_NAME=${{ env.IMAGE_NAME }}
+          export TURBO_TEAM=${{ secrets.TURBO_TEAM }} TURBO_TOKEN=${{ secrets.TURBO_TOKEN }} APP_DIR=${{ env.APP_DIR }} APP_PACKAGE_NAME=${{ env.APP_PACKAGE_NAME }} IMAGE_NAME=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           bash ./build.sh
           docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
