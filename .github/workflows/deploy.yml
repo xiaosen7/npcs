@@ -27,5 +27,5 @@ jobs:
 
             cd ${{ secrets.VPS_WORK_DIR }} 
             git pull --rebase
-            bash ./deploy.sh
+            bash ./apps/large-file-upload/deploy/deploy.sh
             exit
