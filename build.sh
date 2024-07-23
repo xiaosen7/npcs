@@ -9,9 +9,9 @@ if [ -z "$TURBO_TEAM" ] || [ -z "$TURBO_TOKEN" ]; then
 fi
 
 # 检查必要的环境变量
-if [ -z "$APP_DIR" ] || [ -z "$APP_PACKAGE_NAME" ]; then
+if [ -z "$APP_DIR" ] || [ -z "$APP_PACKAGE_NAME" ] || [ -z "$IMAGE_NAME" ]; then
     echo "Error: One or more required environment variables are not set."
-    echo "Please ensure APP_DIR, and APP_PACKAGE_NAME are set."
+    echo "Please ensure APP_DIR, IMAGE_NAME and APP_PACKAGE_NAME are set."
     exit 1
 fi
 
@@ -24,11 +24,6 @@ fi
 
 # 获取当前时间戳（精确到秒）
 CURRENT_TIMESTAMP=$(date +"%Y%m%d%H%M%S")
-
-# 构建镜像名称
-IMAGE_NAME="${APP_PACKAGE_NAME#@}:${GIT_COMMIT_HASH}_${CURRENT_TIMESTAMP}"
-# 移除包名中的 '/' 字符，因为它在 Docker 镜像名中是不允许的
-IMAGE_NAME=$(echo $IMAGE_NAME | tr '/' '-')
 
 echo "Building Docker image: $IMAGE_NAME"
 

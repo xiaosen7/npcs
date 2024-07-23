@@ -7,12 +7,13 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.actor }}/large-file-upload:latest
-  DOCKERFILE: ./deploy/Dockerfile
+  IMAGE_NAME: ${{ github.actor }}/npc-template:latest
+  APP_DIR: ./apps/template
+  APP_PACKAGE_NAME: @npc/template
 
 jobs:
   publish:
-    name: Publish Image
+    name: Publish 
     runs-on: ubuntu-latest
 
     steps:
@@ -22,9 +23,9 @@ jobs:
           echo ${{ secrets.PAT }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
       - name: Build and Push Image
         run: |
-          export APP_DIR=./apps/template APP_PACKAGE_NAME=@npc/template
+          export APP_DIR=${{ env.APP_DIR }} APP_PACKAGE_NAME=${{ env.APP_PACKAGE_NAME }} IMAGE_NAME=${{ env.IMAGE_NAME }}
           bash ./build.sh
-          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          docker push ${{ env.IMAGE_NAME }}
 
   deploy:
     needs: publish
@@ -32,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy to Kubernetes
+      - name: Deploy to VPS
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.VPS_HOST }}
