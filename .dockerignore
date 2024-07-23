@@ -8,3 +8,5 @@ README.md
 .turbo
 temp
 tests
+deploy
+build.sh

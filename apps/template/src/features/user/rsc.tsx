@@ -1,7 +1,6 @@
-import "server-only";
-import { getUserCount } from "./get-user-count";
+import { prisma } from "@/prisma/client";
 
-export async function UserCount() {
-  const count = await getUserCount(1);
+export async function UserCountRsc() {
+  const count = await prisma.user.count();
   return <div>User count: {count}</div>;
 }

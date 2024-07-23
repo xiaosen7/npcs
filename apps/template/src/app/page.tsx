@@ -1,13 +1,6 @@
-import { UserCount } from "@/features/user/rsc";
+import { UserCountRsc } from "@/features/user/rsc";
 import { Welcome } from "@/shared/components/welcome";
 import { Suspense } from "react";
-
-export async function generateMetadata(props: { params: { locale: string } }) {
-  return {
-    title: "home",
-    description: "home_description",
-  };
-}
 
 export default async function Home() {
   const timestamp = Date.now();
@@ -16,7 +9,7 @@ export default async function Home() {
     <>
       <Welcome />
       <Suspense fallback="loading...">
-        <UserCount />
+        <UserCountRsc />
       </Suspense>
       Rendered at timestamp: {timestamp}
     </>
