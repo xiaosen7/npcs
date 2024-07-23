@@ -9,7 +9,7 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.actor }}/npc-template:latest
   APP_DIR: ./apps/template
-  APP_PACKAGE_NAME: @npc/template
+  APP_PACKAGE_NAME: '@npc/template'
 
 jobs:
   publish:
