@@ -1,12 +1,12 @@
 "use client";
 
+import { Note } from "@libs/prisma/client";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@npc/shared/components/carousel.js";
 import { cn, IComponentBaseProps, mp } from "@npc/shared/react-helpers";
-import { Note } from "@prisma/client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";

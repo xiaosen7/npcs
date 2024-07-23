@@ -47,6 +47,7 @@ COPY turbo.json turbo.json
 RUN pnpm i --frozen-lockfile
 # seed database
 WORKDIR /app/${APP_DIR}
+RUN pnpm prisma:generate
 RUN pnpm prisma:sync
 WORKDIR /app
 RUN turbo build --env-mode=loose --filter=${APP_PACKAGE_NAME}...

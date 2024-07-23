@@ -1,5 +1,4 @@
-import { prisma } from "@libs/prisma/client";
-import { Note } from "@prisma/client";
+import { Note, prisma } from "@libs/prisma/client";
 import { revalidatePath } from "next/cache";
 import React from "react";
 import { INoteCardsProps, NoteCards } from ".";

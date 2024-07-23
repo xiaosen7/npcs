@@ -11,6 +11,7 @@
     "lint": "next lint",
     "test": "vitest",
     "test:changed": "vitest run --changed",
+    "prisma:generate": "pnpm prisma generate",
     "prisma:studio": "dotenv -e .env.development -- prisma studio -b false",
     "prisma:sync:dev": "dotenv -e .env.development -- tsx scripts/sync-prisma.ts",
     "prisma:sync": "tsx scripts/sync-prisma.ts",

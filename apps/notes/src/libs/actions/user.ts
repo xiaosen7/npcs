@@ -5,6 +5,7 @@ import { prisma } from "@libs/prisma/client";
 
 export async function getCurrent() {
   const { userId } = auth();
+  console.log({ clerkId: userId });
   if (!userId) {
     return null;
   }
@@ -14,6 +15,7 @@ export async function getCurrent() {
       clerkId: userId,
     },
   });
+  console.log({ user });
   return user;
 }
 
@@ -27,6 +29,7 @@ export async function getCurrentOrThrow() {
 
 export async function createIfNeeded() {
   try {
+    console.log("createIfNeeded");
     const clerkUser = await currentUser();
 
     console.log("clerkUser", clerkUser?.username);
@@ -50,5 +53,7 @@ export async function createIfNeeded() {
         clerkId: clerkUser.id,
       },
     });
-  } catch {}
+  } catch (error) {
+    console.error(error);
+  }
 }

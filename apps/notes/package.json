@@ -18,7 +18,7 @@
     "generate:components": "npc generate-components --templatesDir ./templates --outDir ./src/libs/components --publicDir ./src/assets"
   },
   "dependencies": {
-    "@clerk/nextjs": "^5.2.3",
+    "@clerk/nextjs": "^5.2.4",
     "@clerk/themes": "^2.1.12",
     "@faker-js/faker": "^8.4.1",
     "@npc/playwright-config": "workspace:^",

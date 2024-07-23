@@ -77,13 +77,6 @@ body {
   --radius: 0.5rem;
 }
 
-* {
-  @apply border-border;
-}
-body {
-  @apply bg-background text-foreground;
-}
-
 .no-focus {
   @apply focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
 }

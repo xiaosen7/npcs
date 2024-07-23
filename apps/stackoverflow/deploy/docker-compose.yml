@@ -15,7 +15,6 @@ services:
         - TURBO_TOKEN=${TURBO_TOKEN}
         - APP_DIR=apps/stackoverflow
         - APP_PACKAGE_NAME=@npc/stackoverflow
-      network: host
     restart: always
     environment:
       - POSTGRES_PRISMA_URL=postgres://postgres:${POSTGRES_PASSWORD}@stackoverflow-postgres:5432/stackoverflow

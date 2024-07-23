@@ -2,7 +2,7 @@ import sharedConfig from "@npc/tailwind-config";
 import type { Config } from "tailwindcss";
 
 const config: Pick<Config, "prefix" | "presets" | "content"> = {
-  content: ["./{app,libs,.storybook}/**/*.{tsx,css}"],
+  content: ["./{src,app,libs,.storybook}/**/*.{tsx,css}"],
   presets: [sharedConfig],
 };
 

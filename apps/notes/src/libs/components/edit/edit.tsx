@@ -5,13 +5,14 @@ import { IconEdit } from "@libs/components/icon/edit";
 import { IconPreview } from "@libs/components/icon/preview";
 import { InputContent } from "@libs/components/input/content";
 import { InputTitle } from "@libs/components/input/title";
+import { Note } from "@libs/prisma/client";
 import { Back } from "@libs/router/back";
 import { Form, FormControl, FormField, FormItem } from "@npc/shared/components";
 import { useForm } from "@npc/shared/hooks/form";
 import { useRouter } from "@npc/shared/router/hooks/index.js";
-import { Note } from "@prisma/client";
 import { useControllableValue, useRequest } from "ahooks";
 import React from "react";
+import { IconSave } from "../icon/save";
 import { HeaderLayout } from "../layout/header";
 import { SaveButtonForAdd, SaveButtonForEdit } from "./save-button";
 import { ENoteEditMode } from "./types";
@@ -42,10 +43,14 @@ export const NoteEdit: React.FC<INoteEditProps> = (props) => {
 
   const { run: submit, loading } = useRequest(
     async (note) => {
-      if (!form.formState.isDirty) {
+      const isDirty = form.formState.isDirty;
+      console.log({ isDirty });
+      if (!isDirty) {
+        console.log("back");
         return router?.back();
       }
 
+      console.log("submit save", typeof actions?.save);
       return actions?.save(note);
     },
     {
@@ -55,6 +60,8 @@ export const NoteEdit: React.FC<INoteEditProps> = (props) => {
 
   const isEdit = !!note;
   const isAdd = !note;
+
+  console.log(form.formState.isDirty);
 
   return (
     <Form {...form}>
@@ -88,7 +95,16 @@ export const NoteEdit: React.FC<INoteEditProps> = (props) => {
                   type={!form.formState.isDirty ? "submit" : undefined}
                 />
               )}
-              {isAdd && <SaveButtonForAdd disabled={!form.formState.isValid} />}
+              {isAdd && (
+                <SaveButtonForAdd
+                  disabled={!form.formState.isValid}
+                  type="submit"
+                />
+              )}
+
+              <ButtonIcon>
+                <IconSave />
+              </ButtonIcon>
             </>
           }
         />
