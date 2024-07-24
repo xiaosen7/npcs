@@ -43,10 +43,10 @@ RUN addgroup --system --gid 1001 nodejs && \
 USER nextjs
 COPY --from=installer /app/${APP_DIR}/next.config.mjs ./${APP_DIR}
 COPY --from=installer /app/${APP_DIR}/package.json ./${APP_DIR}
-COPY --from=installer /app/${APP_DIR}/prisma ./${APP_DIR}/prisma
 COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/.next/standalone ./
 COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/.next/static ./${APP_DIR}/.next/static
 COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/public ./${APP_DIR}/public
+COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/prisma/migrations ./${APP_DIR}/prisma/migrations
 
 WORKDIR /app/${APP_DIR}
 
