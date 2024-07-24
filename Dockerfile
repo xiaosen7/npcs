@@ -10,6 +10,7 @@ ENV TURBO_TEAM=${TURBO_TEAM}
 ARG TURBO_TOKEN
 ENV TURBO_TOKEN=${TURBO_TOKEN}
 
+RUN apk update && apk add --no-cache libc6-compat
 
 # 构建阶段，安装所有必要的构建工具
 FROM base AS builder
@@ -19,7 +20,7 @@ RUN npx turbo prune ${APP_PACKAGE_NAME} --docker
 
 # 安装依赖阶段
 FROM base AS installer
-RUN apk update && apk add --no-cache libc6-compat python3 make g++
+RUN apk update && apk add --no-cache python3 make g++
 WORKDIR /app
 COPY .gitignore .gitignore
 COPY --from=builder /app/out/json/ .
@@ -40,12 +41,12 @@ WORKDIR /app
 RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 nextjs
 USER nextjs
-COPY --from=installer /app/${APP_DIR}/next.config.mjs ./${APP_DIR}
-COPY --from=installer /app/${APP_DIR}/package.json ./${APP_DIR}
-COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/.next/standalone .
+COPY --from=installer /app/${APP_DIR}/next.config.mjs .
+COPY --from=installer /app/${APP_DIR}/package.json .
+COPY --from=installer /app/${APP_DIR}/prisma .
+COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/.next/standalone ./
 COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/.next/static ./${APP_DIR}/.next/static
 COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/public ./${APP_DIR}/public
-COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/prisma/migrations ./${APP_DIR}/prisma/migrations
 
 WORKDIR /app/${APP_DIR}
 
