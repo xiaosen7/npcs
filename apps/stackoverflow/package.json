@@ -18,7 +18,6 @@
     "check-types": "tsc --noEmit"
   },
   "prisma": {
-    "schema": "libs/prisma/schema.prisma",
     "seed": "tsx scripts/seed.ts"
   },
   "dependencies": {
