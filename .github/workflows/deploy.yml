@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Login
         run: |
-          echo ${{ secrets.PAT }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+          echo ${{ secrets.PAT }} | docker login ${{env.REGISTRY}} -u ${{ github.actor }} --password-stdin
       - name: Build and Push Image
         run: |
           export TURBO_TEAM=${{ secrets.TURBO_TEAM }} TURBO_TOKEN=${{ secrets.TURBO_TOKEN }} APP_DIR=${{ env.APP_DIR }} APP_PACKAGE_NAME=${{ env.APP_PACKAGE_NAME }} IMAGE_NAME=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
@@ -43,5 +43,6 @@ jobs:
           script: |
             cd ${{ secrets.VPS_WORK_DIR }} 
             git pull -r
+            export POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
             bash ./start.sh
             exit
