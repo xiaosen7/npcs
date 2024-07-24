@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/prisma";
 import { random } from "lodash-es";
 import { createLogUpdate } from "log-update";
 import os from "node:os";
@@ -7,12 +7,6 @@ import { IQuestion, IUser } from "../libs/shared";
 
 const TAG_COUNT_EACH_USER = 5;
 const BUILTIN_TAG_NAMES = ["react", "vue", "next.js", "javascript"];
-
-const prisma = new PrismaClient({
-  transactionOptions: {
-    timeout: 10 * 60 * 1000,
-  },
-});
 
 async function getCounts() {
   const ANSWER_COUNT = 125000;
@@ -88,7 +82,7 @@ async function main() {
           description: `${name} tag`,
         }))
           .concat(
-            mock.tag.createMany(createdTagCount - BUILTIN_TAG_NAMES.length)
+            mock.tag.createMany(createdTagCount - BUILTIN_TAG_NAMES.length),
           )
           .map((x) => ({
             ...x,
@@ -142,7 +136,7 @@ async function main() {
       ];
       const updateUserTasks = createdUsers.map((user, index) => async () => {
         updateUserLog(
-          `Updating user ${index + 1} of ${createdUsers.length}...`
+          `Updating user ${index + 1} of ${createdUsers.length}...`,
         );
         const [
           upVoteQuestionStart,
@@ -187,7 +181,7 @@ async function main() {
               connect: answers
                 .slice(
                   upVoteAnswerStart,
-                  Math.min(upVoteAnswerStart + 50, upVoteAnswerEnd)
+                  Math.min(upVoteAnswerStart + 50, upVoteAnswerEnd),
                 )
                 .map(({ id }) => ({ id })),
             },
@@ -195,7 +189,7 @@ async function main() {
               connect: answers
                 .slice(
                   downVoteAnswerStart,
-                  Math.min(upVoteAnswerStart + 50, downVoteAnswerEnd)
+                  Math.min(upVoteAnswerStart + 50, downVoteAnswerEnd),
                 )
                 .map(({ id }) => ({ id })),
             },
@@ -214,7 +208,7 @@ async function main() {
       const updateQuestionTasks = createdQuestions.map(
         (question, index) => async () => {
           updateQuestionLog(
-            `Updating question ${index + 1} of ${questions.length}...`
+            `Updating question ${index + 1} of ${questions.length}...`,
           );
           const tagStart = random(0, tags.length - TAG_COUNT_EACH_USER);
           await prisma.question.update({
@@ -229,7 +223,7 @@ async function main() {
               },
             },
           });
-        }
+        },
       );
       await runTasks(updateQuestionTasks);
     }
@@ -238,7 +232,7 @@ async function main() {
 
 async function runTasks(
   tasks: Array<() => Promise<void>>,
-  parallelCount = os.cpus().length
+  parallelCount = os.cpus().length,
 ) {
   let start = 0;
   while (start < tasks.length) {

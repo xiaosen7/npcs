@@ -1,7 +1,7 @@
 "use client";
 
+import { Prisma } from "@/prisma/generated";
 import { ESearchParamKey } from "@/search-params";
-import { Prisma } from "@prisma/client";
 import { useMemoizedFn } from "ahooks";
 import React from "react";
 import { useNextRouter } from "../hooks";
@@ -50,7 +50,7 @@ export const Filter: React.FC<IFilterProps> = (props) => {
       }),
       {
         scroll: false,
-      }
+      },
     );
   });
 
@@ -60,7 +60,7 @@ export const Filter: React.FC<IFilterProps> = (props) => {
       <div
         className={cn(
           "min-h-[56px] min-w-[170px]",
-          variant === "tags" && "hidden"
+          variant === "tags" && "hidden",
         )}
       >
         <Select value={filter} onValueChange={onChange}>
@@ -71,11 +71,11 @@ export const Filter: React.FC<IFilterProps> = (props) => {
           >
             <SelectValue placeholder={props.placeholder ?? "Select a filter"} />
           </SelectTrigger>
-          <SelectContent className="text-dark500_light700 small-regular border-none bg-light-900 dark:bg-dark-300">
+          <SelectContent className="text-dark500_light700 small-regular bg-light-900 dark:bg-dark-300 border-none">
             {props.options.map((option) => (
               <SelectItem
                 key={option.value}
-                className="cursor-pointer focus:bg-light-800 dark:focus:bg-dark-400"
+                className="focus:bg-light-800 dark:focus:bg-dark-400 cursor-pointer"
                 value={option.value}
               >
                 {option.label}
@@ -88,7 +88,7 @@ export const Filter: React.FC<IFilterProps> = (props) => {
       <div
         className={cn(
           "w-full flex-wrap gap-3 flex",
-          variant === "default" && "hidden"
+          variant === "default" && "hidden",
         )}
       >
         {props.options.map(({ label, value }) => (
@@ -105,7 +105,7 @@ export const Filter: React.FC<IFilterProps> = (props) => {
           </Button>
         ))}
       </div>
-    </div>
+    </div>,
   );
 };
 

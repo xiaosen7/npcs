@@ -6,6 +6,7 @@ import { IPageProps } from "@npc/shared/react-helpers";
 import { redirect } from "next/navigation";
 import React from "react";
 
+export const dynamic = "force-dynamic";
 const ViewPage: React.FC<IPageProps<{ id: string }>> = async (props) => {
   const { id } = props.params;
   const note = await prisma.note.findUniqueOrThrow({

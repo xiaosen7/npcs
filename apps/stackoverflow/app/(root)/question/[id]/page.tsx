@@ -2,6 +2,7 @@ import { ac, actions } from "@/actions";
 import { Answer, AnswerForm } from "@/answer";
 import { MarkdownViewer } from "@/markdown";
 import { prisma } from "@/prisma";
+import { Prisma } from "@/prisma/generated";
 import {
   Collect,
   QuestionDate,
@@ -21,14 +22,13 @@ import {
 } from "@/shared";
 import { Tags } from "@/tag";
 import { UserAvatar } from "@/user";
-import { Prisma } from "@prisma/client";
 import { NextPage } from "next";
 import { redirect } from "next/navigation";
 
 export interface IQuestionDetailPageProps extends IPageProps<{ id: string }> {}
 
 const QuestionDetailPage: NextPage<IQuestionDetailPageProps> = async (
-  props
+  props,
 ) => {
   const { params, searchParams } = props;
   const { id } = params;

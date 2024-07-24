@@ -10,6 +10,12 @@ ENV TURBO_TEAM=${TURBO_TEAM}
 ARG TURBO_TOKEN
 ENV TURBO_TOKEN=${TURBO_TOKEN}
 
+# clerk
+ARG NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+ENV NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+ARG CLERK_SECRET_KEY
+ENV CLERK_SECRET_KEY=${CLERK_SECRET_KEY}
+
 RUN apk update && apk add --no-cache libc6-compat
 
 # 构建阶段，安装所有必要的构建工具
@@ -30,8 +36,6 @@ RUN corepack enable && pnpm i --frozen-lockfile
 # 构建项目
 COPY --from=builder /app/out/full/ .
 COPY turbo.json turbo.json
-WORKDIR /app/${APP_DIR}
-RUN pnpm prisma generate
 WORKDIR /app
 RUN npx turbo build --env-mode=loose --filter=${APP_PACKAGE_NAME}...
 

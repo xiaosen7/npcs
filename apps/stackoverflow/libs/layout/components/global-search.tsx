@@ -1,5 +1,6 @@
 "use client";
 
+import { Prisma } from "@/prisma/generated";
 import { ESearchParamKey } from "@/search-params";
 import {
   IComponentBaseProps,
@@ -9,7 +10,6 @@ import {
   mp,
 } from "@/shared";
 import { ImageTag } from "@/shared/assets/icons/tag";
-import { Prisma } from "@prisma/client";
 import {
   useBoolean,
   useClickAway,
@@ -71,7 +71,7 @@ const modelMap: {
 export interface IGlobalSearchProps extends IComponentBaseProps {
   api: (
     types: IGlobalSearchType[],
-    value: string
+    value: string,
   ) => Promise<IGlobalSearchResult>;
 }
 
@@ -123,14 +123,14 @@ export const GlobalSearch: React.FC<IGlobalSearchProps> = (props) => {
       />
 
       {open && (
-        <div className="absolute top-full z-10 mt-3 w-full rounded-lg bg-light-800 py-5 shadow-sm dark:bg-dark-400">
+        <div className="bg-light-800 dark:bg-dark-400 absolute top-full z-10 mt-3 w-full rounded-lg py-5 shadow-sm">
           <div className="flex items-baseline gap-5 px-5">
             <p className="text-dark400_light900 body-medium">Type:</p>
             <div className="flex flex-wrap gap-3">
               {globalTypes.map((type) => (
                 <button
                   key={type}
-                  className={`light-border-2 small-medium rounded-3xl px-5 py-2 capitalize dark:text-light-800 dark:hover:text-primary-500 ${
+                  className={`light-border-2 small-medium dark:text-light-800 dark:hover:text-primary-500 rounded-3xl px-5 py-2 capitalize ${
                     types.has(type)
                       ? "bg-primary-500 text-light-900 dark:hover:text-light-800"
                       : "bg-light-700 text-dark-400 hover:text-primary-500 dark:bg-dark-500"
@@ -143,7 +143,7 @@ export const GlobalSearch: React.FC<IGlobalSearchProps> = (props) => {
               ))}
             </div>
           </div>
-          <div className="my-5 h-px bg-light-700/50 dark:bg-dark-500/50" />
+          <div className="bg-light-700/50 dark:bg-dark-500/50 my-5 h-px" />
           <p className="text-dark400_light900 paragraph-semibold space-y-5 px-5">
             Top Match
           </p>
@@ -151,7 +151,7 @@ export const GlobalSearch: React.FC<IGlobalSearchProps> = (props) => {
           {loading ? (
             <div className="flex-center flex-col px-5">
               <svg
-                className="my-2 size-10 animate-spin text-primary-500"
+                className="text-primary-500 my-2 size-10 animate-spin"
                 fill="none"
                 height="15"
                 viewBox="0 0 15 15"
@@ -175,7 +175,7 @@ export const GlobalSearch: React.FC<IGlobalSearchProps> = (props) => {
                 data.map((item) => (
                   <Link
                     key={item.id}
-                    className="flex w-full cursor-pointer items-start gap-3 px-5 py-2.5 hover:bg-light-700/50 hover:dark:bg-dark-500/50"
+                    className="hover:bg-light-700/50 hover:dark:bg-dark-500/50 flex w-full cursor-pointer items-start gap-3 px-5 py-2.5"
                     href={modelMap[item.type].getLink(item as ISafeAny)}
                   >
                     <ImageTag
@@ -204,6 +204,6 @@ export const GlobalSearch: React.FC<IGlobalSearchProps> = (props) => {
           )}
         </div>
       )}
-    </div>
+    </div>,
   );
 };

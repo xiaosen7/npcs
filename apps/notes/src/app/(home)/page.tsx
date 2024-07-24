@@ -11,6 +11,8 @@ import { IPageProps } from "@npc/shared/react-helpers";
 import Link from "next/link";
 import React from "react";
 
+export const dynamic = "force-dynamic";
+
 const Page: React.FC<IPageProps> = async (props) => {
   const notes = await prisma.note.findMany();
 

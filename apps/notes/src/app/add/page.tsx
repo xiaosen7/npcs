@@ -8,6 +8,7 @@ import { IPageProps } from "@npc/shared/react-helpers";
 import { redirect } from "next/navigation";
 import React from "react";
 
+export const dynamic = "force-dynamic";
 const AddPage: React.FC<IPageProps> = async (props) => {
   const save = async ({ title, content }: INoteValidationInfer) => {
     "use server";

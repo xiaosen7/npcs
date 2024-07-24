@@ -1,3 +1,3 @@
-import { Question } from "@prisma/client";
+import { Question } from "@/prisma/generated";
 
 export interface IQuestion extends Question {}

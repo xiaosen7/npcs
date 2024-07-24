@@ -1,7 +1,17 @@
-import { Prisma } from "@prisma/client";
-import { IModelConfigMap } from "../types";
+import { Prisma } from "@/prisma/generated";
 
 export const MODEL_NAME = Prisma.ModelName;
+
+export type IModelConfigMap = {
+  [ModelName in Prisma.ModelName]: {
+    searchableFields: (keyof Prisma.TypeMap["model"][ModelName]["fields"])[];
+    filters: {
+      [key: string]: {
+        args: Prisma.TypeMap["model"][ModelName]["operations"]["findMany"]["args"];
+      };
+    };
+  };
+};
 
 export const MODEL_CONFIG_MAP: IModelConfigMap = {
   [Prisma.ModelName.Question]: {

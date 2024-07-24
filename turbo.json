@@ -1,33 +1,32 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
-    "build": {
-      "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**", "esm/**"],
+    "lint": {
       "inputs": [
-        "app/**",
-        "libs/**",
-        "src/**",
-        "tsconfig.json",
-        "package.json",
-        "tailwind.config.*"
+        "src/**/*",
+        ".storybook/**",
+        "libs/**/*",
+        "app/**/*",
+        "tests/**/*"
       ]
     },
-    "build:watch": {
-      "persistent": true,
-      "cache": false
+    "check-types": {
+      "inputs": [
+        "src/**/*",
+        ".storybook/**",
+        "libs/**/*",
+        "app/**/*",
+        "tests/**/*"
+      ]
     },
-    "check-types": {},
-    "lint": {},
     "test": {
-      "inputs": [
-        "app/**",
-        "libs/**",
-        "src/**",
-        "tests/**",
-        "tsconfig.json",
-        "package.json"
-      ]
+      "inputs": ["src/**/*", "libs/**/*", "app/**/*", "tests/**/*"],
+      "dependsOn": ["lint", "check-types"]
+    },
+    "build": {
+      "inputs": ["src/**/*", "libs/**/*", "app/**/*"],
+      "dependsOn": ["test", "^build"],
+      "outputs": [".next/**", "!.next/cache/**", "esm/**"]
     },
     "test:e2e": {
       "inputs": [
@@ -41,12 +40,18 @@
       ],
       "outputs": ["playwright-report/**"]
     },
-    "test:changed": {},
+    "test:changed": {
+      "inputs": ["src/**/*", "libs/**/*", "app/**/*", "tests/**/*"],
+      "dependsOn": ["lint", "check-types"]
+    },
     "dev": {
       "persistent": true,
       "cache": false
     },
-
+    "build:watch": {
+      "persistent": true,
+      "cache": false
+    },
     "test:watch": {
       "persistent": true,
       "cache": false

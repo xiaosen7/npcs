@@ -29,10 +29,8 @@ export async function getCurrentOrThrow() {
 
 export async function createIfNeeded() {
   try {
-    console.log("createIfNeeded");
     const clerkUser = await currentUser();
 
-    console.log("clerkUser", clerkUser?.username);
     if (!clerkUser) {
       return;
     }
@@ -42,12 +40,10 @@ export async function createIfNeeded() {
         clerkId: clerkUser.id,
       },
     });
-    console.log("existingUser", existingUser?.id);
     if (existingUser) {
       return;
     }
 
-    console.log(`create user ${clerkUser.username}`);
     await prisma.user.create({
       data: {
         clerkId: clerkUser.id,

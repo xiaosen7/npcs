@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e # 启用错误立即退出模式
+
 # 设置变量
 CONTEXT_PATH="."
 DOCKERFILE_PATH="./Dockerfile"
@@ -8,10 +10,8 @@ if [ -z "$TURBO_TEAM" ] || [ -z "$TURBO_TOKEN" ]; then
     echo "Warn: TURBO_TEAM or TURBO_TOKEN environment variables are not set."
 fi
 
-# 检查必要的环境变量
-if [ -z "$APP_DIR" ] || [ -z "$APP_PACKAGE_NAME" ] || [ -z "$IMAGE_NAME" ]; then
-    echo "Error: One or more required environment variables are not set."
-    echo "Please ensure APP_DIR, IMAGE_NAME and APP_PACKAGE_NAME are set."
+if [ -z "$NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY" ] || [ -z "$CLERK_SECRET_KEY" ] || [ -z "$DOCKER_REGISTRY" ]; then
+    echo "Error: Ensure NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY, CLERK_SECRET_KEY, DOCKER_REGISTRY environment variables are set."
     exit 1
 fi
 
@@ -22,30 +22,59 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# 获取当前时间戳（精确到秒）
-CURRENT_TIMESTAMP=$(date +"%Y%m%d%H%M%S")
+# 函数：清理包名以适用于 Docker 镜像名称
+clean_package_name() {
+    echo "$1" | sed -e 's/[^a-zA-Z0-9.]/-/g' -e 's/^[-.]//g' -e 's/[-.]$//g' | tr '[:upper:]' '[:lower:]'
+}
 
-echo "Building Docker image: $IMAGE_NAME"
+# 遍历 apps 目录下的所有文件夹
+for APP_DIR in apps/*/; do
+    # 移除路径末尾的斜杠
+    APP_DIR=${APP_DIR%/}
 
-# 执行 Docker 构建
-docker build \
-    --build-arg TURBO_TEAM=$TURBO_TEAM \
-    --build-arg TURBO_TOKEN=$TURBO_TOKEN \
-    --build-arg APP_DIR=$APP_DIR \
-    --build-arg APP_PACKAGE_NAME=$APP_PACKAGE_NAME \
-    -t $IMAGE_NAME \
-    -f $DOCKERFILE_PATH \
-    $CONTEXT_PATH
+    # 获取应用名称（文件夹名）
+    APP_NAME=$(basename "$APP_DIR")
 
-# 检查构建是否成功
-if [ $? -eq 0 ]; then
-    echo "Docker build completed successfully."
-    echo "Image built: $IMAGE_NAME"
-    
-    # 可选：运行容器
-    # echo "Starting container..."
-    # docker run -d --name ${APP_PACKAGE_NAME#@}-container $IMAGE_NAME
-else
-    echo "Docker build failed."
-    exit 1
-fi
+    # 从 package.json 中获取 APP_PACKAGE_NAME
+    APP_PACKAGE_NAME=$(jq -r '.name' "$APP_DIR/package.json")
+
+    if [ -z "$APP_PACKAGE_NAME" ]; then
+        echo "Error: Unable to get package name from $APP_DIR/package.json"
+        exit 1
+    fi
+
+    # 清理 APP_PACKAGE_NAME 以用于 Docker 镜像名称
+    CLEAN_PACKAGE_NAME=$(clean_package_name "$APP_PACKAGE_NAME")
+
+    # 构建 IMAGE_NAME
+    IMAGE_NAME="$DOCKER_REGISTRY/$CLEAN_PACKAGE_NAME"
+
+    echo "Building Docker image for $APP_NAME ($APP_PACKAGE_NAME)"
+    echo "Using image name: $IMAGE_NAME"
+
+    # 执行 Docker 构建
+    docker build \
+        --build-arg TURBO_TEAM="$TURBO_TEAM" \
+        --build-arg TURBO_TOKEN="$TURBO_TOKEN" \
+        --build-arg APP_DIR="$APP_DIR" \
+        --build-arg APP_PACKAGE_NAME="$APP_PACKAGE_NAME" \
+        --build-arg NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="$NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY" \
+        --build-arg CLERK_SECRET_KEY="$CLERK_SECRET_KEY" \
+        -t "${IMAGE_NAME}":latest \
+        -t "${IMAGE_NAME}":"${GIT_COMMIT_HASH}" \
+        -f $DOCKERFILE_PATH \
+        $CONTEXT_PATH
+
+    echo "Docker build completed successfully for $APP_NAME."
+    echo "Image built: ${IMAGE_NAME}:latest and ${IMAGE_NAME}:${GIT_COMMIT_HASH}"
+
+    # 推送镜像到 Docker 仓库
+    echo "Pushing images to Docker registry..."
+    docker push "${IMAGE_NAME}":latest
+    docker push "${IMAGE_NAME}":"${GIT_COMMIT_HASH}"
+
+    echo "Images pushed successfully for $APP_NAME."
+    echo "----------------------------------------"
+done
+
+echo "All builds and pushes completed successfully."

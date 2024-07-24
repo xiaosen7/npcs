@@ -1,5 +1,6 @@
 import { prisma } from "@/prisma";
-import { IPageProps, List, MODEL_NAME, NoResults } from "@/shared";
+import { MODEL_NAME } from "@/prisma/model-config";
+import { IPageProps, List, NoResults } from "@/shared";
 import { UserCard } from "@/user";
 import React from "react";
 

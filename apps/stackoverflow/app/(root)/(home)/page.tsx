@@ -1,8 +1,9 @@
 import Link from "next/link";
 
 import { prisma } from "@/prisma";
+import { MODEL_NAME } from "@/prisma/model-config";
 import { QuestionList } from "@/question";
-import { Button, IPageProps, MODEL_NAME, NoResults } from "@/shared";
+import { Button, IPageProps, NoResults } from "@/shared";
 
 export default async function Home(props: IPageProps) {
   const { searchParams } = props;

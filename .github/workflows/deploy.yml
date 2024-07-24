@@ -43,6 +43,6 @@ jobs:
           script: |
             cd ${{ secrets.VPS_WORK_DIR }} 
             git pull -r
-            export POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
+            export POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }} CLERK_SECRET_KEY=${{ secrets.CLERK_SECRET_KEY }}
             bash ./start.sh
             exit

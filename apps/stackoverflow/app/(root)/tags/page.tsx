@@ -1,10 +1,10 @@
 import { actions } from "@/actions";
 import { prisma } from "@/prisma";
+import { MODEL_NAME } from "@/prisma/model-config";
 import {
   Button,
   IPageProps,
   List,
-  MODEL_NAME,
   NoResults,
   REPUTATION_CAN_CREATE_TAGS,
 } from "@/shared";

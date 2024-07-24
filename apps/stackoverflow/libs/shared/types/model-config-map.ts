@@ -1,4 +1,4 @@
-import { Prisma } from "@prisma/client";
+import { Prisma } from "@/prisma/generated";
 
 export type IModelConfigMap = {
   [ModelName in Prisma.ModelName]: {

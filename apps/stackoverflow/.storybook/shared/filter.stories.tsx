@@ -1,9 +1,9 @@
 import { Meta, StoryFn } from "@storybook/react";
 
 import { mock } from "@/mock";
+import { Prisma } from "@/prisma/generated";
+import { MODEL_CONFIG_MAP } from "@/prisma/model-config";
 import { Filter, ModelFilter } from "@/shared/components/filter";
-import { MODEL_CONFIG_MAP } from "@/shared/constants";
-import { Prisma } from "@prisma/client";
 import { keys } from "lodash-es";
 
 export default {

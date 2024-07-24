@@ -1,10 +1,11 @@
 import { actions } from "@/actions";
 import { prisma } from "@/prisma";
+import { MODEL_NAME } from "@/prisma/model-config";
 import { QuestionList } from "@/question";
-import { IPageProps, MODEL_NAME, NoResults } from "@/shared";
+import { IPageProps, NoResults } from "@/shared";
 
 export default async function CollectionPage(
-  props: IPageProps<{}, { q: string }>
+  props: IPageProps<{}, { q: string }>,
 ) {
   const { searchParams } = props;
   const user = await actions.user.getCurrentOrRedirectSignIn();

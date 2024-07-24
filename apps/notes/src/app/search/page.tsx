@@ -7,6 +7,8 @@ import { Back } from "@libs/router/back";
 import { IPageProps } from "@npc/shared/react-helpers";
 import React from "react";
 
+export const dynamic = "force-dynamic";
+
 const SearchPage: React.FC<IPageProps<{}, { q: string }>> = async (props) => {
   const q = props.searchParams.q;
   const notes = q

@@ -1,7 +1,9 @@
 import { ESearchParamKey, ISearchParams } from "@/search-params";
-import { IBetterOmit, MODEL_CONFIG_MAP, ensureArray } from "@/shared";
-import { Prisma, PrismaClient } from "@prisma/client";
+// eslint-disable-next-line import/no-cycle
+import { IBetterOmit, ensureArray } from "@/shared";
 import { mergeWith, omit } from "lodash-es";
+import { Prisma, PrismaClient } from "./generated";
+import { MODEL_CONFIG_MAP } from "./model-config";
 import { IFindManyArgs } from "./types";
 
 const globalThis = global as unknown as {
@@ -23,7 +25,7 @@ function createInstance() {
             "take" | "skip"
           > & {
             searchParams?: IPrismaSearchParams;
-          }
+          },
         ) {
           const { searchParams } = args;
           const userArgs = omit(args, "searchParams");
@@ -66,7 +68,7 @@ type IPrismaSearchParams = Pick<
 function getArgs<T extends Prisma.ModelName>(
   modelName: T,
   searchParams?: IPrismaSearchParams,
-  args?: IFindManyArgs<T>
+  args?: IFindManyArgs<T>,
 ): IFindManyArgs<T> {
   const page = Number(searchParams?.[ESearchParamKey.Page]) || 1;
   const pageSize = Number(searchParams?.[ESearchParamKey.PageSize]) || 20;
@@ -102,9 +104,9 @@ function getArgs<T extends Prisma.ModelName>(
     (objValue, srcValue, key) => {
       if (key === "orderBy") {
         return [...ensureArray(srcValue), ...ensureArray(objValue)].filter(
-          Boolean
+          Boolean,
         );
       }
-    }
+    },
   );
 }

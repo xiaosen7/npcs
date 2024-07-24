@@ -160,7 +160,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/home/wangshouren/workspace/next.js-practical-cases/apps/stackoverflow/libs/prisma/client",
+      "value": "/home/wangshouren/workspace/next.js-practical-cases/apps/stackoverflow/libs/prisma/generated",
       "fromEnvVar": null
     },
     "config": {
@@ -178,7 +178,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../../.env"
   },
   "relativePath": "..",
@@ -192,13 +192,13 @@ const config = {
   "inlineDatasources": {
     "db": {
       "url": {
-        "fromEnvVar": "POSTGRES_PRISMA_URL",
+        "fromEnvVar": "DATABASE_URL",
         "value": null
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"./client\"\n}\n\ndatasource db {\n  provider  = \"postgresql\"\n  // Uses connection pooling\n  url       = env(\"POSTGRES_PRISMA_URL\")\n  // Uses direct connection, ⚠️ make sure to keep this to `POSTGRES_URL_NON_POOLING`\n  // or you'll have dangling databases from migrations\n  directUrl = env(\"POSTGRES_URL_NON_POOLING\")\n}\n\nmodel User {\n  id               String  @id @default(cuid())\n  clerkId          String  @unique\n  fullName         String\n  username         String  @unique\n  email            String  @unique\n  imageUrl         String\n  portfolioWebsite String?\n  location         String?\n  bio              String?\n  reputation       Int     @default(0)\n\n  createdAt DateTime @default(now())\n\n  followedTags Tag[]\n  createdTags  Tag[] @relation(\"UserTags\")\n\n  questions         Question[] @relation(\"UserQuestions\")\n  upvoteQuestions   Question[] @relation(\"UserUpvoteQuestions\")\n  downvoteQuestions Question[] @relation(\"UserDownvoteQuestions\")\n  collections       Question[] @relation(\"collections\")\n\n  answers         Answer[] @relation(\"UserAnswers\")\n  upvoteAnswers   Answer[] @relation(\"UserUpvoteAnswers\")\n  downVoteAnswers Answer[] @relation(\"UserDownvoteAnswers\")\n}\n\nmodel Tag {\n  id          String     @id @default(cuid()) // Primary key\n  name        String     @unique\n  description String\n  createdAt   DateTime   @default(now())\n  questions   Question[]\n  followers   User[]\n  creator     User       @relation(\"UserTags\", fields: [creatorId], references: [id])\n  creatorId   String\n}\n\nmodel Question {\n  id         String   @id @default(cuid()) // Primary key\n  title      String\n  content    String\n  tags       Tag[]\n  answers    Answer[]\n  views      Int\n  upvotes    User[]   @relation(\"UserUpvoteQuestions\")\n  downvotes  User[]   @relation(\"UserDownvoteQuestions\")\n  collectors User[]   @relation(\"collections\")\n\n  author   User   @relation(\"UserQuestions\", fields: [authorId], references: [id])\n  authorId String\n\n  createdAt DateTime @default(now())\n}\n\nmodel Answer {\n  id        String   @id @default(cuid()) // Primary key\n  content   String\n  createdAt DateTime @default(now())\n\n  author    User   @relation(\"UserAnswers\", fields: [authorId], references: [id])\n  authorId  String\n  upvotes   User[] @relation(\"UserUpvoteAnswers\")\n  downvotes User[] @relation(\"UserDownvoteAnswers\")\n\n  question   Question @relation(fields: [questionId], references: [id])\n  questionId String\n}\n",
-  "inlineSchemaHash": "ca959923232cbf07f275c00bb037a1abd93216ee7bad89be44410dd8834e3eee",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"./generated\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  // Uses connection pooling\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id               String  @id @default(cuid())\n  clerkId          String  @unique\n  fullName         String\n  username         String  @unique\n  email            String  @unique\n  imageUrl         String\n  portfolioWebsite String?\n  location         String?\n  bio              String?\n  reputation       Int     @default(0)\n\n  createdAt DateTime @default(now())\n\n  followedTags Tag[]\n  createdTags  Tag[] @relation(\"UserTags\")\n\n  questions         Question[] @relation(\"UserQuestions\")\n  upvoteQuestions   Question[] @relation(\"UserUpvoteQuestions\")\n  downvoteQuestions Question[] @relation(\"UserDownvoteQuestions\")\n  collections       Question[] @relation(\"collections\")\n\n  answers         Answer[] @relation(\"UserAnswers\")\n  upvoteAnswers   Answer[] @relation(\"UserUpvoteAnswers\")\n  downVoteAnswers Answer[] @relation(\"UserDownvoteAnswers\")\n}\n\nmodel Tag {\n  id          String     @id @default(cuid()) // Primary key\n  name        String     @unique\n  description String\n  createdAt   DateTime   @default(now())\n  questions   Question[]\n  followers   User[]\n  creator     User       @relation(\"UserTags\", fields: [creatorId], references: [id])\n  creatorId   String\n}\n\nmodel Question {\n  id         String   @id @default(cuid()) // Primary key\n  title      String\n  content    String\n  tags       Tag[]\n  answers    Answer[]\n  views      Int\n  upvotes    User[]   @relation(\"UserUpvoteQuestions\")\n  downvotes  User[]   @relation(\"UserDownvoteQuestions\")\n  collectors User[]   @relation(\"collections\")\n\n  author   User   @relation(\"UserQuestions\", fields: [authorId], references: [id])\n  authorId String\n\n  createdAt DateTime @default(now())\n}\n\nmodel Answer {\n  id        String   @id @default(cuid()) // Primary key\n  content   String\n  createdAt DateTime @default(now())\n\n  author    User   @relation(\"UserAnswers\", fields: [authorId], references: [id])\n  authorId  String\n  upvotes   User[] @relation(\"UserUpvoteAnswers\")\n  downvotes User[] @relation(\"UserDownvoteAnswers\")\n\n  question   Question @relation(fields: [questionId], references: [id])\n  questionId String\n}\n",
+  "inlineSchemaHash": "8c99a429370d4b67c2305237800ff89c68cb757d6181d35c4e9a2a498cb5fd2b",
   "copyEngine": true
 }
 
@@ -207,8 +207,8 @@ const fs = require('fs')
 config.dirname = __dirname
 if (!fs.existsSync(path.join(__dirname, 'schema.prisma'))) {
   const alternativePaths = [
-    "libs/prisma/client",
-    "prisma/client",
+    "libs/prisma/generated",
+    "prisma/generated",
   ]
   
   const alternativePath = alternativePaths.find((altPath) => {
@@ -237,7 +237,7 @@ Object.assign(exports, Prisma)
 
 // file annotations for bundling tools to include these files
 path.join(__dirname, "libquery_engine-debian-openssl-3.0.x.so.node");
-path.join(process.cwd(), "libs/prisma/client/libquery_engine-debian-openssl-3.0.x.so.node")
+path.join(process.cwd(), "libs/prisma/generated/libquery_engine-debian-openssl-3.0.x.so.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
-path.join(process.cwd(), "libs/prisma/client/schema.prisma")
+path.join(process.cwd(), "libs/prisma/generated/schema.prisma")

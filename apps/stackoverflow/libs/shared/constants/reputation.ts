@@ -1,4 +1,4 @@
-import { Prisma } from "@prisma/client";
+import { Prisma } from "@/prisma/generated";
 
 export const REPUTATION_COUNTS = {
   [Prisma.ModelName.Question]: {
