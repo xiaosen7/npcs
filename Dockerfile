@@ -50,7 +50,7 @@ COPY --from=installer /app/${APP_DIR}/package.json .
 COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/.next/standalone ./
 COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/.next/static ./${APP_DIR}/.next/static
 COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/public ./${APP_DIR}/public
-COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/prisma/migrations ./${APP_DIR}/prisma/migrations
+COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/prisma ./${APP_DIR}/prisma
 
 
 WORKDIR /app/${APP_DIR}
