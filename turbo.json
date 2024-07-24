@@ -8,7 +8,8 @@
         "libs/**/*",
         "app/**/*",
         "tests/**/*"
-      ]
+      ],
+      "dependsOn": ["^lint"]
     },
     "check-types": {
       "inputs": [
@@ -17,15 +18,16 @@
         "libs/**/*",
         "app/**/*",
         "tests/**/*"
-      ]
+      ],
+      "dependsOn": ["^check-types"]
     },
     "test": {
       "inputs": ["src/**/*", "libs/**/*", "app/**/*", "tests/**/*"],
-      "dependsOn": ["lint", "check-types"]
+      "dependsOn": ["lint", "check-types", "^test"]
     },
     "build": {
       "inputs": ["src/**/*", "libs/**/*", "app/**/*"],
-      "dependsOn": ["test", "^build"],
+      "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "esm/**"]
     },
     "test:e2e": {
