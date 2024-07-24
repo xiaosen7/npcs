@@ -68,10 +68,16 @@ for APP_DIR in apps/*/; do
     echo "Docker build completed successfully for $APP_NAME."
     echo "Image built: ${IMAGE_NAME}:latest and ${IMAGE_NAME}:${GIT_COMMIT_HASH}"
 
+
     # 推送镜像到 Docker 仓库
-    echo "Pushing images to Docker registry..."
-    docker push "${IMAGE_NAME}":latest
+    echo "Preparing to push images to Docker registry..."
+    echo "Docker registry: $DOCKER_REGISTRY"
+
+    echo "Pushing image: ${IMAGE_NAME}:${GIT_COMMIT_HASH}"
     docker push "${IMAGE_NAME}":"${GIT_COMMIT_HASH}"
+
+    echo "Pushing image: ${IMAGE_NAME}:latest"
+    docker push "${IMAGE_NAME}":latest
 
     echo "Images pushed successfully for $APP_NAME."
     echo "----------------------------------------"
