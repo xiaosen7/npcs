@@ -10,8 +10,8 @@ if [ -z "$TURBO_TEAM" ] || [ -z "$TURBO_TOKEN" ]; then
     echo "Warn: TURBO_TEAM or TURBO_TOKEN environment variables are not set."
 fi
 
-if [ -z "$NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY" ] || [ -z "$CLERK_SECRET_KEY" ] || [ -z "$DOCKER_REGISTRY" ]; then
-    echo "Error: Ensure NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY, CLERK_SECRET_KEY, DOCKER_REGISTRY environment variables are set."
+if [ -z "$NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY" ] || [ -z "$CLERK_SECRET_KEY" ] || [ -z "$REGISTRY" ] || [ -z "$IMAGE_NAMESPACE" ]; then
+    echo "Error: Ensure NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY, CLERK_SECRET_KEY, REGISTRY, IMAGE_NAMESPACE environment variables are set."
     exit 1
 fi
 
@@ -47,7 +47,7 @@ for APP_DIR in apps/*/; do
     CLEAN_PACKAGE_NAME=$(clean_package_name "$APP_PACKAGE_NAME")
 
     # 构建 IMAGE_NAME
-    IMAGE_NAME="$DOCKER_REGISTRY/$CLEAN_PACKAGE_NAME"
+    IMAGE_NAME="$IMAGE_NAMESPACE/$CLEAN_PACKAGE_NAME"
 
     echo "Building Docker image for $APP_NAME ($APP_PACKAGE_NAME)"
     echo "Using image name: $IMAGE_NAME"
