@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAMESPACE: ${{ github.actor }}
+  IMAGE_NAMESPACE: ghcr.io/${{ github.actor }}
 
 jobs:
   publish:
@@ -21,7 +21,8 @@ jobs:
           echo ${{ secrets.PAT }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
       - name: Build and Push Image
         run: |
-          export TURBO_TEAM=${{ secrets.TURBO_TEAM }} TURBO_TOKEN=${{ secrets.TURBO_TOKEN }} REGISTRY=${{ env.REGISTRY }} IMAGE_NAMESPACE=${{ env.IMAGE_NAMESPACE }}
+          export TURBO_TEAM=${{ secrets.TURBO_TEAM }} TURBO_TOKEN=${{ secrets.TURBO_TOKEN }}
+          export NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }} REGISTRY=${{ env.REGISTRY }} IMAGE_NAMESPACE=${{ env.IMAGE_NAMESPACE }}
           bash ./build.sh
 
   deploy:
