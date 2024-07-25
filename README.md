@@ -4,8 +4,8 @@
 
 | Task                           | Complete | Developing |
 | ------------------------------ | -------- | ---------- |
-| Deploy as needed               |          | 1          |
-| Env refactor                   |          |            |
+| Deploy as needed               | 1        |            |
+| Env refactor                   | 1        |            |
 | CI for check                   |          |            |
 | Development flow               |          |            |
 | Webhook                        |          |            |

@@ -12,6 +12,10 @@ overrides:
 importers:
 
   .:
+    dependencies:
+      turbo:
+        specifier: ^2.0.9
+        version: 2.0.9
     devDependencies:
       husky:
         specifier: ^9.1.1
@@ -19,9 +23,6 @@ importers:
       lint-staged:
         specifier: ^15.2.7
         version: 15.2.7
-      turbo:
-        specifier: ^2.0.9
-        version: 2.0.9
 
   apps/large-file-upload:
     dependencies:
@@ -205,7 +206,7 @@ importers:
         version: 8.4.39
       tailwindcss:
         specifier: ^3.4.5
-        version: 3.4.5(ts-node@10.9.1(@types/node@20.14.10)(typescript@5.5.3))
+        version: 3.4.5(ts-node@10.9.1(@swc/core@1.7.0)(@types/node@20.14.10)(typescript@5.5.3))
       tsconfig-paths:
         specifier: ^4.2.0
         version: 4.2.0
@@ -347,7 +348,7 @@ importers:
         version: 8.2.4(@babel/preset-env@7.24.8(@babel/core@7.24.9))(bufferutil@4.0.8)(utf-8-validate@6.0.3)
       tailwindcss:
         specifier: ^3.4.1
-        version: 3.4.5(ts-node@10.9.1(@types/node@20.14.10)(typescript@5.5.3))
+        version: 3.4.5(ts-node@10.9.1(@swc/core@1.7.0)(@types/node@20.14.10)(typescript@5.5.3))
       typescript:
         specifier: ^5
         version: 5.5.3
@@ -585,7 +586,7 @@ importers:
         version: 8.2.4(@babel/preset-env@7.24.8(@babel/core@7.24.9))(bufferutil@4.0.8)(utf-8-validate@6.0.3)
       tailwindcss:
         specifier: ^3.4.5
-        version: 3.4.5(ts-node@10.9.1(@types/node@20.14.10)(typescript@5.5.3))
+        version: 3.4.5(ts-node@10.9.1(@swc/core@1.7.0)(@types/node@20.14.10)(typescript@5.5.3))
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.5(ts-node@10.9.1(@swc/core@1.7.0)(@types/node@20.14.10)(typescript@5.5.3)))
@@ -852,7 +853,7 @@ importers:
         version: 20.14.10
       tailwindcss:
         specifier: ^3.4.5
-        version: 3.4.5(ts-node@10.9.1(@types/node@20.14.10)(typescript@5.5.3))
+        version: 3.4.5(ts-node@10.9.1(@swc/core@1.7.0)(@types/node@20.14.10)(typescript@5.5.3))
       typescript:
         specifier: ^5
         version: 5.5.3
@@ -1120,7 +1121,7 @@ importers:
         version: 8.2.4(@babel/preset-env@7.24.8(@babel/core@7.24.9))(bufferutil@4.0.8)(utf-8-validate@6.0.3)
       tailwindcss:
         specifier: ^3.4.5
-        version: 3.4.5(ts-node@10.9.1(@types/node@20.14.10)(typescript@5.5.3))
+        version: 3.4.5(ts-node@10.9.1(@swc/core@1.7.0)(@types/node@20.14.10)(typescript@5.5.3))
       tslib:
         specifier: ^2.6.3
         version: 2.6.3
@@ -1358,7 +1359,7 @@ importers:
         version: 8.2.4(@babel/preset-env@7.24.8(@babel/core@7.24.9))(bufferutil@4.0.8)(utf-8-validate@6.0.3)
       tailwindcss:
         specifier: ^3.4.5
-        version: 3.4.5(ts-node@10.9.1(@types/node@20.14.10)(typescript@5.5.3))
+        version: 3.4.5(ts-node@10.9.1(@swc/core@1.7.0)(@types/node@20.14.10)(typescript@5.5.3))
       tslib:
         specifier: ^2.6.3
         version: 2.6.3
@@ -1602,7 +1603,7 @@ importers:
         version: 8.2.4(@babel/preset-env@7.24.8(@babel/core@7.24.9))(bufferutil@4.0.8)(utf-8-validate@6.0.3)
       tailwindcss:
         specifier: ^3.4.5
-        version: 3.4.5(ts-node@10.9.1(@types/node@20.14.10)(typescript@5.5.3))
+        version: 3.4.5(ts-node@10.9.1(@swc/core@1.7.0)(@types/node@20.14.10)(typescript@5.5.3))
       tslib:
         specifier: ^2.6.3
         version: 2.6.3
@@ -1774,7 +1775,7 @@ importers:
         version: 4.18.1
       tailwindcss:
         specifier: ^3.4.5
-        version: 3.4.5(ts-node@10.9.1(@types/node@20.14.10)(typescript@5.5.3))
+        version: 3.4.5(ts-node@10.9.1(@swc/core@1.7.0)(@types/node@20.14.10)(typescript@5.5.3))
       tslib:
         specifier: ^2.6.3
         version: 2.6.3
@@ -19430,7 +19431,7 @@ snapshots:
       postcss: 8.4.39
       ts-node: 10.9.1(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.10)(typescript@5.5.4)
 
-  postcss-load-config@4.0.2(postcss@8.4.39)(ts-node@10.9.1(@types/node@20.14.10)(typescript@5.5.3)):
+  postcss-load-config@4.0.2(postcss@8.4.39)(ts-node@10.9.1(@swc/core@1.7.0)(@types/node@20.14.10)(typescript@5.5.3)):
     dependencies:
       lilconfig: 3.1.2
       yaml: 2.4.5
@@ -20947,7 +20948,7 @@ snapshots:
       postcss: 8.4.39
       postcss-import: 15.1.0(postcss@8.4.39)
       postcss-js: 4.0.1(postcss@8.4.39)
-      postcss-load-config: 4.0.2(postcss@8.4.39)(ts-node@10.9.1(@types/node@20.14.10)(typescript@5.5.3))
+      postcss-load-config: 4.0.2(postcss@8.4.39)(ts-node@10.9.1(@swc/core@1.7.0)(@types/node@20.14.10)(typescript@5.5.3))
       postcss-nested: 6.0.1(postcss@8.4.39)
       postcss-selector-parser: 6.1.1
       resolve: 1.22.8
@@ -20974,7 +20975,7 @@ snapshots:
       postcss: 8.4.39
       postcss-import: 15.1.0(postcss@8.4.39)
       postcss-js: 4.0.1(postcss@8.4.39)
-      postcss-load-config: 4.0.2(postcss@8.4.39)(ts-node@10.9.1(@types/node@20.14.10)(typescript@5.5.3))
+      postcss-load-config: 4.0.2(postcss@8.4.39)(ts-node@10.9.1(@swc/core@1.7.0)(@types/node@20.14.10)(typescript@5.5.3))
       postcss-nested: 6.0.1(postcss@8.4.39)
       postcss-selector-parser: 6.1.1
       resolve: 1.22.8
@@ -21322,7 +21323,7 @@ snapshots:
       execa: 5.1.1
       globby: 11.1.0
       joycon: 3.1.1
-      postcss-load-config: 4.0.2(postcss@8.4.39)(ts-node@10.9.1(@types/node@20.14.10)(typescript@5.5.3))
+      postcss-load-config: 4.0.2(postcss@8.4.39)(ts-node@10.9.1(@swc/core@1.7.0)(@types/node@20.14.10)(typescript@5.5.3))
       resolve-from: 5.0.0
       rollup: 4.18.1
       source-map: 0.8.0-beta.0
