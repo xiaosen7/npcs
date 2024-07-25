@@ -2,7 +2,7 @@
 
 ## Todo list
 
-- [ ] Deploy as needed
+- [x] Deploy as needed
 - [ ] Env refactor
 - [ ] CI for check
 - [ ] Development flow
