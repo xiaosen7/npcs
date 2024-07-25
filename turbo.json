@@ -26,12 +26,14 @@
     },
     "build": {
       "inputs": ["src/**/*", "libs/**/*", "app/**/*", ".env*", "!.env.local"],
-      "outputs": [".next/**", "!.next/cache/**", "esm/**"],
-      "dependsOn": ["^build"],
-      "passThroughEnv": [
-        "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
-        "CLERK_SECRET_KEY"
-      ]
+      "outputs": [".next/**", "!.next/cache/**"],
+      "dependsOn": ["^compile"],
+      "env": ["NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY", "CLERK_SECRET_KEY"]
+    },
+    "compile": {
+      "inputs": ["src/**/*"],
+      "outputs": ["esm/**"],
+      "dependsOn": ["^build"]
     },
     "test:e2e": {
       "inputs": [
@@ -53,7 +55,7 @@
       "persistent": true,
       "cache": false
     },
-    "build:watch": {
+    "compile:watch": {
       "persistent": true,
       "cache": false
     },

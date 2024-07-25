@@ -4,8 +4,8 @@
   "scripts": {
     "check-types": "tsc --noEmit",
     "lint": "eslint .",
-    "build:watch": "rollup -c --watch",
-    "build": "rollup -c",
+    "compile:watch": "rollup -c --watch",
+    "compile": "rollup -c",
     "test": "vitest --run",
     "test:watch": "vitest watch",
     "test:changed": "vitest run --changed"
