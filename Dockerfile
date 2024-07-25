@@ -15,6 +15,9 @@ ENV NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
 ARG CLERK_SECRET_KEY
 ENV CLERK_SECRET_KEY=${CLERK_SECRET_KEY}
 
+# see https://github.com/prisma/prisma/issues/16901
+ENV PRISMA_CLIENT_ENGINE_TYPE=binary
+
 RUN apk update && apk add --no-cache libc6-compat openssl
 
 # 构建阶段，安装所有必要的构建工具

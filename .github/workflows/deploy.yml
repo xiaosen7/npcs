@@ -1,4 +1,4 @@
-name: Deploy Next.js App
+name: Deploy Next.js Practical Cases
 
 on:
   push:
@@ -24,12 +24,26 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-      - name: Turbo Build
+
+      - name: Cache pnpm dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: Set up Node.js
         uses: actions/setup-node@v4.0.2
         with:
           node-version: 18
-      - run: |
+
+      - name: Install Dependencies
+        run: |
           corepack enable && pnpm i --frozen-lockfile
+
+      - name: Build with Turbo
+        run: |
           npx turbo build --dry && npx turbo build
 
   build-and-publish-images:
@@ -41,13 +55,22 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 2 # we need diff recent two commits
+
+      - name: Cache Docker layers
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-docker-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-docker-
+
       - name: Login Registry
         run: |
           echo ${{ secrets.PAT }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
+
       - name: Build and Push Image
         run: |
           bash multi-app-docker-build-push.sh
-
   deploy:
     needs: build-and-publish-images
     name: Deploy Image
