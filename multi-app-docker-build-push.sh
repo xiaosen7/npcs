@@ -62,10 +62,10 @@ for APP_DIR in apps/*/; do
     fi
 
     # 检查远程镜像是否存在
-    if docker manifest inspect "${IMAGE_NAME}:turbo_${APP_TURBO_HASH}" >/dev/null 2>&1; then
-        echo "Image ${IMAGE_NAME}:turbo_${APP_TURBO_HASH} already exists. Skipping build and push."
-        continue
-    fi
+    # if docker manifest inspect "${IMAGE_NAME}:turbo_${APP_TURBO_HASH}" >/dev/null 2>&1; then
+    #     echo "Image ${IMAGE_NAME}:turbo_${APP_TURBO_HASH} already exists. Skipping build and push."
+    #     continue
+    # fi
 
     # 执行 Docker 构建
     docker build \

@@ -132,7 +132,7 @@ dist-storybook/
 .rollup.cache
 esm
 *storybook.log
-libquery_engine-debian-openssl-3.0.x.so.node
+.node
 
 #docker
 volumes

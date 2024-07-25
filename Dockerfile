@@ -15,7 +15,7 @@ ENV NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
 ARG CLERK_SECRET_KEY
 ENV CLERK_SECRET_KEY=${CLERK_SECRET_KEY}
 
-RUN apk update && apk add --no-cache libc6-compat
+RUN apk update && apk add --no-cache libc6-compat openssl
 
 # 构建阶段，安装所有必要的构建工具
 FROM base AS builder
