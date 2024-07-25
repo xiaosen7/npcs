@@ -36,7 +36,7 @@ RUN corepack enable && pnpm i --frozen-lockfile
 COPY --from=builder /app/out/full/ .
 COPY turbo.json turbo.json
 WORKDIR /app
-RUN npx turbo build --env-mode=loose --filter=${APP_PACKAGE_NAME}...
+RUN npx turbo build --filter=${APP_PACKAGE_NAME}...
 
 # 最终的运行阶段，只包含必要的运行时依赖
 FROM base AS runner

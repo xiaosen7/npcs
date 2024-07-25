@@ -10,3 +10,4 @@
 - [ ] Fix styles for `stackoverflow`
 - [ ] Dep check
 - [ ] Git message lint
+- [ ] Research turbo generators
