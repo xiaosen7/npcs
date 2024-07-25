@@ -25,7 +25,14 @@
       "dependsOn": ["lint", "check-types"]
     },
     "build": {
-      "inputs": ["src/**/*", "libs/**/*", "app/**/*", ".env*", "!.env.local"],
+      "inputs": [
+        "src/**/*",
+        "libs/**/*",
+        "app/**/*",
+        ".env*",
+        ".env.local",
+        ".env.production"
+      ],
       "outputs": [".next/**", "!.next/cache/**"],
       "dependsOn": ["^compile"],
       "env": ["NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY", "CLERK_SECRET_KEY"]
