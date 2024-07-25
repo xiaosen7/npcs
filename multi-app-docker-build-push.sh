@@ -22,6 +22,22 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# 获取更改的文件列表
+CHANGED_FILES=$(git diff --name-only HEAD~1)
+
+# 检查 Dockerfile 和当前脚本文件是否在更改的文件列表中
+FORCE_BUILD=false
+if echo "$CHANGED_FILES" | grep -q "$DOCKERFILE_PATH"; then
+    FORCE_BUILD=true
+fi
+if echo "$CHANGED_FILES" | grep -q "$0"; then
+    FORCE_BUILD=true
+fi
+
+if [ "$FORCE_BUILD" = true ]; then
+    echo "Forcing build and push due to changes in Dockerfile or this script."
+fi
+
 # 函数：清理包名以适用于 Docker 镜像名称
 clean_package_name() {
     echo "$1" | sed -e 's/[^a-zA-Z0-9.]/-/g' -e 's/^[-.]//g' -e 's/[-.]$//g' | tr '[:upper:]' '[:lower:]'
@@ -62,10 +78,10 @@ for APP_DIR in apps/*/; do
     fi
 
     # 检查远程镜像是否存在
-    # if docker manifest inspect "${IMAGE_NAME}:turbo_${APP_TURBO_HASH}" >/dev/null 2>&1; then
-    #     echo "Image ${IMAGE_NAME}:turbo_${APP_TURBO_HASH} already exists. Skipping build and push."
-    #     continue
-    # fi
+    if [ "$FORCE_BUILD" = false ] && docker manifest inspect "${IMAGE_NAME}:turbo_${APP_TURBO_HASH}" >/dev/null 2>&1; then
+        echo "Image ${IMAGE_NAME}:turbo_${APP_TURBO_HASH} already exists. Skipping build and push."
+        continue
+    fi
 
     # 执行 Docker 构建
     docker build \
