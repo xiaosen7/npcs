@@ -9,6 +9,11 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAMESPACE: ghcr.io/${{ github.actor }}
+  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
+  CLERK_SECRET_KEY: ${{ secrets.CLERK_SECRET_KEY }}
+  POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
 
 jobs:
   build:
@@ -25,8 +30,6 @@ jobs:
           node-version: 18
       - run: |
           corepack enable && pnpm i --frozen-lockfile
-          export TURBO_TEAM=${{ secrets.TURBO_TEAM }} TURBO_TOKEN=${{ secrets.TURBO_TOKEN }}
-          export NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }} CLERK_SECRET_KEY=${{ secrets.CLERK_SECRET_KEY }}
           npx turbo build --dry && npx turbo build
 
   build-and-publish-images:
@@ -36,13 +39,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2 # we need diff recent two commits
       - name: Login Registry
         run: |
           echo ${{ secrets.PAT }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
       - name: Build and Push Image
         run: |
-          export TURBO_TEAM=${{ secrets.TURBO_TEAM }} TURBO_TOKEN=${{ secrets.TURBO_TOKEN }}
-          export NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }} CLERK_SECRET_KEY=${{ secrets.CLERK_SECRET_KEY }} REGISTRY=${{ env.REGISTRY }} IMAGE_NAMESPACE=${{ env.IMAGE_NAMESPACE }}
           bash multi-app-docker-build-push.sh
 
   deploy:
@@ -58,9 +61,9 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           port: ${{ secrets.VPS_PORT }}
+          envs: POSTGRES_PASSWORD,NEXT_PUBLIC_CLERK,CLERK_SECRET_KEY
           script: |
             cd ${{ secrets.VPS_WORK_DIR }} 
             git pull -r
-            export POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }} CLERK_SECRET_KEY=${{ secrets.CLERK_SECRET_KEY }}
             bash start.sh
             exit

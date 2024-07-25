@@ -4,7 +4,7 @@ set -e # 启用错误立即退出模式
 
 # 设置变量
 CONTEXT_PATH="."
-DOCKERFILE_PATH="./Dockerfile"
+DOCKERFILE_PATH="Dockerfile"
 
 if [ -z "$TURBO_TEAM" ] || [ -z "$TURBO_TOKEN" ]; then
     echo "Warn: TURBO_TEAM or TURBO_TOKEN environment variables are not set."
