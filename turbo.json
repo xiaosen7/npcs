@@ -25,7 +25,7 @@
       "dependsOn": ["lint", "check-types"]
     },
     "build": {
-      "inputs": ["src/**/*", "libs/**/*", "app/**/*", ".env*"],
+      "inputs": ["src/**/*", "libs/**/*", "app/**/*", ".env*", "!.env.local"],
       "outputs": [".next/**", "!.next/cache/**", "esm/**"],
       "dependsOn": ["^build"],
       "passThroughEnv": [

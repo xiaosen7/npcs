@@ -11,14 +11,28 @@ env:
   IMAGE_NAMESPACE: ghcr.io/${{ github.actor }}
 
 jobs:
+  build:
+    name: Build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Turbo Build
+        run: |
+          export TURBO_TEAM=${{ secrets.TURBO_TEAM }} TURBO_TOKEN=${{ secrets.TURBO_TOKEN }}
+          export NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }} CLERK_SECRET_KEY=${{ secrets.CLERK_SECRET_KEY }} REGISTRY=${{ env.REGISTRY }} IMAGE_NAMESPACE=${{ env.IMAGE_NAMESPACE }}
+          chorepack enable && pnpm i --frozen-lockfile && turbo build
+
   publish:
+    needs: build
     name: Publish Image
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
-      - name: LoginREGISTRY
+      - name: Login Registry
         run: |
           echo ${{ secrets.PAT }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
       - name: Build and Push Image
