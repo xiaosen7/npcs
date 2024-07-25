@@ -52,6 +52,21 @@ for APP_DIR in apps/*/; do
     echo "Building Docker image for $APP_NAME ($APP_PACKAGE_NAME)"
     echo "Using image name: $IMAGE_NAME"
 
+    # 获取 turbo build hash
+    APP_TURBO_HASH=$(npx turbo build --filter="$APP_PACKAGE_NAME" --dry=json | jq -r --arg PACKAGE_NAME "$APP_PACKAGE_NAME" '.tasks[] | select(.package==$PACKAGE_NAME) | .hash')
+    echo "turbo build hash for $APP_PACKAGE_NAME: $APP_TURBO_HASH"
+
+    if [ -z "$APP_TURBO_HASH" ]; then
+        echo "Error: Unable to get turbo build hash for $APP_PACKAGE_NAME"
+        exit 1
+    fi
+
+    # 检查远程镜像是否存在
+    if docker manifest inspect "${IMAGE_NAME}:turbo_${APP_TURBO_HASH}" >/dev/null 2>&1; then
+        echo "Image ${IMAGE_NAME}:turbo_${APP_TURBO_HASH} already exists. Skipping build and push."
+        continue
+    fi
+
     # 执行 Docker 构建
     docker build \
         --build-arg TURBO_TEAM="$TURBO_TEAM" \
@@ -62,11 +77,12 @@ for APP_DIR in apps/*/; do
         --build-arg CLERK_SECRET_KEY="$CLERK_SECRET_KEY" \
         -t "${IMAGE_NAME}":latest \
         -t "${IMAGE_NAME}":"${GIT_COMMIT_HASH}" \
+        -t "${IMAGE_NAME}":turbo_"${APP_TURBO_HASH}" \
         -f $DOCKERFILE_PATH \
         $CONTEXT_PATH
 
     echo "Docker build completed successfully for $APP_NAME."
-    echo "Image built: ${IMAGE_NAME}:latest and ${IMAGE_NAME}:${GIT_COMMIT_HASH}"
+    echo "Image built: ${IMAGE_NAME}:latest, ${IMAGE_NAME}:${GIT_COMMIT_HASH}, and ${IMAGE_NAME}:turbo_${APP_TURBO_HASH}"
 
     # 推送镜像到 Docker 仓库
     echo "Preparing to push images to Docker registry..."
@@ -77,6 +93,9 @@ for APP_DIR in apps/*/; do
 
     echo "Pushing image: ${IMAGE_NAME}:latest"
     docker push "${IMAGE_NAME}":latest
+
+    echo "Pushing image: ${IMAGE_NAME}:turbo_${APP_TURBO_HASH}"
+    docker push "${IMAGE_NAME}":turbo_"${APP_TURBO_HASH}"
 
     echo "Images pushed successfully for $APP_NAME."
     echo "----------------------------------------"
