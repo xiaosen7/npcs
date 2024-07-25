@@ -1,4 +1,4 @@
-import { Welcome } from "@/shared/components/welcome";
+import { Welcome } from "@/libs/shared/components/welcome";
 import { render, screen } from "@testing-library/react";
 
 test("Welcome", () => {

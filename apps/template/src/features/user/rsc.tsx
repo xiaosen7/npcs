@@ -1,4 +1,4 @@
-import { prisma } from "@/prisma/client";
+import { prisma } from "@/libs/prisma/client";
 
 export async function UserCountRsc() {
   const count = await prisma.user.count();

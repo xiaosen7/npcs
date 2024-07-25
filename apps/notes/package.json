@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "prisma generate && next dev",
+    "dev": "prisma db push && prisma migrate dev && next dev --turbo",
     "build": "prisma generate && next build",
     "start": "next start",
     "storybook": "storybook dev -p 6006",
@@ -21,6 +21,7 @@
     "@clerk/nextjs": "^5.2.4",
     "@clerk/themes": "^2.1.12",
     "@faker-js/faker": "^8.4.1",
+    "@npc/next-config": "workspace:^",
     "@npc/playwright-config": "workspace:^",
     "@npc/shared": "workspace:^",
     "@npc/tailwind-config": "workspace:^",

@@ -119,8 +119,6 @@ dist-storybook/
 .heft/
 .nx
 
-
-
 .nx/cache
 .nx/workspace-data
 
@@ -135,3 +133,6 @@ dist-storybook/
 esm
 *storybook.log
 libquery_engine-debian-openssl-3.0.x.so.node
+
+#docker
+volumes

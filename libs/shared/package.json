@@ -19,7 +19,8 @@
     "./hooks/*": "./esm/hooks/*.js",
     "./component-type": "./esm/component-type.js",
     "./react-helpers": "./esm/react-helpers.js",
-    "./router/*": "./esm/router/*"
+    "./router/*": "./esm/router/*",
+    "./env/*": "./esm/env/*"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -37,6 +38,7 @@
     "@radix-ui/react-toast": "^1.2.1",
     "@radix-ui/react-toggle": "^1.1.0",
     "@radix-ui/react-toggle-group": "^1.1.0",
+    "@t3-oss/env-nextjs": "^0.11.0",
     "ahooks": "^3.8.0",
     "async": "^3.2.5",
     "change-case": "^5.4.4",

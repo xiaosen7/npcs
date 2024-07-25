@@ -1,0 +1,20 @@
+{
+  "name": "@npc/next-config",
+  "version": "0.0.0",
+  "main": "./next.config.mjs",
+  "devDependencies": {
+    "@npc/typescript-config": "workspace:^",
+    "next": "^14.2.5",
+    "typescript": "^5.5.4",
+    "webpack": "^5.93.0"
+  },
+  "dependencies": {
+    "@npc/shared": "workspace:^",
+    "@svgr/webpack": "^8.1.0",
+    "@t3-oss/env-nextjs": "^0.11.0",
+    "dotenv": "^16.4.5",
+    "jiti": "^1.21.6",
+    "webpack-merge": "^5.10.0",
+    "zod": "^3.23.8"
+  }
+}

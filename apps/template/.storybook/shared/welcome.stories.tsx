@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
 
-import { Welcome } from "@/shared/components/welcome";
+import { Welcome } from "@/libs/shared/components/welcome";
 
 export default {
   component: Welcome,

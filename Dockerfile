@@ -1,4 +1,3 @@
-# 基础镜像，包含 Node.js
 FROM node:18-alpine AS base
 
 ARG APP_DIR
@@ -51,7 +50,6 @@ COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/.next/standalone ./
 COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/.next/static ./${APP_DIR}/.next/static
 COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/public ./${APP_DIR}/public
 COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/prisma ./${APP_DIR}/prisma
-
 
 WORKDIR /app/${APP_DIR}
 

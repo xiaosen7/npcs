@@ -25,7 +25,7 @@ jobs:
         run: |
           export TURBO_TEAM=${{ secrets.TURBO_TEAM }} TURBO_TOKEN=${{ secrets.TURBO_TOKEN }}
           export NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }} CLERK_SECRET_KEY=${{ secrets.CLERK_SECRET_KEY }} REGISTRY=${{ env.REGISTRY }} IMAGE_NAMESPACE=${{ env.IMAGE_NAMESPACE }}
-          bash ./build.sh
+          bash multi-app-docker-build-push.sh
   deploy:
     needs: publish
     name: Deploy Image
@@ -43,5 +43,5 @@ jobs:
             cd ${{ secrets.VPS_WORK_DIR }} 
             git pull -r
             export POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }} CLERK_SECRET_KEY=${{ secrets.CLERK_SECRET_KEY }}
-            bash ./start.sh
+            bash start.sh
             exit

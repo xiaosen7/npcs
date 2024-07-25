@@ -1,1 +1,1 @@
-turbo test:changed && npx lint-staged
+turbo check-types && turbo test:changed && npx lint-staged

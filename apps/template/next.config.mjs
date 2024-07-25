@@ -1,6 +1,8 @@
+import { sharedNextConfig } from "@npc/next-config";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "standalone",
+  ...sharedNextConfig,
 };
 
 export default nextConfig;
