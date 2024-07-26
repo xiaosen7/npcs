@@ -16,7 +16,7 @@
     "prisma:studio": "dotenv -e .env.development -- prisma studio -b false",
     "check-types": "tsc --noEmit",
     "generate:components": "npc generate-components --templatesDir ./templates --outDir ./src/libs/components --publicDir ./src/assets",
-    "postinstall": "prisma generate"
+    "prisma-generate": "prisma generate"
   },
   "dependencies": {
     "@clerk/nextjs": "^5.2.4",

@@ -14,7 +14,7 @@
     "test:watch": "vitest watch",
     "test:changed": "vitest run --changed",
     "check-types": "tsc --noEmit",
-    "postinstall": "prisma generate"
+    "prisma-generate": "prisma generate"
   },
   "dependencies": {
     "@clerk/nextjs": "^5.2.6",

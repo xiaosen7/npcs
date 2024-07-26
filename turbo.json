@@ -41,6 +41,10 @@
         "PRISMA_CLIENT_ENGINE_TYPE"
       ]
     },
+    "prisma-generate": {
+      "inputs": ["prisma/**/*"],
+      "outputs": ["./node_modules/.prisma/**/*"]
+    },
     "compile": {
       "inputs": ["src/**/*"],
       "outputs": ["esm/**"],

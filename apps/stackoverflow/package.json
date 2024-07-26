@@ -13,7 +13,7 @@
     "test:changed": "vitest run --changed",
     "prisma:studio": "dotenv -e .env.development -- prisma studio -b false",
     "check-types": "tsc --noEmit",
-    "postinstall": "prisma generate"
+    "prisma-generate": "prisma generate"
   },
   "prisma": {
     "seed": "tsx scripts/seed.ts"
