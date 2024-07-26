@@ -1,6 +1,5 @@
 {
   "name": "@npcs/cli",
-  "private": true,
   "scripts": {
     "check-types": "tsc --noEmit",
     "lint": "eslint .",

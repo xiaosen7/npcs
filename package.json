@@ -6,6 +6,7 @@
     "prepare": "husky && turbo prisma-generate"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.7",
     "husky": "^9.1.1",
     "lint-staged": "^15.2.7"
   },

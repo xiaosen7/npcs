@@ -1,6 +1,6 @@
 {
   "name": "@npcs/eslint-config",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "main": "index.js",
   "dependencies": {
     "@types/node": "^20.14.10",
