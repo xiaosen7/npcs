@@ -134,7 +134,6 @@ dist-storybook/
 .rollup.cache
 esm
 *storybook.log
-.node
 
 #docker
 volumes
@@ -143,3 +142,6 @@ volumes
 
 # vercel
 .vercel
+
+# prisma
+*.node
