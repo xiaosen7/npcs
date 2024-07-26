@@ -1,14 +1,14 @@
 {
   "name": "@npcs/storybook-config",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "index.ts",
   "dependencies": {
-    "@storybook/nextjs": "8.2.4",
     "@storybook/addon-essentials": "8.2.4",
     "@storybook/addon-interactions": "8.2.4",
     "@storybook/addon-links": "8.2.4",
     "@storybook/addon-onboarding": "8.2.4",
-    "@storybook/addon-storysource": "8.2.4"
+    "@storybook/addon-storysource": "8.2.4",
+    "@storybook/nextjs": "8.2.4"
   },
   "devDependencies": {
     "@npcs/eslint-config": "workspace:*"
