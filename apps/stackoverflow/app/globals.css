@@ -1,9 +1,9 @@
+@import url("@npc/shared/styles.css");
+@import url("@/theme/styles/index.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url("@npc/shared/styles.css");
-@import url("@/theme/styles/index.css");
 
 body {
   font-family: var(--font-inter), sans-serif;
@@ -75,6 +75,13 @@ body {
   --ring: 212.7 26.8% 83.9%;
 
   --radius: 0.5rem;
+}
+
+* {
+  @apply border-border;
+}
+body {
+  @apply bg-background text-foreground;
 }
 
 .no-focus {

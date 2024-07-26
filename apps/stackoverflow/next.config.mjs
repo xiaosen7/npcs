@@ -1,19 +1,10 @@
-import { merge } from "webpack-merge";
+// @ts-check
 
-// const requiredEnvs = [
-//   "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
-//   "CLERK_SECRET_KEY",
-//   "POSTGRES_URL_NON_POOLING",
-//   "POSTGRES_PRISMA_URL",
-// ];
-
-// const missingEnvs = requiredEnvs.filter((env) => !process.env[env]);
-// if (missingEnvs.length > 0) {
-//   throw new Error(`Missing environment variables: ${missingEnvs.join(", ")}`);
-// }
+import { sharedNextConfig } from "@npc/next-config";
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const config = {
+  ...sharedNextConfig,
   images: {
     remotePatterns: [
       {
@@ -36,23 +27,6 @@ const nextConfig = {
       },
     ],
   },
-  eslint: {
-    dirs: ["app", "libs", "scripts", "storybook"],
-    ignoreDuringBuilds: true,
-  },
-  webpack(config) {
-    return merge(config, {
-      module: {
-        rules: [
-          {
-            resourceQuery: /raw/,
-            type: "asset/source",
-          },
-        ],
-      },
-    });
-  },
-  output: "standalone",
 };
 
-export default nextConfig;
+export default config;

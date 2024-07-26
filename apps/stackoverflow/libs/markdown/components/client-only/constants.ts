@@ -5,7 +5,6 @@ import "prismjs/themes/prism.css";
 import codeSyntaxHighlight from "@toast-ui/editor-plugin-code-syntax-highlight";
 
 import "@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-syntax.css";
-import "tui-color-picker/dist/tui-color-picker.css";
 
 import { ISafeAny } from "@/shared";
 import colorSyntax from "@toast-ui/editor-plugin-color-syntax";
