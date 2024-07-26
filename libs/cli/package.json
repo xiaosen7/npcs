@@ -1,6 +1,9 @@
 {
   "name": "@npcs/cli",
   "version": "0.3.0",
+  "repository": {
+    "url": "https://github.com/xiaosen7/npcs"
+  },
   "scripts": {
     "check-types": "tsc --noEmit",
     "lint": "eslint .",
