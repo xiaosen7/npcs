@@ -1,6 +1,6 @@
 {
   "name": "@npcs/get-changed-packages",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Get the changed packages from the last commit inside a workspace.",
   "repository": {
     "url": "https://github.com/xiaosen7/npcs"

@@ -1,6 +1,6 @@
 {
   "name": "@npcs/storybook-config",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "main": "index.ts",
   "dependencies": {
     "@storybook/addon-essentials": "8.2.4",
