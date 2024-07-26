@@ -2,9 +2,11 @@
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "version": "0.0.1",
   "npmClient": "pnpm",
-  "packages": [
-    "apps/*",
-    "libs/*",
-    "configs/*"
-  ]
+  "packages": ["apps/*", "libs/*", "configs/*"],
+  "command": {
+    "version": {
+      "conventionalCommits": true,
+      "changelogPreset": "angular"
+    }
+  }
 }

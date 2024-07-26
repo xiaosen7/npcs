@@ -1,6 +1,9 @@
 {
   "name": "npcs",
   "private": true,
+  "repository": {
+    "url": "https://github.com/xiaosen7/npcs"
+  },
   "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a",
   "scripts": {
     "prepare": "husky && turbo prisma-generate"
@@ -8,6 +11,7 @@
   "devDependencies": {
     "husky": "^9.1.1",
     "lerna": "^8.1.7",
+    "lerna-changelog": "^2.2.0",
     "lint-staged": "^15.2.7"
   },
   "dependencies": {
