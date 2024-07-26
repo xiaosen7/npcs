@@ -1,11 +1,11 @@
 "use client";
 
+import { Note } from ".prisma/client";
 import { ButtonIcon } from "@libs/components/button/icon";
 import { IconEdit } from "@libs/components/icon/edit";
 import { IconPreview } from "@libs/components/icon/preview";
 import { InputContent } from "@libs/components/input/content";
 import { InputTitle } from "@libs/components/input/title";
-import { Note } from "@libs/prisma/client";
 import { Back } from "@libs/router/back";
 import {
   Form,

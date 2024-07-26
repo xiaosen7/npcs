@@ -1,4 +1,4 @@
-import { Prisma } from "@/prisma/generated";
+import { Prisma } from ".prisma/client";
 import { MODEL_CONFIG_MAP } from "@/prisma/model-config";
 import { capitalCase } from "change-case";
 import { keys } from "lodash-es";

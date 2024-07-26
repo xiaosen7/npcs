@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react";
 
+import { Prisma } from ".prisma/client";
 import { GlobalSearch } from "@/layout/components/global-search";
-import { Prisma } from "@/prisma/generated";
 import { sleep } from "@/shared";
 
 export default {

@@ -1,8 +1,8 @@
+import { Prisma } from ".prisma/client";
 import { ac, actions } from "@/actions";
 import { Answer, AnswerForm } from "@/answer";
 import { MarkdownViewer } from "@/markdown";
 import { prisma } from "@/prisma";
-import { Prisma } from "@/prisma/generated";
 import {
   Collect,
   QuestionDate,

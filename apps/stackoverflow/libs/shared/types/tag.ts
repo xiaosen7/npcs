@@ -1,3 +1,3 @@
-import { Tag } from "@/prisma/generated";
+import { Tag } from ".prisma/client";
 
 export interface ITag extends Tag {}

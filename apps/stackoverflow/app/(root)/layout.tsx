@@ -1,6 +1,6 @@
+import { Prisma } from ".prisma/client";
 import { DefaultLayout, IGlobalSearchProps } from "@/layout";
 import { prisma } from "@/prisma";
-import { Prisma } from "@/prisma/generated";
 import { ESearchParamKey } from "@/search-params";
 import { ISafeAny } from "@/shared";
 import { toLower } from "lodash-es";

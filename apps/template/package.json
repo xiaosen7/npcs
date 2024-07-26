@@ -13,7 +13,8 @@
     "test": "vitest --run",
     "test:watch": "vitest watch",
     "test:changed": "vitest run --changed",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@clerk/nextjs": "^5.2.6",

@@ -1,6 +1,6 @@
 "use client";
 
-import { Note } from "@libs/prisma/client";
+import { Note } from ".prisma/client";
 import {
   Carousel,
   CarouselContent,

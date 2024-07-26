@@ -1,5 +1,5 @@
+import { Note } from ".prisma/client";
 import { fakerEN as faker } from "@faker-js/faker";
-import { Note } from "@libs/prisma/client";
 import { isArray, random, range } from "lodash-es";
 
 type ICreateMany<T> = (count: number | [number, number]) => T[];

@@ -1,8 +1,8 @@
 import { ESearchParamKey, ISearchParams } from "@/search-params";
 // eslint-disable-next-line import/no-cycle
+import { Prisma, PrismaClient } from ".prisma/client";
 import { IBetterOmit, ensureArray } from "@/shared";
 import { mergeWith, omit } from "lodash-es";
-import { Prisma, PrismaClient } from "./generated";
 import { MODEL_CONFIG_MAP } from "./model-config";
 import { IFindManyArgs } from "./types";
 

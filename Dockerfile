@@ -35,10 +35,12 @@ WORKDIR /app
 COPY .gitignore .gitignore
 COPY --from=builder /app/out/json/ .
 COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
-RUN pnpm i --frozen-lockfile
+RUN pnpm i --frozen-lockfile --ignore-scripts
 
 # 构建项目
 COPY --from=builder /app/out/full/ .
+# 触发 postinstall hook
+RUN pnpm i --frozen-lockfile
 COPY turbo.json turbo.json
 WORKDIR /app
 RUN pnpm turbo build --filter=${APP_PACKAGE_NAME}...

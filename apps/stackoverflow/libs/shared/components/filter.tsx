@@ -1,6 +1,6 @@
 "use client";
 
-import { Prisma } from "@/prisma/generated";
+import { Prisma } from ".prisma/client";
 import { ESearchParamKey } from "@/search-params";
 import { useMemoizedFn } from "ahooks";
 import React from "react";
