@@ -44,7 +44,7 @@
     "compile": {
       "inputs": ["src/**/*"],
       "outputs": ["esm/**"],
-      "dependsOn": ["^build"]
+      "dependsOn": ["^compile"]
     },
     "test:e2e": {
       "inputs": [
