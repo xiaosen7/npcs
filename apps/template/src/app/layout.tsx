@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Npcs Template",
-  description: "A template project in next.js-practical-cases",
+  description: "A template project in Next.js practical cases",
 };
 
 export default async function RootLayout({

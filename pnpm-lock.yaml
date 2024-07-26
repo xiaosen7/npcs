@@ -23,6 +23,9 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^19.2.2
         version: 19.2.2
+      '@npcs/get-changed-packages':
+        specifier: workspace:^
+        version: link:tools/get-changed-packages
       cz-git:
         specifier: ^1.9.4
         version: 1.9.4
@@ -1056,15 +1059,6 @@ importers:
       '@npcs/vitest-config':
         specifier: workspace:^
         version: link:../../configs/vitest
-      '@rollup/plugin-commonjs':
-        specifier: ^26.0.1
-        version: 26.0.1(rollup@4.18.1)
-      '@rollup/plugin-node-resolve':
-        specifier: ^15.2.3
-        version: 15.2.3(rollup@4.18.1)
-      '@rollup/plugin-typescript':
-        specifier: ^11.1.6
-        version: 11.1.6(rollup@4.18.1)(tslib@2.6.3)(typescript@5.5.3)
       '@storybook/addon-essentials':
         specifier: 8.2.4
         version: 8.2.4(storybook@8.2.4(@babel/preset-env@7.24.8(@babel/core@7.24.9))(bufferutil@4.0.8)(utf-8-validate@6.0.3))
@@ -1806,6 +1800,49 @@ importers:
       vitest:
         specifier: ^1.6.0
         version: 1.6.0(@edge-runtime/vm@3.2.0)(@types/node@20.14.10)(jsdom@24.1.0(bufferutil@4.0.8)(utf-8-validate@6.0.3))(terser@5.31.2)
+
+  tools/get-changed-packages:
+    dependencies:
+      '@pnpm/filter-workspace-packages':
+        specifier: ^10.0.1
+        version: 10.0.1(@pnpm/logger@5.0.0)
+      '@pnpm/find-workspace-dir':
+        specifier: ^7.0.1
+        version: 7.0.1
+      '@pnpm/workspace.find-packages':
+        specifier: ^4.0.1
+        version: 4.0.1(@pnpm/logger@5.0.0)
+      rollup:
+        specifier: ^4.18.1
+        version: 4.18.1
+    devDependencies:
+      '@npcs/eslint-config':
+        specifier: workspace:*
+        version: link:../../configs/eslint
+      '@npcs/rollup-config':
+        specifier: workspace:*
+        version: link:../../configs/rollup
+      '@npcs/tailwind-config':
+        specifier: workspace:*
+        version: link:../../configs/tailwind
+      '@npcs/typescript-config':
+        specifier: workspace:*
+        version: link:../../configs/typescript
+      '@npcs/vitest-config':
+        specifier: workspace:^
+        version: link:../../configs/vitest
+      '@types/node':
+        specifier: ^20.14.10
+        version: 20.14.11
+      eslint:
+        specifier: ^8.57.0
+        version: 8.57.0
+      typescript:
+        specifier: 5.5.3
+        version: 5.5.3
+      vitest:
+        specifier: ^1.6.0
+        version: 1.6.0(@edge-runtime/vm@3.2.0)(@types/node@20.14.11)(jsdom@24.1.0)(terser@5.31.2)
 
 packages:
 

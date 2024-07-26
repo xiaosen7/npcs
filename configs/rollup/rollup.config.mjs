@@ -1,5 +1,3 @@
-// @ts-check
-
 /* eslint-disable import/no-anonymous-default-export */
 
 import resolve from "@rollup/plugin-node-resolve";
@@ -14,17 +12,18 @@ import { typescriptPaths } from "rollup-plugin-typescript-paths";
 /** @type {import('rollup').RollupOptions} */
 export default {
   input: fg.sync(["./src/**/*.{ts,tsx,css}", "!**/stories/**"]),
-  output: {
-    format: "esm",
-    preserveModules: true,
-    preserveModulesRoot: "./src",
-    dir: "./esm",
-    sourcemap: true,
-  },
+  output: [
+    {
+      format: "esm",
+      preserveModules: true,
+      preserveModulesRoot: "./src",
+      dir: "./esm",
+      sourcemap: true,
+    },
+  ],
   plugins: [
     typescript({
       jsx: "react",
-      outputToFilesystem: true,
       compilerOptions: {
         declaration: true,
         outDir: "./esm",
