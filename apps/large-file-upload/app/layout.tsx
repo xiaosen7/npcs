@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Large file upload",
+  title: "Npcs - Large file upload",
   description: "Large file upload",
 };
 
