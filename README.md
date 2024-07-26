@@ -21,3 +21,4 @@ Next.js practical cases.
 | Console env in development                   |          |            |
 | Extract shared next config to plugin         |          |            |
 | Extract eslint for libs                      |          |            |
+| Replace clerk.js key to production           |          |            |
