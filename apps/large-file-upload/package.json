@@ -1,6 +1,6 @@
 {
   "name": "@npcs/large-file-upload",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "scripts": {
     "dev": "prisma db push && prisma migrate dev && next dev --turbo",

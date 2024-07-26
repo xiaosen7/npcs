@@ -1,6 +1,6 @@
 {
   "name": "@npcs/rollup-config",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "main": "./rollup.config.mjs",
   "dependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
