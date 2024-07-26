@@ -61,6 +61,7 @@ jspm_packages/
 
 # next.js build output
 .next/
+/out/
 
 # Docusaurus cache and generated files
 .docusaurus/
@@ -111,6 +112,7 @@ lib-esnext/
 lib-commonjs/
 lib-shim/
 dist/
+dist
 dist-storybook/
 *.tsbuildinfo
 
@@ -136,3 +138,8 @@ esm
 
 #docker
 volumes
+
+*.pem
+
+# vercel
+.vercel
