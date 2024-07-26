@@ -11,7 +11,7 @@ const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Npcs Notes",
-  description: "A notes app in next.js-practical-cases",
+  description: "A Notes application code by next.js-practical-cases",
 };
 
 export const dynamic = "force-dynamic";
@@ -31,7 +31,7 @@ export default async function RootLayout({
         <body
           className={cn(
             nunito.className,
-            "h-screen bg-primary text-primary px-6 py-12 overflow-y-auto flex flex-col justify-center items-center",
+            "h-screen bg-primary text-primary px-6 py-12 overflow-y-auto flex flex-col justify-center items-center"
           )}
         >
           {children}
