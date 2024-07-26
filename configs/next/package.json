@@ -1,6 +1,6 @@
 {
   "name": "@npcs/next-config",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "./next.config.mjs",
   "devDependencies": {
     "@npcs/typescript-config": "workspace:^",
