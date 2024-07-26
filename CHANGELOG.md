@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/xiaosen7/next.js-practical-cases/compare/v0.4.0...v0.4.1) (2024-07-26)
+
+
+### Features
+
+* **npcs:** add tools to lerna.json ([01091dc](https://github.com/xiaosen7/next.js-practical-cases/commit/01091dc61eb515e66b15105dac3efa3e04b38d63))
+
+
+
+
+
 # [0.4.0](https://github.com/xiaosen7/next.js-practical-cases/compare/v0.3.1...v0.4.0) (2024-07-26)
 
 

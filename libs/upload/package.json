@@ -1,6 +1,6 @@
 {
   "name": "@npcs/upload",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "scripts": {
     "check-types": "tsc --noEmit",
     "lint": "eslint ./src",
