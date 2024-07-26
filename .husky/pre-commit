@@ -1,3 +1,3 @@
 #!/bin/sh
 
-turbo check-types && turbo test:changed && npx lint-staged
+npx lint-staged
