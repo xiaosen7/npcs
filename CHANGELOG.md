@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/xiaosen7/next.js-practical-cases/compare/v0.4.1...v0.5.0) (2024-07-26)
+
+
+### Features
+
+* **npcs,@npcs/stackoverflow:** update title ([9feec2d](https://github.com/xiaosen7/next.js-practical-cases/commit/9feec2d4ebbbf4c47655ab107195d9ea02cfc5e1))
+
+
+
+
+
 ## [0.4.1](https://github.com/xiaosen7/next.js-practical-cases/compare/v0.4.0...v0.4.1) (2024-07-26)
 
 

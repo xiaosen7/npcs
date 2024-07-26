@@ -1,6 +1,6 @@
 {
   "name": "@npcs/playwright-config",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "main": "./playwright.config.ts",
   "dependencies": {
     "@playwright/test": "^1.45.2"
