@@ -1,4 +1,4 @@
-import { mp } from "@npc/shared/react-helpers";
+import { mp } from "@npcs/shared/react-helpers";
 import React from "react";
 
 export interface IFloatButtonProps extends React.ComponentProps<"div"> {

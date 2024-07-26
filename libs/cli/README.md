@@ -1,1 +1,1 @@
-# @npc/cli
+# @npcs/cli

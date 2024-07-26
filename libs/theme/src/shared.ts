@@ -1,4 +1,4 @@
-import { IComponentBaseProps } from "@npc/shared/component-type";
+import { IComponentBaseProps } from "@npcs/shared/component-type";
 
 export interface IOptions<TValue extends string> {
   defaultValue: TValue;

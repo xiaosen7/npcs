@@ -1,1 +1,1 @@
-export * from "@npc/shared/components";
+export * from "@npcs/shared/components";

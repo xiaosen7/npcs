@@ -1,5 +1,5 @@
 {
-  "extends": "@npc/typescript-config",
+  "extends": "@npcs/typescript-config",
   "compilerOptions": {
     "baseUrl": ".",
     "plugins": [

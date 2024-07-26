@@ -1,1 +1,1 @@
-# @npc/theme
+# @npcs/theme

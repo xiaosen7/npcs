@@ -7,9 +7,14 @@ import { InputContent } from "@libs/components/input/content";
 import { InputTitle } from "@libs/components/input/title";
 import { Note } from "@libs/prisma/client";
 import { Back } from "@libs/router/back";
-import { Form, FormControl, FormField, FormItem } from "@npc/shared/components";
-import { useForm } from "@npc/shared/hooks/form";
-import { useRouter } from "@npc/shared/router/hooks/index.js";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+} from "@npcs/shared/components";
+import { useForm } from "@npcs/shared/hooks/form";
+import { useRouter } from "@npcs/shared/router/hooks/index.js";
 import { useControllableValue, useRequest } from "ahooks";
 import React from "react";
 import { IconSave } from "../icon/save";

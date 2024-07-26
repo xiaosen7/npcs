@@ -1,5 +1,5 @@
 {
-  "extends": ["@npc/eslint-config"],
+  "extends": ["@npcs/eslint-config"],
   "overrides": [
     {
       "files": ["./libs/shared/**"],

@@ -1,3 +1,3 @@
-import config from "@npc/vitest-config";
+import config from "@npcs/vitest-config";
 
 export default config;

@@ -1,4 +1,4 @@
-# @npc/notes
+# @npcs/notes
 
 ## Sources
 

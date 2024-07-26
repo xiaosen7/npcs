@@ -14,9 +14,9 @@ import { CommandDevApp, CommandGenerateComponents } from "../esm/index.js";
    * @param {Error} error
    */
   function errorHandler(error) {
-    console.error("@npc/cli:", error.message);
+    console.error("@npcs/cli:", error.message);
     if (error.stack) {
-      console.error("@npc/cli:", error.stack);
+      console.error("@npcs/cli:", error.stack);
     }
 
     process.exit(1);

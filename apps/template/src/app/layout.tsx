@@ -1,6 +1,6 @@
 import { createUserIfNeeded } from "@/libs/actions/user";
 import { ClerkProvider, UserButton } from "@clerk/nextjs";
-import { cn } from "@npc/shared/jsx";
+import { cn } from "@npcs/shared/jsx";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";

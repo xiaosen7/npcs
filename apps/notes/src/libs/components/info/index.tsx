@@ -1,8 +1,8 @@
 import { ButtonIcon } from "@libs/components/button/icon";
 import { IconInfo } from "@libs/components/icon/info";
 import { REPO } from "@libs/constants/repo";
-import { IComponentBaseProps } from "@npc/shared/component-type";
-import { mp } from "@npc/shared/react-helpers";
+import { IComponentBaseProps } from "@npcs/shared/component-type";
+import { mp } from "@npcs/shared/react-helpers";
 import Link from "next/link";
 import React from "react";
 

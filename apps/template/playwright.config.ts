@@ -1,4 +1,4 @@
-import config from "@npc/playwright-config";
+import config from "@npcs/playwright-config";
 import { defineConfig } from "@playwright/test";
 
 /**

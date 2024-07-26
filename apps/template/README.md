@@ -1,1 +1,1 @@
-# @npc/template
+# @npcs/template

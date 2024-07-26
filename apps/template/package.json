@@ -1,5 +1,5 @@
 {
-  "name": "@npc/template",
+  "name": "@npcs/template",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -17,10 +17,10 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^5.2.6",
-    "@npc/next-config": "workspace:^",
-    "@npc/playwright-config": "workspace:^",
-    "@npc/shared": "workspace:^",
-    "@npc/tailwind-config": "workspace:^",
+    "@npcs/next-config": "workspace:^",
+    "@npcs/playwright-config": "workspace:^",
+    "@npcs/shared": "workspace:^",
+    "@npcs/tailwind-config": "workspace:^",
     "@prisma/client": "^5.16.2",
     "next": "14.2.5",
     "prisma": "^5.16.2",
@@ -29,10 +29,10 @@
     "server-only": "^0.0.1"
   },
   "devDependencies": {
-    "@npc/eslint-config": "workspace:*",
-    "@npc/storybook-config": "workspace:^",
-    "@npc/typescript-config": "workspace:*",
-    "@npc/vitest-config": "workspace:^",
+    "@npcs/eslint-config": "workspace:*",
+    "@npcs/storybook-config": "workspace:^",
+    "@npcs/typescript-config": "workspace:*",
+    "@npcs/vitest-config": "workspace:^",
     "@playwright/test": "^1.45.2",
     "@storybook/nextjs": "8.2.4",
     "@storybook/react": "8.2.4",

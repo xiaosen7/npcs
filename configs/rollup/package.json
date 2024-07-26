@@ -1,5 +1,5 @@
 {
-  "name": "@npc/rollup-config",
+  "name": "@npcs/rollup-config",
   "version": "0.1.0",
   "main": "./rollup.config.mjs",
   "dependencies": {

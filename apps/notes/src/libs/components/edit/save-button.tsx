@@ -4,7 +4,7 @@ import {
   Dialog,
   DialogContent,
   DialogTrigger,
-} from "@npc/shared/components/dialog.js";
+} from "@npcs/shared/components/dialog.js";
 import { Button } from "../button/button";
 import { IconWarn } from "../icon/warn";
 

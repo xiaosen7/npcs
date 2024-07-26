@@ -5,8 +5,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from "@npc/shared/components/carousel.js";
-import { cn, IComponentBaseProps, mp } from "@npc/shared/react-helpers";
+} from "@npcs/shared/components/carousel.js";
+import { cn, IComponentBaseProps, mp } from "@npcs/shared/react-helpers";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";

@@ -1,6 +1,6 @@
 "use client";
 
-import { createTheme, ETheme } from "@npc/theme/light-dark";
+import { createTheme, ETheme } from "@npcs/theme/light-dark";
 
 const { SyncElementClass, ToggleTheme, useTheme } = createTheme({
   defaultValue: ETheme.Dark,

@@ -3,13 +3,13 @@ import {
   FileSystemStorage,
   startWebsocketServer,
   Upload,
-} from "@npc/upload";
-import "@npc/upload/styles.css";
+} from "@npcs/upload";
+import "@npcs/upload/styles.css";
 import path from "path";
 
 configuration.set({
   storage: new FileSystemStorage(
-    path.resolve("node_modules", ".cache", "upload")
+    path.resolve("node_modules", ".cache", "upload"),
   ),
   webSocketPort: 9999,
 });

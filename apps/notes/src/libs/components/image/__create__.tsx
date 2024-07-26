@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 
-import { cn, mp } from "@npc/shared/react-helpers";
+import { cn, mp } from "@npcs/shared/react-helpers";
 import Image, { ImageProps } from "next/image";
 import React from "react";
 

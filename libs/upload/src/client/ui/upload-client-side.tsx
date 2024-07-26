@@ -17,8 +17,8 @@ import { Observable } from "rxjs";
 import { IUploadClientActions, IWrapServerActions } from "../../shared/actions";
 import { IUploadSetting, UploadSetting } from "./setting";
 
-import { Badge, Input, Progress } from "@npc/shared/components";
-import { cn } from "@npc/shared/jsx";
+import { Badge, Input, Progress } from "@npcs/shared/components";
+import { cn } from "@npcs/shared/jsx";
 import { configuration } from "@shared/configuration";
 import { useIsClient } from "@shared/next";
 import { io } from "socket.io-client";
@@ -50,7 +50,7 @@ export const UploadClientSide: React.FC<IUploadProps> = ({
         concurrency: DEFAULTS.concurrency,
         protocol: DEFAULTS.protocol,
       },
-    }
+    },
   );
   const [clientMap, clientMapActions] = useMap<string, UploadClient>();
   const [idToProtocolMap, idToProtocolMapActions] = useMap<
@@ -63,11 +63,11 @@ export const UploadClientSide: React.FC<IUploadProps> = ({
       isClient
         ? new SocketClient<IWrapServerActions<IUploadClientActions>>(
             io(
-              `${location.protocol}//${location.hostname}:${configuration.webSocketPort}`
-            )
+              `${location.protocol}//${location.hostname}:${configuration.webSocketPort}`,
+            ),
           )
         : null,
-    [isClient]
+    [isClient],
   );
   const canUseWebsocket = !!socketClient;
   const protocol =
@@ -80,7 +80,7 @@ export const UploadClientSide: React.FC<IUploadProps> = ({
       protocol === ESupportedProtocol.Http
         ? httpActions
         : socketClient!.actions,
-    [protocol, socketClient, httpActions]
+    [protocol, socketClient, httpActions],
   );
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -93,7 +93,7 @@ export const UploadClientSide: React.FC<IUploadProps> = ({
         file,
         unwrapActions(actions),
         setting?.concurrency,
-        setting?.chunkSize
+        setting?.chunkSize,
       );
       idToProtocolMap.set(id, protocol);
       clientMap.set(id, client);
@@ -162,7 +162,7 @@ interface IUploadSingleFileProps {
   protocol?: string;
 }
 const UploadSingleFile = memo(function UploadSingleFile(
-  props: IUploadSingleFileProps
+  props: IUploadSingleFileProps,
 ) {
   const { client, onRemove, protocol } = props;
   const file = client.file;
@@ -230,7 +230,7 @@ const UploadSingleFile = memo(function UploadSingleFile(
         <div>, Chunk size {formatFileSize(client.chunkSize)} </div>
         <UploadingElapsed elapse$={client.poolElapse$} />
       </div>
-    </div>
+    </div>,
   );
 });
 

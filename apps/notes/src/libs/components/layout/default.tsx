@@ -1,4 +1,4 @@
-import { IComponentBaseProps, mp } from "@npc/shared/react-helpers";
+import { IComponentBaseProps, mp } from "@npcs/shared/react-helpers";
 import React from "react";
 
 export interface IDefaultLayoutProps extends IComponentBaseProps {

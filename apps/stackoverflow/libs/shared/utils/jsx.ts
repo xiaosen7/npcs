@@ -1,1 +1,1 @@
-export * from "@npc/shared/jsx";
+export * from "@npcs/shared/jsx";

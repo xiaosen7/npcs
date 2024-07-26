@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("@npc/shared/styles.css");
-@import url("@npc/theme/styles.css");
+@import url("@npcs/shared/styles.css");
+@import url("@npcs/theme/styles.css");
 @import url("@libs/theme/variables.css");
 
 body,

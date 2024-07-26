@@ -2,7 +2,7 @@
 
 import { ButtonIcon } from "@libs/components/button/icon";
 import { IconBack } from "@libs/components/icon/back";
-import { IComponentBaseProps, mp } from "@npc/shared/react-helpers";
+import { IComponentBaseProps, mp } from "@npcs/shared/react-helpers";
 import { useRouter } from "next/navigation";
 import React from "react";
 

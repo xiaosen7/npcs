@@ -1,11 +1,11 @@
 {
-  "name": "@npc/playwright-config",
+  "name": "@npcs/playwright-config",
   "version": "0.0.0",
   "main": "./playwright.config.ts",
   "dependencies": {
     "@playwright/test": "^1.45.2"
   },
   "devDependencies": {
-    "@npc/eslint-config": "workspace:*"
+    "@npcs/eslint-config": "workspace:*"
   }
 }

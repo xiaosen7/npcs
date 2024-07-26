@@ -1,5 +1,5 @@
 {
-  "name": "@npc/cli",
+  "name": "@npcs/cli",
   "private": true,
   "scripts": {
     "check-types": "tsc --noEmit",
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
-    "@npc/storybook-config": "workspace:^",
+    "@npcs/storybook-config": "workspace:^",
     "@pnpm/filter-workspace-packages": "^10.0.1",
     "@pnpm/find-workspace-dir": "^7.0.1",
     "@pnpm/workspace.find-packages": "^4.0.1",
@@ -67,11 +67,11 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.1",
-    "@npc/eslint-config": "workspace:*",
-    "@npc/rollup-config": "workspace:*",
-    "@npc/tailwind-config": "workspace:*",
-    "@npc/typescript-config": "workspace:*",
-    "@npc/vitest-config": "workspace:^",
+    "@npcs/eslint-config": "workspace:*",
+    "@npcs/rollup-config": "workspace:*",
+    "@npcs/tailwind-config": "workspace:*",
+    "@npcs/typescript-config": "workspace:*",
+    "@npcs/vitest-config": "workspace:^",
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",

@@ -1,6 +1,6 @@
 "use client";
 
-import { cn, mp } from "@npc/shared/react-helpers";
+import { cn, mp } from "@npcs/shared/react-helpers";
 import { useControllableValue } from "ahooks";
 import React, { ComponentProps } from "react";
 

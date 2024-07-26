@@ -1,6 +1,6 @@
 // @ts-check
 
-import { sharedNextConfig } from "@npc/next-config";
+import { sharedNextConfig } from "@npcs/next-config";
 
 /** @type {import('next').NextConfig} */
 const config = {

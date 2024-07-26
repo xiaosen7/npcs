@@ -21,8 +21,8 @@ dotenv.config({
   path: existsSync(localEnvPath) ? [localEnvPath, envPath] : [envPath],
 });
 
-jiti("@npc/shared/env/server.js");
-jiti("@npc/shared/env/client.js");
+jiti("@npcs/shared/env/server.js");
+jiti("@npcs/shared/env/client.js");
 
 /** @type {import('next').NextConfig} */
 const sharedNextConfig = {
