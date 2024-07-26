@@ -2,9 +2,6 @@ name: Deploy Next.js Practical Cases
 
 on:
   push:
-    branches:
-      - main
-      - deploy
 
 env:
   REGISTRY: ghcr.io
