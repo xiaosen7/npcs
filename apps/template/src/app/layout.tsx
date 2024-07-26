@@ -9,7 +9,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Npc Template",
+  title: "Npcs Template",
   description: "A template project in next.js-practical-cases",
 };
 
