@@ -35,6 +35,7 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Test with Turbo
         run: |
+          npx turbo compile
           npx turbo lint check-types test
 
   build:
