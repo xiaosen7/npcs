@@ -1,6 +1,6 @@
 {
   "name": "@npcs/vitest-config",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "./vitest.config.mjs",
   "dependencies": {
     "@vitejs/plugin-react": "^4.3.1",
