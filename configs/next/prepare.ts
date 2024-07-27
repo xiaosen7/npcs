@@ -25,7 +25,9 @@ function prepare() {
 
   if (IS_DEV) {
     process.env.DATABASE_URL = `postgresql://postgres:123456@localhost:5432/${APP_NAME}`;
-    exec("pnpm prisma migrate dev && pnpm prisma studio -b false");
+    exec(
+      "pnpm prisma db push && pnpm prisma migrate dev && pnpm prisma studio -b false",
+    );
   }
 
   function loadAndCheckEnv() {

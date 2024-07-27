@@ -53,6 +53,7 @@ jobs:
         run: |
           pnpm turbo prisma-generate-type-only
           pnpm turbo compile
+          export NPM_TOKEN=${{ secrets.NPM_TOKEN }}
           pnpm lerna publish patch -y
 
   push:

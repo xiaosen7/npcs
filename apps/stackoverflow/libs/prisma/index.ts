@@ -13,7 +13,7 @@ const globalThis = global as unknown as {
 function createInstance() {
   return new PrismaClient({
     transactionOptions: {
-      timeout: 20 * 1000,
+      timeout: 60 * 1000 * 10,
     },
   }).$extends({
     model: {
