@@ -38,7 +38,8 @@
     },
     "prisma-generate-type-only": {
       "inputs": ["prisma/**/*"],
-      "outputs": ["./node_modules/.prisma/**/*"]
+      "outputs": ["./node_modules/.prisma/**/*"],
+      "cache": false
     },
     "compile": {
       "inputs": ["src/**/*"],
