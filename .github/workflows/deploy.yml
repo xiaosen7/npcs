@@ -53,6 +53,8 @@ jobs:
         run: |
           pnpm turbo prisma-generate-type-only
           pnpm turbo compile
+          git config --global user.email "wangshouren116@gmail.com"
+          git config --global user.name "ci"
           export NPM_TOKEN=${{ secrets.NPM_TOKEN }}
           pnpm lerna publish patch -y
 
