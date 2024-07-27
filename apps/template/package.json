@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "prisma db push && prisma migrate dev && next dev --turbo",
-    "build": "prisma generate && next build",
+    "build": "pnpm prisma-generate-type-only && next build",
     "start": "next start",
     "storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build",
@@ -14,7 +14,7 @@
     "test:watch": "vitest watch",
     "test:changed": "vitest run --changed",
     "check-types": "tsc --noEmit",
-    "prisma-generate": "prisma generate"
+    "prisma-generate-type-only": "prisma generate --no-engine"
   },
   "dependencies": {
     "@clerk/nextjs": "^5.2.6",

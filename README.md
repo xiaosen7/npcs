@@ -22,3 +22,7 @@ Next.js practical cases.
 | Extract shared next config to plugin         |          |            |
 | Extract eslint for libs                      |          |            |
 | Replace clerk.js key to production           |          |            |
+| Translate to English                         |          |            |
+| i18n                                         |          |            |
+| Prisma cache                                 |          |            |
+| Deploy                                       |          | 1          |

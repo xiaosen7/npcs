@@ -9,13 +9,11 @@ ENV TURBO_TEAM=${TURBO_TEAM}
 ARG TURBO_TOKEN
 ENV TURBO_TOKEN=${TURBO_TOKEN}
 
-# see https://github.com/prisma/prisma/issues/16901
-ENV PRISMA_CLIENT_ENGINE_TYPE=binary
-
 RUN apk update && apk add --no-cache libc6-compat
 
-RUN npm i prisma@5.16.2 -g
 RUN corepack enable
+# To make the container runs faster and safe memory, but need more 200mb disk space.
+RUN npm i prisma@5.16.2 -g 
 
 # 构建阶段，安装所有必要的构建工具
 FROM base AS builder
@@ -38,6 +36,7 @@ COPY --from=builder /app/out/full/ .
 RUN pnpm i --frozen-lockfile
 COPY turbo.json turbo.json
 WORKDIR /app
+
 RUN pnpm turbo build --filter=${APP_PACKAGE_NAME}...
 
 # 最终的运行阶段，只包含必要的运行时依赖
@@ -55,5 +54,7 @@ COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/prisma ./${APP_DIR}/
 
 WORKDIR /app/${APP_DIR}
 
-
-CMD ["sh", "-c", "prisma migrate deploy && node server.js"]
+# see https://github.com/prisma/prisma/issues/16901
+ENV PRISMA_CLIENT_ENGINE_TYPE=binary
+# Use `prisma generate` to generate the prisma engine, this is needed by prisma client.
+CMD ["sh", "-c", "prisma generate && prisma migrate deploy && node server.js"]

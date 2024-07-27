@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "prisma db push && prisma migrate dev && next dev --turbo",
-    "build": "prisma generate && next build",
+    "build": "pnpm prisma-generate-type-only && next build",
     "start": "next start",
     "storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build",
@@ -16,7 +16,7 @@
     "prisma:studio": "dotenv -e .env.development -- prisma studio -b false",
     "check-types": "tsc --noEmit",
     "generate:components": "npc generate-components --templatesDir ./templates --outDir ./src/libs/components --publicDir ./src/assets",
-    "prisma-generate": "prisma generate"
+    "prisma-generate-type-only": "prisma generate --no-engine"
   },
   "dependencies": {
     "@clerk/nextjs": "^5.2.4",

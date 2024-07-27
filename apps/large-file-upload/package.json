@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "prisma db push && prisma migrate dev && next dev --turbo",
-    "build": "prisma generate && next build",
+    "build": "pnpm prisma-generate-type-only && next build",
     "lint": "eslint .",
     "check-types": "tsc --noEmit",
-    "prisma-generate": "prisma generate"
+    "prisma-generate-type-only": "prisma generate --no-engine"
   },
   "dependencies": {
     "@esbuild-plugins/tsconfig-paths": "^0.1.2",

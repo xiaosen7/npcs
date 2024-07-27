@@ -34,14 +34,9 @@
         ".env.production"
       ],
       "outputs": [".next/**", "!.next/cache/**"],
-      "dependsOn": ["^compile"],
-      "env": [
-        "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
-        "CLERK_SECRET_KEY",
-        "PRISMA_CLIENT_ENGINE_TYPE"
-      ]
+      "dependsOn": ["^compile"]
     },
-    "prisma-generate": {
+    "prisma-generate-type-only": {
       "inputs": ["prisma/**/*"],
       "outputs": ["./node_modules/.prisma/**/*"]
     },
