@@ -1,10 +1,10 @@
 {
   "name": "@npcs/next-config",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "main": "./next.config.mjs",
   "devDependencies": {
-    "@npcs/typescript-config": "workspace:^",
     "@npcs/eslint-config": "workspace:*",
+    "@npcs/typescript-config": "workspace:^",
     "next": "^14.2.5",
     "typescript": "^5.5.4",
     "webpack": "^5.93.0"
