@@ -29,9 +29,8 @@
         "src/**/*",
         "libs/**/*",
         "app/**/*",
-        ".env*",
-        ".env.local",
-        ".env.production"
+        "next.config.mjs",
+        "tailwind.config.ts"
       ],
       "outputs": [".next/**", "!.next/cache/**"],
       "dependsOn": ["^compile"]
