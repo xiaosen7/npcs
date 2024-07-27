@@ -10,7 +10,7 @@ if [ -z "$TURBO_TEAM" ] || [ -z "$TURBO_TOKEN" ]; then
     echo "Warn: TURBO_TEAM or TURBO_TOKEN environment variables are not set."
 fi
 
-if [ -z "$NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY" ] || [ -z "$CLERK_SECRET_KEY" ] || [ -z "$REGISTRY" ] || [ -z "$IMAGE_NAMESPACE" ]; then
+if [ -z "$REGISTRY" ] || [ -z "$IMAGE_NAMESPACE" ]; then
     echo "Error: Ensure NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY, CLERK_SECRET_KEY, REGISTRY, IMAGE_NAMESPACE environment variables are set."
     exit 1
 fi
@@ -89,8 +89,6 @@ for APP_DIR in apps/*/; do
         --build-arg TURBO_TOKEN="$TURBO_TOKEN" \
         --build-arg APP_DIR="$APP_DIR" \
         --build-arg APP_PACKAGE_NAME="$APP_PACKAGE_NAME" \
-        --build-arg NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="$NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY" \
-        --build-arg CLERK_SECRET_KEY="$CLERK_SECRET_KEY" \
         -t "${IMAGE_NAME}":latest \
         -t "${IMAGE_NAME}":"${GIT_COMMIT_HASH}" \
         -t "${IMAGE_NAME}":turbo_"${APP_TURBO_HASH}" \
