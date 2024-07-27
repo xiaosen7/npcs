@@ -21,7 +21,9 @@ jobs:
         run: corepack enable
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
-
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Test with Turbo
@@ -42,7 +44,9 @@ jobs:
         run: corepack enable
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
-
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Publish with lerna
@@ -51,7 +55,7 @@ jobs:
           pnpm turbo compile
           git config --global user.email "wangshouren116@gmail.com"
           git config --global user.name "ci"
-          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/xiaosen7/npcs.git
+          git remote set-url origin https://x-access-token:${{ secrets.PAT }}@github.com/xiaosen7/npcs.git
           export NPM_TOKEN=${{ secrets.NPM_TOKEN }}
           pnpm lerna publish patch -y
 
