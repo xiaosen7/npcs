@@ -12,5 +12,8 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.5.13",
     "tailwindcss-animate": "^1.0.7"
+  },
+  "repository": {
+    "url": "https://github.com/xiaosen7/npcs"
   }
 }

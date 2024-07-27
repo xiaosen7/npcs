@@ -12,5 +12,8 @@
   },
   "devDependencies": {
     "@npcs/eslint-config": "workspace:*"
+  },
+  "repository": {
+    "url": "https://github.com/xiaosen7/npcs"
   }
 }

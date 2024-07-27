@@ -18,5 +18,8 @@
     "jiti": "^1.21.6",
     "webpack-merge": "^5.10.0",
     "zod": "^3.23.8"
+  },
+  "repository": {
+    "url": "https://github.com/xiaosen7/npcs"
   }
 }

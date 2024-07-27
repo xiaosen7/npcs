@@ -10,5 +10,8 @@
     "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-tailwindcss": "^3.17.4",
     "prettier": "^3.3.3"
+  },
+  "repository": {
+    "url": "https://github.com/xiaosen7/npcs"
   }
 }

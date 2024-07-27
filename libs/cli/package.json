@@ -1,9 +1,6 @@
 {
   "name": "@npcs/cli",
   "version": "0.6.1",
-  "repository": {
-    "url": "https://github.com/xiaosen7/npcs"
-  },
   "scripts": {
     "check-types": "tsc --noEmit",
     "lint": "eslint .",
@@ -104,5 +101,11 @@
     "typescript": "5.5.3",
     "vite-plugin-tsconfig-paths": "^1.4.1",
     "vitest": "^1.6.0"
+  },
+  "files": [
+    "./esm"
+  ],
+  "repository": {
+    "url": "https://github.com/xiaosen7/npcs"
   }
 }
