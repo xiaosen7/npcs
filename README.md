@@ -7,8 +7,8 @@ Next.js practical cases.
 | Name                                   | Description                       |
 | -------------------------------------- | --------------------------------- |
 | [Notes](http://18.138.71.40:3001)             | A Notes application               |
-| [Stackoverflow](18.138.71.40:3002)     | Stackoverflow clone               |
-| [large-file-upload](18.138.71.40:3003) | Large file upload, chunks enabled |
+| [Stackoverflow](http://18.138.71.40:3002)     | Stackoverflow clone               |
+| [large-file-upload](http://18.138.71.40:3003) | Large file upload, chunks enabled |
 
 ## Develop application
 
