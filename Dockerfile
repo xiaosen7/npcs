@@ -13,8 +13,7 @@ RUN apk update && apk add --no-cache libc6-compat
 
 RUN corepack enable
 
-# see https://github.com/prisma/prisma/issues/16901
-ENV PRISMA_CLIENT_ENGINE_TYPE=binary
+
 
 # 构建阶段，安装所有必要的构建工具
 FROM base AS builder
@@ -39,6 +38,8 @@ COPY turbo.json turbo.json
 
 # Use `prisma generate` to generate the prisma engine, this is needed by prisma client.
 WORKDIR /app/${APP_DIR}
+# see https://github.com/prisma/prisma/issues/16901
+ENV PRISMA_CLIENT_ENGINE_TYPE=binary
 RUN pnpm prisma generate
 
 WORKDIR /app

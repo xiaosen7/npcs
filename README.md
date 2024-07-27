@@ -26,3 +26,4 @@ Next.js practical cases.
 | i18n                                         |          |            |
 | Prisma cache                                 |          |            |
 | Deploy                                       |          | 1          |
+| App logo                                     |          | 1          |
