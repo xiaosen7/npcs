@@ -20,6 +20,7 @@ ENV PRISMA_CLIENT_ENGINE_TYPE=binary
 
 RUN apk update && apk add --no-cache libc6-compat
 
+RUN npm i prisma -g
 RUN corepack enable
 
 # 构建阶段，安装所有必要的构建工具
@@ -60,6 +61,5 @@ COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/prisma ./${APP_DIR}/
 
 WORKDIR /app/${APP_DIR}
 
-RUN npm i prisma -g
 
 CMD ["sh", "-c", "prisma migrate deploy && node server.js"]
