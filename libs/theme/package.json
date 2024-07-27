@@ -1,6 +1,6 @@
 {
   "name": "@npcs/theme",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "scripts": {
     "check-types": "tsc --noEmit",
     "lint": "eslint .",

@@ -1,6 +1,6 @@
 {
   "name": "@npcs/next-config",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "main": "./next.config.mjs",
   "devDependencies": {
     "@npcs/eslint-config": "workspace:*",

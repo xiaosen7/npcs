@@ -1,6 +1,6 @@
 {
   "name": "@npcs/get-changed-packages",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Get the changed packages from the last commit inside a workspace.",
   "type": "module",
   "scripts": {
