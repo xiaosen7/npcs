@@ -36,7 +36,7 @@ pnpm turbo compile:watch
 | Deploy as changed                            | 1        |            |
 | Env refactor                                 | 1        |            |
 | CI for check                                 | 1        |            |
-| Development flow                             |          |            |
+| Development flow                             | 1        |            |
 | Webhook                                      |          |            |
 | Fix styles for `stackoverflow`               | 1        |            |
 | Dep check                                    |          |            |
