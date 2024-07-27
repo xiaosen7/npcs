@@ -1,12 +1,12 @@
 {
   "name": "@npcs/tailwind-config",
-  "version": "0.0.0",
+  "version": "0.6.0",
   "exports": {
     ".": "./tailwind.config.js"
   },
   "devDependencies": {
-    "tailwindcss": "^3.4.5",
     "@types/node": "*",
+    "tailwindcss": "^3.4.5",
     "typescript": "^5"
   },
   "dependencies": {

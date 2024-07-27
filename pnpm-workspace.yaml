@@ -3,3 +3,4 @@ packages:
   - "./configs/*"
   - "./libs/*"
   - "./dbs/*"
+  - "./tools/*"

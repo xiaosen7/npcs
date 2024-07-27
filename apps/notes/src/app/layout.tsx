@@ -10,8 +10,8 @@ import "./globals.css";
 const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Npc Notes",
-  description: "A notes app in next.js-practical-cases",
+  title: "Npcs Notes",
+  description: "A Notes application code by next.js-practical-cases",
 };
 
 export const dynamic = "force-dynamic";

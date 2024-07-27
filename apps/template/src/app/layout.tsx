@@ -9,8 +9,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Npc Template",
-  description: "A template project in next.js-practical-cases",
+  title: "Npcs Template",
+  description: "A template project in Next.js practical cases",
 };
 
 export default async function RootLayout({

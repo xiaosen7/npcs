@@ -4,11 +4,20 @@
   "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a",
   "scripts": {
     "prepare": "husky",
-    "dev": "npcs dev-app"
+    "dev": "npcs dev-app",
+    "commit": "git-cz",
+    "prepublish": "turbo compile"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@npcs/cli": "workspace:^",
+    "@npcs/get-changed-packages": "workspace:^",
+    "commitizen": "^4.3.0",
+    "cz-git": "^1.9.4",
     "husky": "^9.1.1",
+    "lerna": "^8.1.7",
+    "lerna-changelog": "^2.2.0",
     "lint-staged": "^15.2.7"
   },
   "dependencies": {
@@ -27,5 +36,10 @@
     "@typescript-eslint/typescript-estree": "7.16.0",
     "react": "18.3.1",
     "react-dom": "18.3.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
   }
 }
