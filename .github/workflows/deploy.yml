@@ -86,6 +86,7 @@ jobs:
           bash multi-app-docker-build-push.sh
           
   deploy:
+    needs: build-and-publish-images
     runs-on: ubuntu-latest
 
     steps:
