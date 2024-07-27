@@ -20,7 +20,7 @@ ENV PRISMA_CLIENT_ENGINE_TYPE=binary
 
 RUN apk update && apk add --no-cache libc6-compat
 
-RUN npm i prisma -g
+RUN npm i prisma@5.16.2 -g
 RUN corepack enable
 
 # 构建阶段，安装所有必要的构建工具
