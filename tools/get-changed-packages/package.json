@@ -15,8 +15,7 @@
   "dependencies": {
     "@pnpm/filter-workspace-packages": "^10.0.1",
     "@pnpm/find-workspace-dir": "^7.0.1",
-    "@pnpm/workspace.find-packages": "^4.0.1",
-    "rollup": "^4.18.1"
+    "@pnpm/workspace.find-packages": "^4.0.1"
   },
   "devDependencies": {
     "@npcs/eslint-config": "workspace:*",
@@ -25,6 +24,7 @@
     "@npcs/typescript-config": "workspace:*",
     "@npcs/vitest-config": "workspace:^",
     "@types/node": "^20.14.10",
+    "rollup": "^4.18.1",
     "eslint": "^8.57.0",
     "typescript": "5.5.3",
     "vitest": "^1.6.0"
