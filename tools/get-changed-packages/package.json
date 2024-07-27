@@ -1,6 +1,6 @@
 {
   "name": "@npcs/get-changed-packages",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Get the changed packages from the last commit inside a workspace.",
   "type": "module",
   "scripts": {
@@ -24,8 +24,8 @@
     "@npcs/typescript-config": "workspace:*",
     "@npcs/vitest-config": "workspace:^",
     "@types/node": "^20.14.10",
-    "rollup": "^4.18.1",
     "eslint": "^8.57.0",
+    "rollup": "^4.18.1",
     "typescript": "5.5.3",
     "vitest": "^1.6.0"
   },
