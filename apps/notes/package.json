@@ -15,7 +15,7 @@
     "test:changed": "vitest run --changed",
     "prisma:studio": "dotenv -e .env.development -- prisma studio -b false",
     "check-types": "tsc --noEmit",
-    "generate:components": "npc generate-components --templatesDir ./templates --outDir ./src/libs/components --publicDir ./src/assets",
+    "generate:components": "npcs generate-components --templatesDir ./templates --outDir ./src/libs/components --publicDir ./src/assets",
     "prisma-generate-type-only": "prisma generate --no-engine"
   },
   "dependencies": {

@@ -34,33 +34,10 @@ jobs:
         run: |
           npx turbo prisma-generate-type-only
           npx turbo compile
-          npx turbo lint check-types test
+          npx turbo lint check-types test build
 
-  build:
+  push:
     needs: check
-    name: Build
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18]
-    steps:
-      - uses: actions/checkout@v4
-      - name: Enable Corepack
-        run: corepack enable
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-      - name: Build with Turbo
-        run: |
-          npx turbo build --dry && npx turbo build
-
-  build-and-publish-images:
-    needs: build
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
@@ -69,14 +46,6 @@ jobs:
         with:
           fetch-depth: 2 # we need diff recent two commits
 
-      - name: Cache Docker layers
-        uses: actions/cache@v2
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-docker-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-docker-
-
       - name: Login Registry
         run: |
           echo ${{ secrets.PAT }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
@@ -84,9 +53,9 @@ jobs:
       - name: Build and Push Image
         run: |
           bash multi-app-docker-build-push.sh
-          
+
   deploy:
-    needs: build-and-publish-images
+    needs: push
     runs-on: ubuntu-latest
 
     steps:
@@ -120,4 +89,3 @@ jobs:
           script: |
             cd ${{ secrets.VPS_WORK_DIR }}
             bash start.sh
-

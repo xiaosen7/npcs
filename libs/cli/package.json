@@ -12,7 +12,7 @@
   },
   "type": "module",
   "bin": {
-    "npc": "./bin/cli.mjs"
+    "npcs": "./bin/cli.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

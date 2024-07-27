@@ -24,9 +24,10 @@ import { CommandDevApp, CommandGenerateComponents } from "../esm/index.js";
   process.on("uncaughtException", errorHandler);
   process.on("unhandledRejection", errorHandler);
 
-  const program = new Command().name("npc");
+  const program = new Command().name("npcs");
 
   program.addCommand(new CommandGenerateComponents().cmd);
   program.addCommand(new CommandDevApp().cmd);
+
   program.parse();
 })();
