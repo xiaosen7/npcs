@@ -69,7 +69,7 @@ const sharedNextConfig = {
   output: "standalone",
   experimental: {
     outputFileTracingIncludes: {
-      "/": ["./prisma/**/*", "./node_modules/prisma/**"],
+      "/": ["./prisma/**/*"],
     },
   },
 };
