@@ -11,7 +11,6 @@ env:
 
 jobs:
   check:
-    name: Check
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -82,5 +81,5 @@ jobs:
           port: ${{ secrets.VPS_PORT }}
           envs: REPO_NAME
           script: |
-            cd ${{ secrets.VPS_WORK_DIR }}
+            cd ${{ secrets.VPS_WORK_DIR }}/deploy
             bash start.sh

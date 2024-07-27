@@ -4,6 +4,7 @@ services:
   template:
     container_name: template
     image: $DOCKER_REGISTRY/$DOCKER_USER/npcs-template:latest
+    restart: always
     environment:
       - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/template?schema=public
       - CLERK_SECRET_KEY
@@ -17,6 +18,7 @@ services:
   notes:
     container_name: notes
     image: $DOCKER_REGISTRY/$DOCKER_USER/npcs-notes:latest
+    restart: always
     environment:
       - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/notes?schema=public
       - CLERK_SECRET_KEY
@@ -30,6 +32,7 @@ services:
   stackoverflow:
     container_name: stackoverflow
     image: $DOCKER_REGISTRY/$DOCKER_USER/npcs-stackoverflow:latest
+    restart: always
     environment:
       - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/stackoverflow?schema=public
       - CLERK_SECRET_KEY
@@ -43,6 +46,7 @@ services:
   large-file-upload:
     container_name: large-file-upload
     image: $DOCKER_REGISTRY/$DOCKER_USER/npcs-large-file-upload:latest
+    restart: always
     environment:
       - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/large-file-upload?schema=public
       - CLERK_SECRET_KEY
@@ -56,6 +60,7 @@ services:
   postgres:
     container_name: postgres
     image: postgres:16
+    restart: always
     shm_size: 128mb
     environment:
       - POSTGRES_PASSWORD

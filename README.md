@@ -54,3 +54,7 @@ pnpm turbo compile:watch
 | Prisma cache                                 |          |            |
 | Deploy                                       |          | 1          |
 | App logo                                     |          |            |
+| App logo                                     |          |            |
+| Unified authorization                        |          |            |
+| Index page                                   |          |            |
+| Enable Docker cache in CI                    |          |            |
