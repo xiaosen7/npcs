@@ -37,12 +37,12 @@ COPY --from=builder /app/out/full/ .
 RUN pnpm i --frozen-lockfile
 COPY turbo.json turbo.json
 
-WORKDIR /app
-RUN pnpm turbo build --filter=${APP_PACKAGE_NAME}...
-
-# Generate prisma engine
+# Use `prisma generate` to generate the prisma engine, this is needed by prisma client.
 WORKDIR /app/${APP_DIR}
 RUN pnpm prisma generate
+
+WORKDIR /app
+RUN pnpm turbo build --filter=${APP_PACKAGE_NAME}...
 
 # 最终的运行阶段，只包含必要的运行时依赖
 FROM base AS runner
@@ -55,12 +55,7 @@ COPY --from=installer /app/${APP_DIR}/package.json .
 COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/.next/standalone ./
 COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/.next/static ./${APP_DIR}/.next/static
 COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/public ./${APP_DIR}/public
-COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/prisma ./${APP_DIR}/prisma
 
 WORKDIR /app/${APP_DIR}
 
-# To make the container runs faster and safe memory, but need more 200mb disk space.
-RUN pnpm i prisma@5.16.2
-
-# Use `prisma generate` to generate the prisma engine, this is needed by prisma client.
-CMD ["sh", "-c", "pnpm prisma migrate deploy && node server.js"]
+CMD ["sh", "-c", "pnpx prisma migrate deploy && node server.js"]
