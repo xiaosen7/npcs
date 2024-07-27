@@ -1,13 +1,12 @@
 // @ts-check
 
-import dotenv from "dotenv";
 import createJiti from "jiti";
-import { existsSync } from "node:fs";
-import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { merge } from "webpack-merge";
 
-loadAndCheckEnv();
+const __filename = fileURLToPath(import.meta.url);
+const jiti = createJiti(__filename);
+jiti("./prepare.ts");
 
 /** @type {import('next').NextConfig} */
 const sharedNextConfig = {
@@ -56,34 +55,16 @@ const sharedNextConfig = {
     outputFileTracingIncludes: {
       "/": ["./prisma/**/*", "./node_modules/.prisma/**/*"],
     },
+    turbo: {
+      rules: {
+        "*.svg": {
+          loaders: ["@svgr/webpack"],
+          as: "*.js",
+        },
+      },
+    },
   },
 };
 
 export { sharedNextConfig };
 export default sharedNextConfig;
-
-function loadAndCheckEnv() {
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = dirname(__filename);
-  const jiti = createJiti(__filename);
-  const isDevelopment = process.env.NODE_ENV === "development";
-
-  /**
-   * local env file should only exists in development environment.
-   * In some other environment, such as github actions or docker, local env should extends from externals
-   */
-  const localEnvPath = existsSync(join(__dirname, ".env.local"))
-    ? join(__dirname, ".env.local")
-    : "";
-  const envPath = join(__dirname, ".env");
-  const devEnvPath = isDevelopment ? join(__dirname, ".env.development") : "";
-
-  // load from file
-  dotenv.config({
-    path: [localEnvPath, envPath, devEnvPath].filter(Boolean),
-  });
-
-  // check
-  jiti("@npcs/shared/env/server.js");
-  jiti("@npcs/shared/env/client.js");
-}

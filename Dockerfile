@@ -13,8 +13,6 @@ RUN apk update && apk add --no-cache libc6-compat
 
 RUN corepack enable
 
-
-
 # 构建阶段，安装所有必要的构建工具
 FROM base AS builder
 WORKDIR /app

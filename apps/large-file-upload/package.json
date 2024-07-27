@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "prisma db push && prisma migrate dev && next dev --turbo",
+    "dev": "next dev --turbo",
     "build": "pnpm prisma generate && next build",
     "lint": "eslint .",
     "check-types": "tsc --noEmit",

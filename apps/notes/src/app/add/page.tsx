@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { actions } from "@libs/actions";
+import { getCurrentUserOrThrow } from "@libs/actions/user";
 import { NoteEdit } from "@libs/components/edit/edit";
 import { ENoteEditMode } from "@libs/components/edit/types";
 import { INoteValidationInfer } from "@libs/components/edit/validation";
@@ -20,7 +20,7 @@ const AddPage: React.FC<IPageProps> = async (props) => {
         // TODO user pick a color
         color: faker.color.rgb(),
         author: {
-          connect: await actions.user.getCurrentOrThrow(),
+          connect: await getCurrentUserOrThrow(),
         },
       },
     });

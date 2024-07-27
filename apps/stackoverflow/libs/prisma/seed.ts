@@ -1,9 +1,11 @@
+import "server-only";
+
+import { mock } from "@/mock";
 import { prisma } from "@/prisma";
+import { IQuestion, IUser } from "@/shared";
 import { random } from "lodash-es";
 import { createLogUpdate } from "log-update";
 import os from "node:os";
-import { mock } from "../libs/mock";
-import { IQuestion, IUser } from "../libs/shared";
 
 const TAG_COUNT_EACH_USER = 5;
 const BUILTIN_TAG_NAMES = ["react", "vue", "next.js", "javascript"];
@@ -49,6 +51,12 @@ async function getCounts() {
   };
 }
 async function main() {
+  if (process.env.__SEEDED__) {
+    return;
+  }
+
+  process.env.__SEEDED__ = "true";
+
   await prisma.$transaction(async () => {
     const {
       createdAnswerCount,

@@ -3,7 +3,7 @@
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { prisma } from "@libs/prisma/client";
 
-export async function getCurrent() {
+export async function getCurrentUser() {
   const { userId } = auth();
   console.log({ clerkId: userId });
   if (!userId) {
@@ -19,15 +19,15 @@ export async function getCurrent() {
   return user;
 }
 
-export async function getCurrentOrThrow() {
-  const user = await getCurrent();
+export async function getCurrentUserOrThrow() {
+  const user = await getCurrentUser();
   if (!user) {
     throw new Error("Can't find user");
   }
   return user;
 }
 
-export async function createIfNeeded() {
+export async function createUserIfNeeded() {
   try {
     const clerkUser = await currentUser();
 

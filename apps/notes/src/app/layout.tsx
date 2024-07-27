@@ -1,6 +1,6 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
-import { actions } from "@libs/actions";
+import { createUserIfNeeded } from "@libs/actions/user";
 import { SyncElementClass } from "@libs/theme";
 import { cn } from "@npcs/shared/jsx";
 import type { Metadata } from "next";
@@ -20,7 +20,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  await actions.user.createIfNeeded();
+  createUserIfNeeded();
   return (
     <ClerkProvider
       appearance={{

@@ -1,10 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import url("@npcs/shared/styles.css");
 @import url("@npcs/theme/styles.css");
 @import url("@libs/theme/variables.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body,
 html {

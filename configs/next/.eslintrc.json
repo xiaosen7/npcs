@@ -1,0 +1,11 @@
+{
+  "extends": ["@npcs/eslint-config"],
+  "overrides": [
+    {
+      "files": ["./libs/shared/**"],
+      "rules": {
+        "import/no-cycle": "off"
+      }
+    }
+  ]
+}
