@@ -60,4 +60,6 @@ COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/prisma ./${APP_DIR}/
 
 WORKDIR /app/${APP_DIR}
 
-CMD ["sh", "-c", "npx prisma migrate deploy && node server.js"]
+RUN npm i prisma -g
+
+CMD ["sh", "-c", "prisma migrate deploy && node server.js"]
