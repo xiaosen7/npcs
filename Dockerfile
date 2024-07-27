@@ -12,8 +12,7 @@ ENV TURBO_TOKEN=${TURBO_TOKEN}
 RUN apk update && apk add --no-cache libc6-compat
 
 RUN corepack enable
-# To make the container runs faster and safe memory, but need more 200mb disk space.
-RUN npm i prisma@5.16.2 -g 
+
 
 # 构建阶段，安装所有必要的构建工具
 FROM base AS builder
@@ -56,5 +55,9 @@ WORKDIR /app/${APP_DIR}
 
 # see https://github.com/prisma/prisma/issues/16901
 ENV PRISMA_CLIENT_ENGINE_TYPE=binary
+
+# To make the container runs faster and safe memory, but need more 200mb disk space.
+RUN npm i prisma@5.16.2 -g 
+
 # Use `prisma generate` to generate the prisma engine, this is needed by prisma client.
 CMD ["sh", "-c", "prisma generate && prisma migrate deploy && node server.js"]
