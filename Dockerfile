@@ -35,9 +35,6 @@ COPY --from=builder /app/out/full/ .
 # 触发 postinstall hook
 RUN pnpm i --frozen-lockfile
 COPY turbo.json turbo.json
-
-# see https://github.com/prisma/prisma/issues/16901
-ENV PRISMA_CLIENT_ENGINE_TYPE=binary
 RUN pnpm turbo build --filter=${APP_PACKAGE_NAME}...
 
 # 最终的运行阶段，只包含必要的运行时依赖

@@ -30,7 +30,8 @@
         "libs/**/*",
         "app/**/*",
         "next.config.mjs",
-        "tailwind.config.ts"
+        "tailwind.config.ts",
+        "prisma/**/*"
       ],
       "outputs": [".next/**", "!.next/cache/**"],
       "dependsOn": ["^compile"]

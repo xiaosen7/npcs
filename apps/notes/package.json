@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "prisma db push && prisma migrate dev && next dev --turbo",
+    "dev": "next dev --turbo & sleep 5 && prisma db push && prisma migrate dev",
     "build": "pnpm prisma generate && next build",
     "start": "next start",
     "storybook": "storybook dev -p 6006",
