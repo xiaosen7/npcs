@@ -36,13 +36,8 @@ COPY --from=builder /app/out/full/ .
 RUN pnpm i --frozen-lockfile
 COPY turbo.json turbo.json
 
-# Use `prisma generate` to generate the prisma engine, this is needed by prisma client.
-WORKDIR /app/${APP_DIR}
 # see https://github.com/prisma/prisma/issues/16901
 ENV PRISMA_CLIENT_ENGINE_TYPE=binary
-RUN pnpm prisma generate
-
-WORKDIR /app
 RUN pnpm turbo build --filter=${APP_PACKAGE_NAME}...
 
 # 最终的运行阶段，只包含必要的运行时依赖

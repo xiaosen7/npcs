@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "prisma db push && prisma migrate dev && next dev --turbo",
-    "build": "pnpm prisma-generate-type-only && next build",
+    "build": "pnpm prisma generate && next build",
     "lint": "eslint .",
     "check-types": "tsc --noEmit",
     "prisma-generate-type-only": "prisma generate --no-engine"
