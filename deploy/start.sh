@@ -63,11 +63,15 @@ for service in $services; do
     # 获取当前运行的镜像ID
     CURRENT_IMAGE_ID=$(docker inspect --format='{{.Image}}' "$service" 2>/dev/null || true)
 
+    echo "Current Image ID $CURRENT_IMAGE_ID"
+
     # 获取最新镜像的ID
     LATEST_IMAGE=$(yq e ".services.$service.image" "$DOCKER_COMPOSE_FILE")
 
     # 获取最新镜像的ID
     LATEST_IMAGE_ID=$(docker inspect --format='{{.Id}}' "$LATEST_IMAGE" 2>/dev/null || true)
+
+    echo "Last Image ID $LATEST_IMAGE_ID"
 
     # 比较镜像ID
     if [ "$CURRENT_IMAGE_ID" != "$LATEST_IMAGE_ID" ]; then
