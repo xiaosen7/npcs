@@ -17,7 +17,6 @@ import { useForm } from "@npcs/shared/hooks/form";
 import { useRouter } from "@npcs/shared/router/hooks/index.js";
 import { useControllableValue, useRequest } from "ahooks";
 import React from "react";
-import { IconSave } from "../icon/save";
 import { HeaderLayout } from "../layout/header";
 import { SaveButtonForAdd, SaveButtonForEdit } from "./save-button";
 import { ENoteEditMode } from "./types";
@@ -66,8 +65,6 @@ export const NoteEdit: React.FC<INoteEditProps> = (props) => {
   const isEdit = !!note;
   const isAdd = !note;
 
-  console.log(form.formState.isDirty);
-
   return (
     <Form {...form}>
       <form
@@ -106,10 +103,6 @@ export const NoteEdit: React.FC<INoteEditProps> = (props) => {
                   type="submit"
                 />
               )}
-
-              <ButtonIcon>
-                <IconSave />
-              </ButtonIcon>
             </>
           }
         />

@@ -15,6 +15,9 @@
     "check-types": "tsc --noEmit",
     "prisma-generate-type-only": "prisma generate --no-engine"
   },
+  "prisma": {
+    "seed": "tsx -r tsconfig-paths/register libs/prisma/seed.ts"
+  },
   "dependencies": {
     "@clerk/nextjs": "^5.2.3",
     "@faker-js/faker": "^8.4.1",
@@ -96,6 +99,7 @@
     "storybook": "8.2.4",
     "tailwindcss": "^3.4.5",
     "tailwindcss-animate": "^1.0.7",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "5.5.3",
     "vitest": "^1.6.0",
     "webpack": "^5.93.0",

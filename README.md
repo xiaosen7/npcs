@@ -4,8 +4,8 @@ Next.js practical cases.
 
 ## Apps
 
-| Name                                   | Description                       |
-| -------------------------------------- | --------------------------------- |
+| Name                                          | Description                       |
+| --------------------------------------------- | --------------------------------- |
 | [Notes](http://18.138.71.40:3001)             | A Notes application               |
 | [Stackoverflow](http://18.138.71.40:3002)     | Stackoverflow clone               |
 | [large-file-upload](http://18.138.71.40:3003) | Large file upload, chunks enabled |
@@ -66,3 +66,7 @@ pnpm turbo compile:watch
 | Unified authorization                        |          |            |
 | Index page                                   |          |            |
 | Enable Docker cache in CI                    |          |            |
+
+## References
+
+- [examples-next-prisma-starter](https://github.com/trpc/examples-next-prisma-starter/blob/main/package.json)

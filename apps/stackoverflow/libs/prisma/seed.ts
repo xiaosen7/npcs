@@ -1,5 +1,3 @@
-import "server-only";
-
 import { mock } from "@/mock";
 import { prisma } from "@/prisma";
 import { IQuestion, IUser } from "@/shared";

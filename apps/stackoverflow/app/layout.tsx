@@ -2,7 +2,6 @@ import { actions } from "@/actions";
 import { Toaster } from "@/shared";
 import { ThemeProvider } from "@/theme";
 import { ClerkProvider } from "@clerk/nextjs";
-import { env } from "@npcs/shared/env/server.js";
 import { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import React from "react";
@@ -29,10 +28,6 @@ export const metadata: Metadata = {
 };
 
 export const dynamic = "force-dynamic";
-
-if (env.DATABASE_URL) {
-  import("@/prisma/seed");
-}
 
 export default async function RootLayout({
   children,

@@ -30,4 +30,4 @@ export const REPUTATION_COUNTS = {
   },
 } as const;
 
-export const REPUTATION_CAN_CREATE_TAGS = 10000;
+export const REPUTATION_CAN_CREATE_TAGS = -1;

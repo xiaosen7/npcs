@@ -16,7 +16,7 @@ function createInstance() {
       timeout: 60 * 1000 * 10,
       maxWait: 60 * 1000 * 10,
     },
-    log: ["query", "info", "warn", "error"],
+    log: ["info", "warn", "error"],
   }).$extends({
     model: {
       $allModels: {
@@ -35,19 +35,16 @@ function createInstance() {
           const modelName = context.name as Prisma.ModelName;
 
           const finalArgs = getArgs(modelName, searchParams, userArgs);
-          return prisma.$transaction(async () => {
-            const items = (await context.findMany(finalArgs)) as Prisma.Result<
-              T,
-              A,
-              "findMany"
-            >;
 
-            const total = (await context.count({
+          return Promise.all([
+            context.findMany(finalArgs),
+            context.count({
               where: finalArgs.where,
-            })) as number;
-
-            return { items, total };
-          });
+            }),
+          ]).then(([items, total]) => ({
+            items: items as Prisma.Result<T, A, "findMany">,
+            total: total as number,
+          }));
         },
       },
     },

@@ -13,41 +13,49 @@ if (!process.env.__PREPARED__) {
 }
 
 function prepare() {
+  const IS_DEV = process.env.NODE_ENV === "development";
+  if (IS_DEV) {
+    processPrismaDevFlow();
+  }
+
+  loadAndCheckEnv(IS_DEV);
+}
+
+function loadAndCheckEnv(isDev: boolean) {
   const __filename = fileURLToPath(import.meta.url);
   const jiti = createJiti(__filename);
 
-  const APP_NAME = JSON.parse(
+  /**
+   * local env file should only exists in development environment.
+   * In some other environment, such as github actions or docker, local env should extends from externals
+   */
+  const localEnvPath = existsSync(join(__dirname, ".env.local"))
+    ? join(__dirname, ".env.local")
+    : "";
+  const envPath = join(__dirname, ".env");
+  const devEnvPath = isDev ? join(__dirname, ".env.development") : "";
+
+  // load from file
+  dotenv.config({
+    path: [localEnvPath, envPath, devEnvPath].filter(Boolean),
+  });
+
+  // check
+  const server = jiti("@npcs/shared/env/server.js");
+  const client = jiti("@npcs/shared/env/client.js");
+
+  console.log({ server, client });
+}
+
+function processPrismaDevFlow() {
+  const APP_PACKAGE_JSON = JSON.parse(
     readFileSync(resolve("package.json"), "utf-8"),
-  ).name;
-  const IS_DEV = process.env.NODE_ENV === "development";
+  );
+  const APP_NAME = APP_PACKAGE_JSON.name;
 
-  loadAndCheckEnv();
-
-  if (IS_DEV) {
-    process.env.DATABASE_URL = `postgresql://postgres:123456@localhost:5432/${APP_NAME.replace("/", "_")}`;
-    exec("pnpm prisma migrate dev && pnpm prisma studio -b false");
-  }
-
-  function loadAndCheckEnv() {
-    /**
-     * local env file should only exists in development environment.
-     * In some other environment, such as github actions or docker, local env should extends from externals
-     */
-    const localEnvPath = existsSync(join(__dirname, ".env.local"))
-      ? join(__dirname, ".env.local")
-      : "";
-    const envPath = join(__dirname, ".env");
-    const devEnvPath = IS_DEV ? join(__dirname, ".env.development") : "";
-
-    // load from file
-    dotenv.config({
-      path: [localEnvPath, envPath, devEnvPath].filter(Boolean),
-    });
-
-    // check
-    const server = jiti("@npcs/shared/env/server.js");
-    const client = jiti("@npcs/shared/env/client.js");
-
-    console.log({ server, client });
-  }
+  process.env.DATABASE_URL = `postgresql://postgres:123456@localhost:5432/${APP_NAME.replace("/", "_")}`;
+  const hasSeed = !!APP_PACKAGE_JSON?.prisma?.seed;
+  exec(
+    `pnpm prisma migrate dev ${hasSeed ? `&& pnpm prisma db seed` : ""} && pnpm prisma studio -b false`,
+  );
 }
