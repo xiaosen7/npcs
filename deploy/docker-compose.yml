@@ -6,7 +6,7 @@ services:
     image: $DOCKER_REGISTRY/$DOCKER_USER/npcs-template:latest
     restart: always
     environment:
-      - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/template?pool_timeout=0
+      - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/template?pool_timeout=6000
       - CLERK_SECRET_KEY
       - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
     ports:
@@ -20,7 +20,7 @@ services:
     image: $DOCKER_REGISTRY/$DOCKER_USER/npcs-notes:latest
     restart: always
     environment:
-      - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/notes?pool_timeout=0
+      - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/notes?pool_timeout=6000
       - CLERK_SECRET_KEY
       - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
     ports:
@@ -34,7 +34,7 @@ services:
     image: $DOCKER_REGISTRY/$DOCKER_USER/npcs-stackoverflow:latest
     restart: always
     environment:
-      - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/stackoverflow?pool_timeout=60000
+      - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/stackoverflow?pool_timeout=6000
       - CLERK_SECRET_KEY
       - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
     ports:
@@ -48,7 +48,7 @@ services:
     image: $DOCKER_REGISTRY/$DOCKER_USER/npcs-large-file-upload:latest
     restart: always
     environment:
-      - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/large-file-upload?pool_timeout=0
+      - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/large-file-upload?pool_timeout=6000
       - CLERK_SECRET_KEY
       - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
     ports:
@@ -71,3 +71,5 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    volumes:
+      - ./volumes/pgdata:/var/lib/postgresql/data

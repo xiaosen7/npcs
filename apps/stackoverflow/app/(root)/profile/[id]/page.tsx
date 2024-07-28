@@ -21,53 +21,45 @@ const ProFileDetailPage: React.FC<IPageProps<{ id: string }>> = async ({
   params: { id },
   searchParams,
 }) => {
-  const [
-    [profileUser, badges],
-    { items: questions, total: questionTotal },
-    { items: answers, total: answerTotal },
-    loggedUser,
-  ] = await Promise.all([
-    prisma.$transaction(async () =>
-      Promise.all([
-        prisma.user.findUniqueOrThrow({
-          where: {
-            id,
-          },
-        }),
-        actions.profile.getBadges(id),
-      ])
-    ),
-    prisma.question.search({
-      where: {
-        authorId: id,
-      },
-      include: {
-        tags: true,
-        upvotes: true,
-      },
-      searchParams: {
-        [ESearchParamKey.Page]: searchParams[ESearchParamKey.QuestionPage],
-      },
-    }),
-    prisma.answer.search({
-      where: {
-        authorId: id,
-      },
-      include: {
-        question: {
-          include: {
-            author: true,
-          },
+  console.log("render");
+  const profileUser = await prisma.user.findUniqueOrThrow({
+    where: {
+      id,
+    },
+  });
+  const badges = await actions.profile.getBadges(profileUser.id);
+  const questionSearch = await prisma.question.search({
+    where: {
+      authorId: id,
+    },
+    include: {
+      tags: true,
+      upvotes: true,
+    },
+    searchParams: {
+      [ESearchParamKey.Page]: searchParams[ESearchParamKey.QuestionPage],
+    },
+  });
+
+  const answerSearch = await prisma.answer.search({
+    where: {
+      authorId: id,
+    },
+    include: {
+      question: {
+        include: {
+          author: true,
         },
-        upvotes: true,
       },
-      searchParams: {
-        [ESearchParamKey.Page]:
-          searchParams[ESearchParamKey.AnsweredQuestionPage],
-      },
-    }),
-    actions.user.getCurrent(),
-  ]);
+      upvotes: true,
+    },
+    searchParams: {
+      [ESearchParamKey.Page]:
+        searchParams[ESearchParamKey.AnsweredQuestionPage],
+    },
+  });
+
+  const loggedUser = await actions.user.getCurrent();
 
   const editable = loggedUser?.id === profileUser.id;
 
@@ -77,8 +69,8 @@ const ProFileDetailPage: React.FC<IPageProps<{ id: string }>> = async ({
       <ProfileStats
         badges={badges}
         reputation={profileUser.reputation}
-        totalAnswers={answerTotal}
-        totalQuestions={questionTotal}
+        totalAnswers={answerSearch.total}
+        totalQuestions={questionSearch.total}
       />
 
       <div className="mt-10 flex gap-10">
@@ -92,7 +84,7 @@ const ProFileDetailPage: React.FC<IPageProps<{ id: string }>> = async ({
             </TabsTrigger>
           </TabsList>
           <TabsContent className="flex w-full flex-col gap-6" value="top-posts">
-            {questions.map((question) => (
+            {questionSearch.items.map((question) => (
               <ProfileTopQuestionCard
                 key={question.id}
                 question={question}
@@ -103,11 +95,11 @@ const ProFileDetailPage: React.FC<IPageProps<{ id: string }>> = async ({
             ))}
             <PagePagination
               searchParamKey={ESearchParamKey.QuestionPage}
-              total={questionTotal}
+              total={questionSearch.total}
             />
           </TabsContent>
           <TabsContent className="flex w-full flex-col gap-6" value="answers">
-            {answers.map((answer) => (
+            {answerSearch.items.map((answer) => (
               <ProfileAnsweredQuestionCard
                 key={answer.id}
                 answer={answer}
@@ -119,7 +111,7 @@ const ProFileDetailPage: React.FC<IPageProps<{ id: string }>> = async ({
             ))}
             <PagePagination
               searchParamKey={ESearchParamKey.AnsweredQuestionPage}
-              total={answerTotal}
+              total={answerSearch.total}
             />
           </TabsContent>
         </Tabs>

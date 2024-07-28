@@ -16,6 +16,7 @@ function createInstance() {
       timeout: 60 * 1000 * 10,
       maxWait: 60 * 1000 * 10,
     },
+    log: ["query", "info", "warn", "error"],
   }).$extends({
     model: {
       $allModels: {

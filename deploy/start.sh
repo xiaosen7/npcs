@@ -54,24 +54,33 @@ docker compose pull
 docker compose up -d --no-recreate # 首次启动
 
 services=$(yq e '.services | keys | .[]' "$DOCKER_COMPOSE_FILE")
-echo "Services to be processed: $services"
+echo ""
+echo "Services to be processed: "
+echo "$services"
+
+# 声明需要跳过更新的服务数组
+skip_services=("postgres")
 
 # 更新
 for service in $services; do
+    echo ""
+
+    # 检查当前服务是否在跳过列表中
+    if [[ " ${skip_services[*]} " =~ $service ]]; then
+        echo "Skipping update for service: $service"
+        continue
+    fi
+
     echo "Processing service: $service"
 
     # 获取当前运行的镜像ID
     CURRENT_IMAGE_ID=$(docker inspect --format='{{.Image}}' "$service" 2>/dev/null || true)
 
-    echo "Current Image ID $CURRENT_IMAGE_ID"
-
     # 获取最新镜像的ID
-    LATEST_IMAGE=$(yq e ".services.$service.image" "$DOCKER_COMPOSE_FILE")
+    LATEST_IMAGE_ID=$(docker inspect --format='{{.Id}}' "$DOCKER_REGISTRY/$DOCKER_USER/npcs-$service:latest" 2>/dev/null || true)
 
-    # 获取最新镜像的ID
-    LATEST_IMAGE_ID=$(docker inspect --format='{{.Id}}' "$LATEST_IMAGE" 2>/dev/null || true)
-
-    echo "Last Image ID $LATEST_IMAGE_ID"
+    echo "Current Image ID: $CURRENT_IMAGE_ID"
+    echo "Last Image ID   : $LATEST_IMAGE_ID"
 
     # 比较镜像ID
     if [ "$CURRENT_IMAGE_ID" != "$LATEST_IMAGE_ID" ]; then
@@ -81,6 +90,8 @@ for service in $services; do
         echo "$service service is already up-to-date."
     fi
 done
+
+echo ""
 
 # 删除悬空镜像
 docker image prune -f
