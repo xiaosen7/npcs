@@ -37,8 +37,6 @@
       "dependsOn": ["^compile"]
     },
     "prisma-generate-type-only": {
-      "inputs": ["prisma/**/*"],
-      "outputs": ["./node_modules/.prisma/**/*"],
       "cache": false
     },
     "compile": {
