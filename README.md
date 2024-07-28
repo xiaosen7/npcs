@@ -39,33 +39,34 @@ pnpm turbo compile:watch
 
 ## Todo list
 
-| Task                                         | Complete | Developing |
-| -------------------------------------------- | -------- | ---------- |
-| Deploy as changed                            | 1        |            |
-| Env refactor                                 | 1        |            |
-| CI for check                                 | 1        |            |
-| Development flow                             | 1        |            |
-| Webhook                                      |          |            |
-| Fix styles for `stackoverflow`               | 1        |            |
-| Dep check                                    |          |            |
-| Git message lint                             |          |            |
-| The flow of publish libraries                |          | 1          |
-| Research turbo generators                    |          |            |
-| Replace next config with `@npcs/next-config` | 1        |            |
-| Refactor all consoles                        |          |            |
-| Console env in development                   |          |            |
-| Extract shared next config to plugin         |          |            |
-| Extract eslint for libs                      |          |            |
-| Replace clerk.js key to production           |          |            |
-| Translate to English                         |          |            |
-| i18n                                         |          |            |
-| Prisma cache                                 |          |            |
-| Deploy                                       |          | 1          |
-| App logo                                     |          |            |
-| App logo                                     |          |            |
-| Unified authorization                        |          |            |
-| Index page                                   |          |            |
-| Enable Docker cache in CI                    |          |            |
+| Task                                                       | Complete | Developing |
+| ---------------------------------------------------------- | -------- | ---------- |
+| Deploy as changed                                          | 1        |            |
+| Env refactor                                               | 1        |            |
+| CI for check                                               | 1        |            |
+| Development flow                                           | 1        |            |
+| Webhook                                                    |          |            |
+| Fix styles for `stackoverflow`                             | 1        |            |
+| Dep check                                                  |          |            |
+| Git message lint                                           |          |            |
+| The flow of publish libraries                              | 1        |            |
+| Research turbo generators                                  |          |            |
+| Replace next config with `@npcs/next-config`               | 1        |            |
+| Refactor all consoles                                      |          |            |
+| Console env in development                                 |          |            |
+| Extract shared next config to plugin                       |          |            |
+| Extract eslint for libs                                    |          |            |
+| Replace clerk.js key to production                         |          |            |
+| Translate to English                                       |          |            |
+| i18n                                                       |          |            |
+| Prisma cache                                               |          |            |
+| Deploy                                                     |          |            |
+| App logo                                                   |          |            |
+| App logo                                                   |          |            |
+| Centralized management of authentication and Authorization |          | 1          |
+| Index page                                                 |          |            |
+| Enable Docker cache in CI                                  |          |            |
+| Fix the `createUserIfNeeded`                               |          |            |
 
 ## References
 
