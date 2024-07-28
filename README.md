@@ -28,7 +28,7 @@ pnpm turbo compile
 
 ```bash
 pnpm dev
-# or run pnpm -w dev-app in any folder
+# or run pnpm -w dev in any folder
 ```
 
 ## Develop libraries
