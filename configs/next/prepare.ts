@@ -24,10 +24,8 @@ function prepare() {
   loadAndCheckEnv();
 
   if (IS_DEV) {
-    process.env.DATABASE_URL = `postgresql://postgres:123456@localhost:5432/${APP_NAME}`;
-    exec(
-      "pnpm prisma db push && pnpm prisma migrate dev && pnpm prisma studio -b false",
-    );
+    process.env.DATABASE_URL = `postgresql://postgres:123456@localhost:5432/${APP_NAME.replace("/", "_")}`;
+    exec("pnpm prisma migrate dev && pnpm prisma studio -b false");
   }
 
   function loadAndCheckEnv() {
@@ -47,7 +45,9 @@ function prepare() {
     });
 
     // check
-    jiti("@npcs/shared/env/server.js");
-    jiti("@npcs/shared/env/client.js");
+    const server = jiti("@npcs/shared/env/server.js");
+    const client = jiti("@npcs/shared/env/client.js");
+
+    console.log({ server, client });
   }
 }

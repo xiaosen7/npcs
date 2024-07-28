@@ -14,6 +14,7 @@ function createInstance() {
   return new PrismaClient({
     transactionOptions: {
       timeout: 60 * 1000 * 10,
+      maxWait: 60 * 1000 * 10,
     },
   }).$extends({
     model: {
