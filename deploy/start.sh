@@ -91,7 +91,9 @@ for service in $services; do
     fi
 done
 
-echo ""
-
 # 删除悬空镜像
+echo ""
 docker image prune -f
+
+echo ""
+docker ps
