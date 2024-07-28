@@ -53,6 +53,7 @@ services:
       - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
     ports:
       - 3003:3000
+      - 9999:9999
     depends_on:
       postgres:
         condition: service_healthy
