@@ -19,6 +19,9 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^19.2.2
         version: 19.2.2
+      '@manypkg/cli':
+        specifier: ^0.21.4
+        version: 0.21.4
       '@npcs/cli':
         specifier: workspace:^
         version: link:tools/cli
@@ -46,10 +49,6 @@ importers:
       turbo:
         specifier: ^2.0.9
         version: 2.0.9
-    devDependencies:
-      '@manypkg/cli':
-        specifier: ^0.21.4
-        version: 0.21.4
 
   apps/large-file-upload:
     dependencies:
