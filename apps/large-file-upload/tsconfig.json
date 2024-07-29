@@ -7,9 +7,6 @@
         "name": "next"
       }
     ],
-    "paths": {
-      "@/*": ["./libs/*"]
-    },
     "lib": ["dom", "dom.iterable", "esnext"]
   },
   "include": [

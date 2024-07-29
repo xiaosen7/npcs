@@ -3,6 +3,7 @@
   "version": "0.6.2",
   "private": true,
   "scripts": {
+    "clean": "rimraf .next .turbo node_modules *.tsbuildinfo playwright-report",
     "dev": "next dev --turbo",
     "build": "pnpm prisma generate && next build",
     "start": "next start",
@@ -16,7 +17,7 @@
     "prisma:studio": "dotenv -e .env.development -- prisma studio -b false",
     "check-types": "tsc --noEmit",
     "generate:components": "npcs generate-components --templatesDir ./templates --outDir ./src/libs/components --publicDir ./src/assets",
-    "prisma-generate-type-only": "prisma generate --no-engine"
+    "prisma-generate": "prisma generate"
   },
   "dependencies": {
     "@clerk/nextjs": "^5.2.4",
@@ -61,6 +62,7 @@
     "dotenv-cli": "^7.4.2",
     "eslint": "^8",
     "postcss": "^8",
+    "rimraf": "^6.0.1",
     "storybook": "8.2.4",
     "tailwindcss": "^3.4.1",
     "typescript": "^5",

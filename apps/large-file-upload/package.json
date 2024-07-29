@@ -7,7 +7,8 @@
     "build": "pnpm prisma generate && next build",
     "lint": "eslint .",
     "check-types": "tsc --noEmit",
-    "prisma-generate-type-only": "prisma generate --no-engine"
+    "prisma-generate": "prisma generate",
+    "clean": "rimraf .next .turbo node_modules *.tsbuildinfo playwright-report"
   },
   "dependencies": {
     "@esbuild-plugins/tsconfig-paths": "^0.1.2",
@@ -71,6 +72,7 @@
     "@types/uuid": "^10.0.0",
     "eslint": "^8.57.0",
     "postcss": "^8.4.39",
+    "rimraf": "^6.0.1",
     "tailwindcss": "^3.4.5",
     "tsconfig-paths": "^4.2.0",
     "tsup": "^8.1.0",

@@ -12,23 +12,37 @@ Next.js practical cases.
 
 ## Develop application
 
-1. Setup database
+- Configure your environment variables in `configs/next/.env.local`, you can see the details in [configs/next/.env.local.example](./configs/next/.env.local.example)
+
+As this repo is only for learn, this is the default environment for pasting:
+
+```bash
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_c3RpcnJlZC1mbGVhLTMuY2xlcmsuYWNjb3VudHMuZGV2JA
+CLERK_SECRET_KEY=sk_test_Xx0zLQaur636egnWNgSPADqUxgT6U9vzno2DZ8W6g1
+```
+
+- Setup database
 
 ```bash
 docker compose -f ./db.docker-compose.yml up
 ```
 
-2. Compile libs
+- Compile libs
 
 ```bash
 pnpm turbo compile
 ```
 
-3. Start dev server
+- Start dev server
 
 ```bash
 pnpm dev
-# or run pnpm -w dev in any folder
+```
+
+or run the following command in any folder inside the repo:
+
+```bash
+pnpm -w dev
 ```
 
 ## Develop libraries
@@ -63,10 +77,11 @@ pnpm turbo compile:watch
 | Deploy                                                     |          |            |
 | App logo                                                   |          |            |
 | App logo                                                   |          |            |
-| Centralized management of authentication and Authorization |          | 1          |
+| Centralized management of authentication and Authorization |          |            |
 | Index page                                                 |          |            |
 | Enable Docker cache in CI                                  |          |            |
 | Fix the `createUserIfNeeded`                               |          |            |
+| Turbo remote cache                                         |          | 1          |
 
 ## References
 

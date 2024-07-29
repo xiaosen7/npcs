@@ -2,6 +2,9 @@
   "name": "@npcs/rollup-config",
   "version": "0.6.2",
   "main": "./rollup.config.mjs",
+  "scripts": {
+    "clean": "rimraf node_modules"
+  },
   "dependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-swc": "^0.3.1",
@@ -18,6 +21,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.14.10",
+    "rimraf": "^6.0.1",
     "rollup": "^4.18.1"
   },
   "repository": {

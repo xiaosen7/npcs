@@ -4,6 +4,7 @@
   "description": "Get the changed packages from the last commit inside a workspace.",
   "type": "module",
   "scripts": {
+    "clean": "rimraf node_modules esm .turbo .rollup.cache *.tsbuildinfo",
     "check-types": "tsc --noEmit",
     "lint": "eslint .",
     "compile:watch": "rollup -c --watch",
@@ -25,6 +26,7 @@
     "@npcs/vitest-config": "workspace:^",
     "@types/node": "^20.14.10",
     "eslint": "^8.57.0",
+    "rimraf": "^6.0.1",
     "rollup": "^4.18.1",
     "typescript": "5.5.3",
     "vitest": "^1.6.0"
