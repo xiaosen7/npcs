@@ -3,7 +3,7 @@
   "version": "0.6.2",
   "private": true,
   "scripts": {
-    "clean": "rimraf .next .turbo node_modules *.tsbuildinfo playwright-report test-results",
+    "clean": "npcs clean",
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
@@ -103,7 +103,7 @@
     "tailwindcss-animate": "^1.0.7",
     "tsconfig-paths": "^4.2.0",
     "typescript": "5.5.3",
-    "vitest": "^1.6.0",
+    "vitest": "^2.0.4",
     "webpack": "^5.93.0",
     "webpack-merge": "^5.10.0"
   }

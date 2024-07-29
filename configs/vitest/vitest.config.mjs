@@ -15,5 +15,9 @@ export default defineConfig({
       "./tests/setup.ts",
     ],
     setupFiles: existsSync("./tests/setup.ts") ? "./tests/setup.ts" : undefined,
+    coverage: {
+      include: ["src/**/*"],
+      exclude: ["**/*.d.ts", "**/*.test.*", "**/*.stories.tsx"],
+    },
   },
 });

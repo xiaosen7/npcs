@@ -21,6 +21,7 @@ coverage/
 
 # nyc test coverage
 .nyc_output/
+vitest.config.*.timestamp*
 test-results/
 playwright-report/
 

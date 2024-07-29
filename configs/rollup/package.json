@@ -3,7 +3,7 @@
   "version": "0.6.2",
   "main": "./rollup.config.mjs",
   "scripts": {
-    "clean": "rimraf node_modules"
+    "clean": "npcs clean"
   },
   "dependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",

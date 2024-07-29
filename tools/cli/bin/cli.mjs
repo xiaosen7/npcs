@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 // @ts-check
-import { Command } from "commander";
-import { CommandDev } from "../esm/dev.js";
-import { CommandGenerateComponents } from "../esm/generate-components.js";
+import { Command as Commander } from "commander";
+import * as commands from "../esm/index.js";
+import { Command } from "../esm/index.js";
 
 (async () => {
   process.on("SIGINT", function () {
@@ -25,10 +25,17 @@ import { CommandGenerateComponents } from "../esm/generate-components.js";
   process.on("uncaughtException", errorHandler);
   process.on("unhandledRejection", errorHandler);
 
-  const program = new Command().name("npcs");
+  const program = new Commander().name("npcs");
 
-  program.addCommand(new CommandGenerateComponents().cmd);
-  program.addCommand(new CommandDev().cmd);
+  Object.values(commands).forEach((CommandCtrl) => {
+    if (
+      Object.getPrototypeOf(CommandCtrl.prototype) === Command.prototype &&
+      CommandCtrl !== Command
+    ) {
+      // @ts-ignore
+      program.addCommand(new CommandCtrl().cmd);
+    }
+  });
 
   program.parse();
 })();

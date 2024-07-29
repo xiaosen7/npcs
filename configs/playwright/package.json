@@ -3,7 +3,7 @@
   "version": "0.6.2",
   "main": "./playwright.config.ts",
   "scripts": {
-    "clean": "rimraf node_modules"
+    "clean": "npcs clean"
   },
   "dependencies": {
     "@playwright/test": "^1.45.2"

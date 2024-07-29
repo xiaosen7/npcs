@@ -3,7 +3,7 @@
   "version": "0.6.2",
   "main": "index.ts",
   "scripts": {
-    "clean": "rimraf node_modules"
+    "clean": "npcs clean"
   },
   "dependencies": {
     "@storybook/addon-essentials": "8.2.4",

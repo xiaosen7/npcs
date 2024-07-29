@@ -3,7 +3,7 @@
   "version": "0.6.2",
   "main": "./next.config.mjs",
   "scripts": {
-    "clean": "rimraf node_modules"
+    "clean": "npcs clean"
   },
   "devDependencies": {
     "@npcs/eslint-config": "workspace:*",

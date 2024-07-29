@@ -3,7 +3,7 @@
   "version": "0.6.2",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf node_modules"
+    "clean": "npcs clean"
   },
   "dependencies": {
     "@types/node": "^20.14.10",
