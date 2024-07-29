@@ -8,7 +8,7 @@
     "lint": "eslint .",
     "check-types": "tsc --noEmit",
     "prisma-generate": "prisma generate",
-    "clean": "rimraf .next .turbo node_modules *.tsbuildinfo playwright-report"
+    "clean": "rimraf .next .turbo node_modules *.tsbuildinfo playwright-report test-results"
   },
   "dependencies": {
     "@esbuild-plugins/tsconfig-paths": "^0.1.2",

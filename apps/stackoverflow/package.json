@@ -3,7 +3,7 @@
   "version": "0.6.2",
   "private": true,
   "scripts": {
-    "clean": "rimraf .next .turbo node_modules *.tsbuildinfo playwright-report",
+    "clean": "rimraf .next .turbo node_modules *.tsbuildinfo playwright-report test-results",
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",

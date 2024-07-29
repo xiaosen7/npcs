@@ -27,6 +27,14 @@ CLERK_SECRET_KEY=sk_test_Xx0zLQaur636egnWNgSPADqUxgT6U9vzno2DZ8W6g1
 docker compose -f ./db.docker-compose.yml up
 ```
 
+- Compile libs
+
+```
+pnpm turbo compile
+```
+
+> This is required because `pnpm dev` needs to run dev command provided by tool `@npcs/cli`.
+
 - Start dev server
 
 ```bash
