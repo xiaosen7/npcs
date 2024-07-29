@@ -17,6 +17,10 @@ jobs:
         node-version: [18]
     steps:
       - uses: actions/checkout@v4
+      - name: Get current branch name
+        run: |
+          echo "Current branch is ${GITHUB_REF#refs/heads/}"
+          git branch
       - name: Enable Corepack
         run: corepack enable
       - name: Use Node.js ${{ matrix.node-version }}
