@@ -62,7 +62,7 @@ pnpm turbo compile:watch
 | Webhook                                                    |          |            |
 | Fix styles for `stackoverflow`                             | 1        |            |
 | Dep check                                                  |          |            |
-| Git message lint                                           |          |            |
+| Git commit message lint                                    | 1        |            |
 | The flow of publish libraries                              | 1        |            |
 | Research turbo generators                                  |          |            |
 | Replace next config with `@npcs/next-config`               | 1        |            |
@@ -81,7 +81,7 @@ pnpm turbo compile:watch
 | Index page                                                 |          |            |
 | Enable Docker cache in CI                                  |          |            |
 | Fix the `createUserIfNeeded`                               |          |            |
-| Turbo remote cache                                         |          | 1          |
+| Turbo remote cache                                         | 1        |            |
 
 ## References
 
