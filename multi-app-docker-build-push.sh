@@ -69,7 +69,7 @@ for APP_DIR in apps/*/; do
     echo "Using image name: $IMAGE_NAME"
 
     # 获取 turbo build hash
-    APP_TURBO_HASH=$(npx turbo build --filter="$APP_PACKAGE_NAME" --dry=json | jq -r --arg PACKAGE_NAME "$APP_PACKAGE_NAME" '.tasks[] | select(.package==$PACKAGE_NAME) | .hash')
+    APP_TURBO_HASH=$(pnpx turbo build --filter="$APP_PACKAGE_NAME" --dry=json | jq -r --arg PACKAGE_NAME "$APP_PACKAGE_NAME" '.tasks[] | select(.package==$PACKAGE_NAME and .task=="build") | .hash')
     echo "turbo build hash for $APP_PACKAGE_NAME: $APP_TURBO_HASH"
 
     if [ -z "$APP_TURBO_HASH" ]; then

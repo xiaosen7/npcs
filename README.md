@@ -69,7 +69,7 @@ pnpm turbo compile:watch
 | Research turbo generators                                  |          |            |
 | Replace next config with `@npcs/next-config`               | 1        |            |
 | Refactor all consoles                                      |          |            |
-| Console env in development                                 |          |            |
+| Console env in development                                 | 1        |            |
 | Extract shared next config to plugin                       |          |            |
 | Extract eslint for libs                                    |          |            |
 | Replace clerk.js key to production                         |          |            |
@@ -78,12 +78,12 @@ pnpm turbo compile:watch
 | Prisma cache                                               |          |            |
 | Deploy                                                     |          |            |
 | App logo                                                   |          |            |
-| App logo                                                   |          |            |
 | Centralized management of authentication and Authorization |          |            |
 | Index page                                                 |          |            |
 | Enable Docker cache in CI                                  |          |            |
 | Fix the `createUserIfNeeded`                               |          |            |
 | Turbo remote cache                                         | 1        |            |
+| Do e2e test in CI                                          | 1        |            |
 
 ## References
 
