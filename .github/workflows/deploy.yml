@@ -25,6 +25,7 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Test with Turbo
         run: |
+          pnpm turbo lint --dry
           pnpm turbo lint check-types test build
 
   publish:
