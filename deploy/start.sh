@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO If docker-compose file changes, we need restart all services by hand, fix this
+
 DOCKER_COMPOSE_FILE="docker-compose.yml"
 
 set -e

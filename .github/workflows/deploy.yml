@@ -33,6 +33,7 @@ jobs:
       - name: Test with Turbo
         run: |
           pnpm turbo lint --dry
+          pnpm turbo prisma-generate --concurrency 1
           pnpm turbo lint check-types test build
 
   publish:
