@@ -8,9 +8,10 @@
     "commit": "git-cz",
     "prepublish": "turbo compile"
   },
-  "devDependencies": {
+  "dependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
+    "@manypkg/cli": "^0.21.4",
     "@npcs/cli": "workspace:^",
     "@npcs/get-changed-packages": "workspace:^",
     "commitizen": "^4.3.0",
@@ -18,9 +19,7 @@
     "husky": "^9.1.1",
     "lerna": "^8.1.7",
     "lerna-changelog": "^2.2.0",
-    "lint-staged": "^15.2.7"
-  },
-  "dependencies": {
+    "lint-staged": "^15.2.7",
     "turbo": "^2.0.9"
   },
   "engines": {

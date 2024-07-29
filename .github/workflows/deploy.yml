@@ -17,9 +17,12 @@ jobs:
 
       - uses: ./.github/actions/setup
 
+      - name: Check Dependencies
+        # Todo depchek
+        run: pnpm manypkg check
+
       - name: Run check tasks with Turbo
         run: |
-          pnpm turbo lint --dry
           # To fix the file or directory not find error emmittied by prisma
           pnpm turbo prisma-generate --concurrency 1
           pnpm turbo lint check-types test build

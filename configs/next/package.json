@@ -8,9 +8,9 @@
   "devDependencies": {
     "@npcs/eslint-config": "workspace:*",
     "@npcs/typescript-config": "workspace:^",
-    "next": "^14.2.5",
+    "next": "14.2.4",
     "rimraf": "^6.0.1",
-    "typescript": "^5.5.4",
+    "typescript": "5.5.3",
     "webpack": "^5.93.0"
   },
   "dependencies": {

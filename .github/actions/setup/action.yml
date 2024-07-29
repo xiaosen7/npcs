@@ -4,12 +4,14 @@ description: "Common setup steps for Actions"
 runs:
   using: composite
   steps:
-    - name: Enable Corepack
+    - shell: bash
       run: corepack enable
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: 18
         cache: "pnpm"
-    - name: Install dependencies
+
+    - shell: bash
       run: pnpm install --frozen-lockfile
