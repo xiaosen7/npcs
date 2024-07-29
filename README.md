@@ -69,9 +69,8 @@ pnpm turbo compile:watch
 | Research turbo generators                                  |          |            |
 | Replace next config with `@npcs/next-config`               | 1        |            |
 | Refactor all consoles                                      |          |            |
-| Console env in development                                 | 1        |            |
+| Console env                                                | 1        |            |
 | Extract shared next config to plugin                       |          |            |
-| Extract eslint for libs                                    |          |            |
 | Replace clerk.js key to production                         |          |            |
 | Translate to English                                       |          |            |
 | i18n                                                       |          |            |
@@ -84,7 +83,7 @@ pnpm turbo compile:watch
 | Fix the `createUserIfNeeded`                               |          |            |
 | Turbo remote cache                                         | 1        |            |
 | Do e2e test in CI                                          |          |            |
-| CI file reuse                                              |          |            |
+| CI file reuse                                              | 1        |            |
 
 ## References
 

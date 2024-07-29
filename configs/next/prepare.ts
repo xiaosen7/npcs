@@ -7,13 +7,14 @@ import { existsSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
+const IS_DEV = process.env.NODE_ENV === "development";
+
 if (!process.env.__PREPARED__) {
   process.env.__PREPARED__ = "true";
   prepare();
 }
 
 function prepare() {
-  const IS_DEV = process.env.NODE_ENV === "development";
   if (IS_DEV) {
     processPrismaDevFlow();
   }
@@ -41,10 +42,26 @@ function loadAndCheckEnv(isDev: boolean) {
   });
 
   // check
-  const server = jiti("@npcs/shared/env/server.js");
-  const client = jiti("@npcs/shared/env/client.js");
+  const { env: server } = jiti(
+    "@npcs/shared/env/server.js",
+  ) as typeof import("@npcs/shared/env/server.js");
+  const { env: client } = jiti(
+    "@npcs/shared/env/client.js",
+  ) as typeof import("@npcs/shared/env/client.js");
 
-  console.log({ server, client });
+  printEnv(server, "server");
+  printEnv(client, "client");
+}
+
+function printEnv(env: Record<string, string | undefined>, side: string) {
+  if (IS_DEV) {
+    console.log(
+      `The environment variables in ${side} side are as follows (only logs in development):`,
+    );
+    console.table(
+      Object.entries(env).map(([name, value]) => ({ name, value })),
+    );
+  }
 }
 
 function processPrismaDevFlow() {
