@@ -15,7 +15,7 @@
     "test:watch": "vitest watch",
     "test:changed": "vitest run --changed",
     "prisma:studio": "dotenv -e .env.development -- prisma studio -b false",
-    "check-types": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
     "generate:components": "npcs generate-components --templatesDir ./templates --outDir ./src/libs/components --publicDir ./src/assets",
     "prisma-generate": "prisma generate"
   },

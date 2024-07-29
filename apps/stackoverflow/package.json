@@ -13,7 +13,7 @@
     "test": "vitest --run",
     "test:changed": "vitest run --changed",
     "prisma:studio": "dotenv -e .env.development -- prisma studio -b false",
-    "check-types": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
     "prisma-generate": "prisma generate"
   },
   "prisma": {

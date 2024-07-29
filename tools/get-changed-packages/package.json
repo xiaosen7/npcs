@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "clean": "rimraf node_modules esm .turbo .rollup.cache *.tsbuildinfo",
-    "check-types": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "compile:watch": "rollup -c --watch",
     "compile": "rollup -c",

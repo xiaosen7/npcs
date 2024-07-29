@@ -25,7 +25,7 @@ jobs:
         run: |
           # To fix the file or directory not find error emmittied by prisma
           pnpm turbo prisma-generate --concurrency 1
-          pnpm turbo lint check-types test build
+          pnpm turbo lint typecheck test build
 
   publish:
     needs: check

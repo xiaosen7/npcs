@@ -11,7 +11,7 @@
         "tests/**/*"
       ]
     },
-    "check-types": {
+    "typecheck": {
       "inputs": [
         "src/**/*",
         ".storybook/**",
@@ -23,7 +23,7 @@
     },
     "test": {
       "inputs": ["src/**/*", "libs/**/*", "app/**/*", "tests/**/*"],
-      "dependsOn": ["lint", "check-types", "compile"]
+      "dependsOn": ["lint", "typecheck", "compile"]
     },
     "build": {
       "inputs": [
@@ -64,7 +64,7 @@
     },
     "test:changed": {
       "inputs": ["src/**/*", "libs/**/*", "app/**/*", "tests/**/*"],
-      "dependsOn": ["lint", "check-types"]
+      "dependsOn": ["lint", "typecheck"]
     },
 
     "compile:watch": {

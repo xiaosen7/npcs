@@ -6,7 +6,7 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "lint": "eslint .",
-    "check-types": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
     "prisma-generate": "prisma generate",
     "clean": "rimraf .next .turbo node_modules *.tsbuildinfo playwright-report test-results"
   },
