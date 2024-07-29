@@ -1,6 +1,7 @@
 {
   "name": "@npcs/upload",
   "version": "0.6.2",
+  "type": "module",
   "scripts": {
     "clean": "npcs clean",
     "typecheck": "tsc --noEmit",

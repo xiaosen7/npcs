@@ -67,6 +67,6 @@ export abstract class Command<
    * @param args
    */
   throwError(message: string): never {
-    throw new Error(`[@npx/cli ${this.name}]: ${message}`);
+    throw new Error(message);
   }
 }

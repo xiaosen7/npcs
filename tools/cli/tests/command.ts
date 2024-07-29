@@ -111,7 +111,7 @@ describe(Command.name, () => {
           from: "user",
         }),
       ).rejects.toThrowErrorMatchingInlineSnapshot(
-        `[Error: [@npx/cli test]: invalid options.inputDir - Expected string, received number]`,
+        `[Error: invalid options.inputDir - Expected string, received number]`,
       );
       expect(command.options).toBeUndefined();
     });
@@ -127,9 +127,7 @@ describe(Command.name, () => {
       const { command, name } = createCommand();
       expect(() =>
         command.throwError("some error happens"),
-      ).toThrowErrorMatchingInlineSnapshot(
-        `[Error: [@npx/cli ${name}]: some error happens]`,
-      );
+      ).toThrowErrorMatchingInlineSnapshot(`[Error: some error happens]`);
     });
   });
 });

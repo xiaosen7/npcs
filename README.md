@@ -69,7 +69,6 @@ pnpm turbo compile:watch
 | Research turbo generators                                  |          |            |
 | Replace next config with `@npcs/next-config`               | 1        |            |
 | Refactor all consoles                                      |          | 1          |
-| Replace `esm/**/*.js` => `exm/**/*.mjs`                    |          | 1          |
 | Console env                                                | 1        |            |
 | Extract shared next config to plugin                       |          |            |
 | Replace clerk.js key to production                         |          |            |

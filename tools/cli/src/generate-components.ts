@@ -3,6 +3,7 @@ import fg from "fast-glob";
 import fsx from "fs-extra";
 import slash from "slash";
 
+import execSh from "exec-sh";
 import handlebars from "handlebars";
 import { basename, dirname, extname, join, relative } from "path";
 import { z } from "zod";
@@ -59,7 +60,7 @@ export class CommandGenerateComponents extends Command<
         break;
 
       default:
-        throw new Error(`Unknown extension: ${ext}, at file path: ${fsPath}`);
+        this.throwError(`Unknown extension: ${ext}, at file path: ${fsPath}`);
     }
   };
 
@@ -67,7 +68,7 @@ export class CommandGenerateComponents extends Command<
     const { outDir, publicDir, templatesDir } = this.options!;
     const url = slash(relative(publicDir, fsPath));
     if (url.startsWith(".")) {
-      throw new Error(`Invalid path: ${url}`);
+      this.throwError(`Invalid path: ${url}`);
     }
 
     const handlebarsFilePath = join(templatesDir, `${dirname(url)}.handlebars`);
@@ -98,6 +99,9 @@ export class CommandGenerateComponents extends Command<
 
     await fsx.ensureFile(outputPath);
     await fsx.writeFile(outputPath, content);
+    try {
+      execSh(`pnpm prettier ${outputPath} --write`);
+    } catch (error) {}
     this.log.info("Generated:", outputPath);
   }
 }
