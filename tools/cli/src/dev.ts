@@ -30,7 +30,7 @@ export class CommandDev extends Command<typeof options> {
         {
           type: "list",
           name: "packageName",
-          message: "Select app to start development",
+          message: "Select app",
           choices: apps.map((x) => x.manifest.name!),
         } as any,
       ])

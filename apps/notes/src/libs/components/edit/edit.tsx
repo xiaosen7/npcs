@@ -26,7 +26,7 @@ interface INoteEditProps {
   defaultMode?: ENoteEditMode;
   note?: Note;
   actions?: {
-    save: (note: INoteValidationInfer) => Promise<void>;
+    save: (note: INoteValidationInfer) => Promise<void> | void;
   };
 }
 
@@ -48,13 +48,10 @@ export const NoteEdit: React.FC<INoteEditProps> = (props) => {
   const { run: submit, loading } = useRequest(
     async (note) => {
       const isDirty = form.formState.isDirty;
-      console.log({ isDirty });
       if (!isDirty) {
-        console.log("back");
         return router?.back();
       }
 
-      console.log("submit save", typeof actions?.save);
       return actions?.save(note);
     },
     {

@@ -1,5 +1,6 @@
 // @ts-check
 
+import { createLog } from "@npcs/shared/log";
 import dotenv from "dotenv";
 import exec from "exec-sh";
 import createJiti from "jiti";
@@ -8,6 +9,8 @@ import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const IS_DEV = process.env.NODE_ENV === "development";
+
+const log = createLog("prepare next");
 
 if (!process.env.__PREPARED__) {
   process.env.__PREPARED__ = "true";
@@ -55,12 +58,10 @@ function loadAndCheckEnv(isDev: boolean) {
 
 function printEnv(env: Record<string, string | undefined>, side: string) {
   if (IS_DEV) {
-    console.log(
+    log.info(
       `The environment variables in ${side} side are as follows (only logs in development):`,
     );
-    console.table(
-      Object.entries(env).map(([name, value]) => ({ name, value })),
-    );
+    log.table(Object.entries(env).map(([name, value]) => ({ name, value })));
   }
 }
 

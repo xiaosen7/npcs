@@ -3,12 +3,13 @@ import { Meta, StoryFn } from "@storybook/react";
 import { NoteEdit } from "@libs/components/edit/edit";
 import { ENoteEditMode } from "@libs/components/edit/types";
 import { fake } from "@libs/fake";
+import { storyLog } from "@stories/utils";
 
 export default {
   component: NoteEdit,
   args: {
     actions: {
-      save: console.log,
+      save: storyLog.log,
     },
   },
 } as Meta<typeof NoteEdit>;

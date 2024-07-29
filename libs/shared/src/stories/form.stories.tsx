@@ -20,6 +20,7 @@ import {
   useForm,
 } from "react-hook-form";
 import { z } from "zod";
+import { storyLog } from "./utils";
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -76,7 +77,7 @@ export const Base: StoryFn<typeof Form> = () => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
+    storyLog.log(values);
   }
 
   return (

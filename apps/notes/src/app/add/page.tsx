@@ -12,7 +12,6 @@ export const dynamic = "force-dynamic";
 const AddPage: React.FC<IPageProps> = async (props) => {
   const save = async ({ title, content }: INoteValidationInfer) => {
     "use server";
-    console.log("save");
     await prisma.note.create({
       data: {
         title,

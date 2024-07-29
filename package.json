@@ -5,6 +5,7 @@
   "scripts": {
     "prepare": "husky",
     "dev": "npcs dev",
+    "storybook": "npcs storybook",
     "commit": "git-cz",
     "prepublish": "turbo compile"
   },

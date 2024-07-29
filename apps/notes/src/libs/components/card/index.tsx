@@ -15,7 +15,7 @@ import { IconTrash } from "../icon/trash";
 export interface INoteCardProps extends IComponentBaseProps {
   note: Note;
   actions?: {
-    remove: (note: Note, pathname: string) => Promise<void>;
+    remove: (note: Note, pathname: string) => Promise<void> | void;
   };
 }
 
@@ -28,7 +28,7 @@ export const NoteCard: React.FC<INoteCardProps> = (props) => {
     <Carousel className="mb-7 w-full">
       <CarouselContent>
         <CarouselItem key={"card"}>
-          <Link href={`/view/${note.id}`} onTouchStart={console.log}>
+          <Link href={`/view/${note.id}`}>
             <div
               className="rounded-md px-11 py-7 text-xl text-black"
               style={{ background: note.color }}

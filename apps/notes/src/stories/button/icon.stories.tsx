@@ -3,8 +3,6 @@ import { Meta, StoryFn } from "@storybook/react";
 import { ButtonIcon } from "@libs/components/button/icon";
 import IconEdit from "../../../public/icon/edit.svg";
 
-console.log({ IconEdit });
-
 export default {
   component: ButtonIcon,
 } as Meta<typeof ButtonIcon>;

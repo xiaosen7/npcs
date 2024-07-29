@@ -1,9 +1,12 @@
 import { mock } from "@/mock";
 import { prisma } from "@/prisma";
 import { IQuestion, IUser } from "@/shared";
+import { createLog } from "@npcs/shared/log";
 import { random } from "lodash-es";
 import { createLogUpdate } from "log-update";
 import os from "node:os";
+
+const log = createLog("seed");
 
 const TAG_COUNT_EACH_USER = 5;
 const BUILTIN_TAG_NAMES = ["react", "vue", "next.js", "javascript"];
@@ -25,17 +28,6 @@ async function getCounts() {
 
   const createdTagCount = TAG_COUNT - (await prisma.tag.count());
   const shouldCreateTag = createdTagCount > 0;
-
-  console.log({
-    createdAnswerCount,
-    createdQuestionCount,
-    createdTagCount,
-    createdUserCount,
-    shouldCreateUser,
-    shouldCreateQuestion,
-    shouldCreateAnswer,
-    shouldCreateTag,
-  });
 
   return {
     createdUserCount,
@@ -69,7 +61,7 @@ async function main() {
 
     let createdUsers: IUser[] = [];
     if (shouldCreateUser) {
-      console.log("Creating users...");
+      log.log("Creating users...");
 
       createdUsers = await prisma.user.createManyAndReturn({
         data: mock.user.createMany(createdUserCount),
@@ -81,7 +73,7 @@ async function main() {
     const getRandomUser = () => users[random(0, users.length - 1)];
 
     if (shouldCreateTag) {
-      console.log("Creating tags...");
+      log.log("Creating tags...");
       await prisma.tag.createMany({
         data: BUILTIN_TAG_NAMES.map((name) => ({
           name,
@@ -102,7 +94,7 @@ async function main() {
 
     let createdQuestions: IQuestion[] = [];
     if (shouldCreateQuestion) {
-      console.log("Creating questions...");
+      log.log("Creating questions...");
       createdQuestions = await prisma.question.createManyAndReturn({
         data: mock.question.createMany(createdQuestionCount).map((q) => ({
           ...q,
@@ -116,7 +108,7 @@ async function main() {
     const getRandomQuestion = () => questions[random(0, questions.length - 1)];
 
     if (shouldCreateAnswer) {
-      console.log("Creating answers...");
+      log.log("Creating answers...");
       await prisma.answer.createMany({
         data: mock.answer.createMany(createdAnswerCount).map((a) => ({
           ...a,
@@ -130,7 +122,7 @@ async function main() {
     const answers = await prisma.answer.findMany({});
 
     if (shouldCreateUser) {
-      console.log("Updating users...");
+      log.log("Updating users...");
       const updateUserLog = createLogUpdate(process.stdout, {
         showCursor: true,
       });
@@ -207,7 +199,7 @@ async function main() {
     }
 
     if (shouldCreateQuestion) {
-      console.log("Updating questions...");
+      log.log("Updating questions...");
       const updateQuestionLog = createLogUpdate(process.stdout, {
         showCursor: true,
       });
@@ -253,7 +245,7 @@ main()
     await prisma.$disconnect();
   })
   .catch(async (e) => {
-    console.error(e);
+    log.error(e);
     await prisma.$disconnect();
     process.exit(1);
   });

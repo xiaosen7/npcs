@@ -3,7 +3,7 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   darkMode: ["class"],
-  content: ["./{app,libs}/**/*.{tsx,css}"],
+  content: ["./src/**/*.{tsx,css}"],
   presets: [sharedConfig],
   theme: {
     container: {

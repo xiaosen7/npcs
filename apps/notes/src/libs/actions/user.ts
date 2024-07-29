@@ -1,21 +1,22 @@
 "use server";
 
-import { auth, currentUser } from "@clerk/nextjs/server";
+import { currentUser } from "@clerk/nextjs/server";
 import { prisma } from "@libs/prisma/client";
+import { createLog } from "@npcs/shared/log";
+
+const log = createLog("user actions");
 
 export async function getCurrentUser() {
-  const { userId } = auth();
-  console.log({ clerkId: userId });
-  if (!userId) {
+  const clerkUser = await currentUser();
+  if (!clerkUser?.id) {
     return null;
   }
 
   const user = await prisma.user.findUnique({
     where: {
-      clerkId: userId,
+      clerkId: clerkUser.id,
     },
   });
-  console.log({ user });
   return user;
 }
 
@@ -50,6 +51,6 @@ export async function createUserIfNeeded() {
       },
     });
   } catch (error) {
-    console.error(error);
+    log.error(error);
   }
 }

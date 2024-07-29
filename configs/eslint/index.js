@@ -1,4 +1,6 @@
-module.exports = {
+const defineConfig = require("eslint-define-config").defineConfig;
+
+module.exports = defineConfig({
   extends: [
     "next/core-web-vitals",
     "plugin:tailwindcss/recommended",
@@ -15,5 +17,13 @@ module.exports = {
         reservedFirst: true,
       },
     ],
+    "no-console": "error",
   },
-};
+  overrides: [
+    // {
+    //   files: ["*.ts", "*.tsx"],
+    //   rules: {
+    //   }
+    // },
+  ],
+});

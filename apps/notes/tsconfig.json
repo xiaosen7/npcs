@@ -8,7 +8,8 @@
     ],
     "paths": {
       "@libs/*": ["./src/libs/*"],
-      "@assets/*": ["./src/assets/*"]
+      "@assets/*": ["./src/assets/*"],
+      "@stories/*": ["./src/stories/*"]
     },
     "types": ["vitest/globals"],
     "lib": ["dom", "dom.iterable", "esnext"]

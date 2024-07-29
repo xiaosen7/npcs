@@ -1,7 +1,13 @@
 import { consola, ConsolaInstance } from "consola";
 
-export interface ILog extends ConsolaInstance {}
+export interface ILog extends ConsolaInstance {
+  table: (tabularData?: any, properties?: string[]) => void;
+}
 
 export function createLog(tag: string): ILog {
-  return consola.withTag(tag);
+  const log = consola.withTag(tag) as ILog;
+  log.table = (tabularData?: any, properties?: string[]) =>
+    // eslint-disable-next-line no-console
+    console.table(tabularData, properties);
+  return log as ILog;
 }

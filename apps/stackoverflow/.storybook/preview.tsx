@@ -3,7 +3,6 @@ import { ClerkProvider } from "@clerk/nextjs";
 import type { Preview } from "@storybook/react";
 import { useEffect } from "react";
 import "../app/globals.css";
-import "./preview.css";
 
 import { Toaster } from "@/shared";
 import { Inter } from "next/font/google";

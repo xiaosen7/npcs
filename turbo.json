@@ -42,6 +42,11 @@
       "cache": false,
       "dependsOn": ["^compile", "prisma-generate"]
     },
+    "storybook": {
+      "persistent": true,
+      "cache": false,
+      "dependsOn": ["^compile", "prisma-generate"]
+    },
     "prisma-generate": {
       "cache": false
     },

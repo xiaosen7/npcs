@@ -51,7 +51,6 @@ export interface ISaveButtonForAddProps
   extends Omit<IIconButtonProps, "children"> {}
 
 export const SaveButtonForAdd: React.FC<ISaveButtonForEditProps> = (props) => {
-  console.log("save button rendered");
   return (
     <ButtonIcon {...props}>
       <IconSave />
