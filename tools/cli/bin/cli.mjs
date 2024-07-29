@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 // @ts-check
+import { createLog } from "@npcs/shared/log";
 import { Command as Commander } from "commander";
 import * as commands from "../esm/index.js";
 import { Command } from "../esm/index.js";
@@ -10,14 +11,16 @@ import { Command } from "../esm/index.js";
     process.exit();
   });
 
+  const log = createLog("npcs");
+
   /**
    *
    * @param {Error} error
    */
   function errorHandler(error) {
-    console.error("@npcs/cli:", error.message);
+    log.error("@npcs/cli:", error.message);
     if (error.stack) {
-      console.error("@npcs/cli:", error.stack);
+      log.error("@npcs/cli:", error.stack);
     }
 
     process.exit(1);

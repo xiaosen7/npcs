@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
+    "@npcs/shared": "workspace:^",
     "@npcs/storybook-config": "workspace:^",
     "@pnpm/filter-workspace-packages": "^10.0.1",
     "@pnpm/find-workspace-dir": "^7.0.1",
@@ -55,6 +56,7 @@
     "rcrx": "^0.0.1",
     "react": "18.3.1",
     "react-hook-form": "^7.52.1",
+    "rimraf": "^6.0.1",
     "rxjs": "^7.8.1",
     "slash": "^5.1.0",
     "socket.io": "^4.7.5",
@@ -62,7 +64,6 @@
     "spark-md5": "^3.0.2",
     "tailwind-merge": "^2.4.0",
     "ts-dedent": "^2.2.0",
-    "rimraf": "^6.0.1",
     "type-fest": "^4.21.0",
     "uuid": "^10.0.0",
     "zod": "^3.23.8"

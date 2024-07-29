@@ -72,7 +72,7 @@ export class CommandGenerateComponents extends Command<
 
     const handlebarsFilePath = join(templatesDir, `${dirname(url)}.handlebars`);
     if (!fsx.existsSync(handlebarsFilePath)) {
-      this.warn(`Template file not found: ${handlebarsFilePath}`);
+      this.log.warn(`Template file not found: ${handlebarsFilePath}`);
       return;
     }
 
@@ -98,6 +98,6 @@ export class CommandGenerateComponents extends Command<
 
     await fsx.ensureFile(outputPath);
     await fsx.writeFile(outputPath, content);
-    this.log("Generated:", outputPath);
+    this.log.info("Generated:", outputPath);
   }
 }

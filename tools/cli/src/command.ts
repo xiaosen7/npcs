@@ -1,3 +1,4 @@
+import { createLog, ILog } from "@npcs/shared/log";
 import { Command as _Command } from "commander";
 import { z } from "zod";
 
@@ -11,6 +12,7 @@ export abstract class Command<
   readonly cmd;
   readonly cwd = process.cwd();
   options?: TOptions;
+  log: ILog;
 
   constructor(
     readonly name: string,
@@ -18,6 +20,7 @@ export abstract class Command<
     readonly optionsValidation: TOptionsValidation,
   ) {
     const cmd = new _Command(this.name);
+    this.log = createLog(this.name);
 
     // options
     Object.entries(this.optionsValidation.shape).forEach(([key, option]) => {
@@ -57,19 +60,6 @@ export abstract class Command<
       this.options = opts;
       await this.action();
     };
-  }
-
-  // TODO refactor to `log.success`
-  /**
-   * Log success.
-   * @param args
-   */
-  log(...args: any[]) {
-    console.log(`[@npx/cli ${this.name}]:`, ...args);
-  }
-
-  warn(...args: any[]) {
-    console.warn(`[@npx/cli ${this.name}]:`, ...args);
   }
 
   /**

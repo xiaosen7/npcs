@@ -117,47 +117,6 @@ describe(Command.name, () => {
     });
   });
 
-  describe("logs", () => {
-    const doTest = (method: keyof typeof console & keyof Command) => {
-      beforeEach(() => {
-        // Mock console.log
-        vi.spyOn(console, method).mockImplementation(vi.fn());
-      });
-
-      afterEach(() => {
-        // Restore console.log
-        vi.restoreAllMocks();
-      });
-
-      test(`should ${method} with correct name and arguments`, () => {
-        const { command, name } = createCommand();
-        command[method]("Test argument");
-
-        expect(console[method]).toHaveBeenCalledTimes(1);
-        expect(console[method]).toHaveBeenCalledWith(
-          `[@npx/cli ${name}]:`,
-          "Test argument",
-        );
-      });
-
-      test("should handle multiple arguments", () => {
-        const { command, name } = createCommand();
-        command[method]("Arg1", "Arg2", "Arg3");
-
-        expect(console[method]).toHaveBeenCalledTimes(1);
-        expect(console[method]).toHaveBeenCalledWith(
-          `[@npx/cli ${name}]:`,
-          "Arg1",
-          "Arg2",
-          "Arg3",
-        );
-      });
-    };
-
-    doTest("log");
-    doTest("warn");
-  });
-
   describe(nameOf<Command>("throwError"), () => {
     test("should throw an error", () => {
       const { command, name } = createCommand();
