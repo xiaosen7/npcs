@@ -12,27 +12,15 @@ env:
 jobs:
   check:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18]
     steps:
       - uses: actions/checkout@v4
-      - name: Get current branch name
-        run: |
-          echo "Current branch is ${GITHUB_REF#refs/heads/}"
-          git branch
-      - name: Enable Corepack
-        run: corepack enable
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-      - name: Test with Turbo
+
+      - uses: ./.github/actions/setup
+
+      - name: Run check tasks with Turbo
         run: |
           pnpm turbo lint --dry
+          # To fix the file or directory not find error emmittied by prisma
           pnpm turbo prisma-generate --concurrency 1
           pnpm turbo lint check-types test build
 
@@ -40,23 +28,14 @@ jobs:
     needs: check
     if: false
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18]
     steps:
       - uses: actions/checkout@v4
-      - name: Enable Corepack
-        run: corepack enable
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+
+      - uses: ./.github/actions/setup
+
       - name: Publish with lerna
         run: |
-          pnpm turbo prisma-generate
+          pnpm turbo prisma-generate --concurrency 1
           pnpm turbo compile
           git config --global user.email "wangshouren116@gmail.com"
           git config --global user.name "ci"
@@ -74,17 +53,7 @@ jobs:
         with:
           fetch-depth: 2 # we need diff recent two commits
 
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      - uses: ./.github/actions/setup
 
       - name: Login Registry
         run: |

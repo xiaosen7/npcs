@@ -89,3 +89,6 @@ pnpm turbo compile:watch
 ## References
 
 - [examples-next-prisma-starter](https://github.com/trpc/examples-next-prisma-starter/blob/main/package.json)
+- [blitz](https://github.com/blitz-js/blitz/tree/main)
+- [Next-js-Boilerplate](https://github.com/ixartz/Next-js-Boilerplate/tree/main)
+- [create-t3-app](https://github.com/t3-oss/create-t3-app/blob/main/.github/workflows/ci.yml)
