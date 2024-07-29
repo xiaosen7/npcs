@@ -2,7 +2,8 @@
 
 // @ts-check
 import { Command } from "commander";
-import { CommandDevApp, CommandGenerateComponents } from "../esm/index.js";
+import { CommandDev } from "../esm/dev.js";
+import { CommandGenerateComponents } from "../esm/generate-components.js";
 
 (async () => {
   process.on("SIGINT", function () {
@@ -27,7 +28,7 @@ import { CommandDevApp, CommandGenerateComponents } from "../esm/index.js";
   const program = new Command().name("npcs");
 
   program.addCommand(new CommandGenerateComponents().cmd);
-  program.addCommand(new CommandDevApp().cmd);
+  program.addCommand(new CommandDev().cmd);
 
   program.parse();
 })();

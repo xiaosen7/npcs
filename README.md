@@ -27,12 +27,6 @@ CLERK_SECRET_KEY=sk_test_Xx0zLQaur636egnWNgSPADqUxgT6U9vzno2DZ8W6g1
 docker compose -f ./db.docker-compose.yml up
 ```
 
-- Compile libs
-
-```bash
-pnpm turbo compile
-```
-
 - Start dev server
 
 ```bash

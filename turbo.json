@@ -35,7 +35,12 @@
         "prisma/**/*"
       ],
       "outputs": [".next/**", "!.next/cache/**"],
-      "dependsOn": ["^compile"]
+      "dependsOn": ["^compile", "prisma-generate"]
+    },
+    "dev": {
+      "persistent": true,
+      "cache": false,
+      "dependsOn": ["^compile", "prisma-generate"]
     },
     "prisma-generate": {
       "cache": false
@@ -61,10 +66,7 @@
       "inputs": ["src/**/*", "libs/**/*", "app/**/*", "tests/**/*"],
       "dependsOn": ["lint", "check-types"]
     },
-    "dev": {
-      "persistent": true,
-      "cache": false
-    },
+
     "compile:watch": {
       "persistent": true,
       "cache": false

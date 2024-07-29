@@ -5,11 +5,11 @@ import inquirer from "inquirer";
 import { z } from "zod";
 import { Command, IOptionsValidation } from "./command";
 
-const name = "dev-app";
+const name = "dev";
 const description = "Start develop app";
 const options = z.object({}) satisfies IOptionsValidation;
 
-export class CommandDevApp extends Command<typeof options> {
+export class CommandDev extends Command<typeof options> {
   constructor() {
     super(name, description, options);
   }
