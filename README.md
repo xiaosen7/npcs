@@ -83,7 +83,8 @@ pnpm turbo compile:watch
 | Enable Docker cache in CI                                  |          |            |
 | Fix the `createUserIfNeeded`                               |          |            |
 | Turbo remote cache                                         | 1        |            |
-| Do e2e test in CI                                          | 1        |            |
+| Do e2e test in CI                                          |          |            |
+| CI file reuse                                              |          |            |
 
 ## References
 
