@@ -339,7 +339,7 @@ importers:
         version: 8.2.4(storybook@8.2.4(@babel/preset-env@7.24.8(@babel/core@7.24.9))(bufferutil@4.0.8)(utf-8-validate@6.0.3))
       '@storybook/nextjs':
         specifier: 8.2.4
-        version: 8.2.4(@swc/core@1.7.0)(next@14.2.4(@babel/core@7.24.9)(@playwright/test@1.45.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.4(@babel/preset-env@7.24.8(@babel/core@7.24.9))(bufferutil@4.0.8)(utf-8-validate@6.0.3))(type-fest@4.21.0)(typescript@5.5.3)(vitest@2.0.4(@edge-runtime/vm@3.2.0)(@types/node@20.14.11)(jsdom@24.1.0(bufferutil@4.0.8)(utf-8-validate@6.0.3))(terser@5.31.2))(webpack-hot-middleware@2.26.1)(webpack@5.93.0(@swc/core@1.7.0))
+        version: 8.2.4(@swc/core@1.7.0)(esbuild@0.21.5)(next@14.2.4(@babel/core@7.24.9)(@playwright/test@1.45.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.4(@babel/preset-env@7.24.8(@babel/core@7.24.9))(bufferutil@4.0.8)(utf-8-validate@6.0.3))(type-fest@4.21.0)(typescript@5.5.3)(vitest@2.0.4(@edge-runtime/vm@3.2.0)(@types/node@20.14.11)(jsdom@24.1.0(bufferutil@4.0.8)(utf-8-validate@6.0.3))(terser@5.31.2))(webpack-hot-middleware@2.26.1)(webpack@5.93.0(@swc/core@1.7.0)(esbuild@0.21.5))
       '@storybook/react':
         specifier: 8.2.4
         version: 8.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.4(@babel/preset-env@7.24.8(@babel/core@7.24.9))(bufferutil@4.0.8)(utf-8-validate@6.0.3))(typescript@5.5.3)
@@ -1975,9 +1975,6 @@ importers:
       '@npcs/eslint-config':
         specifier: workspace:*
         version: link:../../configs/eslint
-      '@npcs/log':
-        specifier: workspace:^
-        version: link:../../libs/log
       '@npcs/rollup-config':
         specifier: workspace:*
         version: link:../../configs/rollup
@@ -2007,7 +2004,7 @@ importers:
         version: 8.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.4(@babel/preset-env@7.24.8(@babel/core@7.24.9))(bufferutil@4.0.8)(utf-8-validate@6.0.3))
       '@storybook/nextjs':
         specifier: 8.2.4
-        version: 8.2.4(@swc/core@1.7.0)(esbuild@0.21.5)(next@14.2.4(@babel/core@7.24.9)(@playwright/test@1.45.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.4(@babel/preset-env@7.24.8(@babel/core@7.24.9))(bufferutil@4.0.8)(utf-8-validate@6.0.3))(type-fest@4.21.0)(typescript@5.5.3)(vitest@2.0.4(@edge-runtime/vm@3.2.0)(@types/node@20.14.11)(jsdom@24.1.0(bufferutil@4.0.8)(utf-8-validate@6.0.3))(terser@5.31.2))(webpack-hot-middleware@2.26.1)(webpack@5.93.0(@swc/core@1.7.0)(esbuild@0.21.5))
+        version: 8.2.4(@swc/core@1.7.0)(next@14.2.4(@babel/core@7.24.9)(@playwright/test@1.45.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.4(@babel/preset-env@7.24.8(@babel/core@7.24.9))(bufferutil@4.0.8)(utf-8-validate@6.0.3))(type-fest@4.21.0)(typescript@5.5.3)(vitest@2.0.4(@edge-runtime/vm@3.2.0)(@types/node@20.14.11)(jsdom@24.1.0(bufferutil@4.0.8)(utf-8-validate@6.0.3))(terser@5.31.2))(webpack-hot-middleware@2.26.1)(webpack@5.93.0(@swc/core@1.7.0))
       '@storybook/react':
         specifier: 8.2.4
         version: 8.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.4(@babel/preset-env@7.24.8(@babel/core@7.24.9))(bufferutil@4.0.8)(utf-8-validate@6.0.3))(typescript@5.5.3)
@@ -19580,7 +19577,7 @@ snapshots:
       eslint: 8.57.0
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0)
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0)
       eslint-plugin-jsx-a11y: 6.9.0(eslint@8.57.0)
       eslint-plugin-react: 7.34.4(eslint@8.57.0)
       eslint-plugin-react-hooks: 4.6.2(eslint@8.57.0)
@@ -19610,7 +19607,7 @@ snapshots:
       enhanced-resolve: 5.17.0
       eslint: 8.57.0
       eslint-module-utils: 2.8.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0)
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0)
       fast-glob: 3.3.2
       get-tsconfig: 4.7.5
       is-core-module: 2.14.0
@@ -19632,7 +19629,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0):
+  eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0):
     dependencies:
       array-includes: 3.1.8
       array.prototype.findlastindex: 1.2.5

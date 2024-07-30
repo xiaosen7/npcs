@@ -84,6 +84,7 @@ pnpm turbo compile:watch
 | Turbo remote cache                                         | 1        |            |
 | Do e2e test in CI                                          |          |            |
 | CI file reuse                                              | 1        |            |
+| CI refactor                                                |          | 1          |
 
 ## References
 
