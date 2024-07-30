@@ -24,8 +24,10 @@ jobs:
       - name: Run check tasks with Turbo
         run: |
           # To fix the file or directory not find error emmittied by prisma
+          pnpm dedupe --check
           pnpm turbo prisma-generate --concurrency 1
-          pnpm turbo lint typecheck test build
+          pnpm turbo typecheck
+          pnpm turbo lint test build
 
   publish:
     needs: check

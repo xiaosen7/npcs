@@ -106,7 +106,8 @@
     "vitest": "^2.0.4"
   },
   "files": [
-    "./esm"
+    "./esm",
+    "!*.map"
   ],
   "repository": {
     "url": "https://github.com/xiaosen7/npcs"

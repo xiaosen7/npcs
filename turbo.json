@@ -69,7 +69,7 @@
     },
     "test:changed": {
       "inputs": ["src/**/*", "libs/**/*", "app/**/*", "tests/**/*"],
-      "dependsOn": ["lint", "typecheck"]
+      "dependsOn": ["^compile"]
     },
 
     "compile:watch": {
