@@ -35,7 +35,7 @@ jobs:
           cache-to: type=inline
           context: .
           file: ${{ env.DOCKERFILE }}
-          build-args: TURBO_TEAM,TURBO_TOKEN,APP_DIR,APP_PACKAGE_NAME="@npcs/template"
+          build-args: TURBO_TEAM,TURBO_TOKEN,APP_DIR,APP_PACKAGE_NAME
 
       - run: |
           echo "Docker Image ID: ${{ steps.docker_build.outputs.imageid }}"
