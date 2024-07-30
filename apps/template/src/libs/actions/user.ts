@@ -1,11 +1,11 @@
 "use server";
 
 import { prisma } from "@/libs/prisma/client";
-import { auth } from "@clerk/nextjs/server";
+import { currentUser } from "@clerk/nextjs/server";
 
 export async function createUserIfNeeded() {
   try {
-    const { clerkUser: clerkId } = auth();
+    const clerkId = (await currentUser())?.id;
 
     if (!clerkId) {
       return;

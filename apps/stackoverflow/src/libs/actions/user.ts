@@ -4,15 +4,20 @@ import { prisma } from "@/prisma";
 import { IUser, toast } from "@/shared";
 import { auth, currentUser } from "@clerk/nextjs/server";
 
+async function getClerkId() {
+  const clerkUser = await currentUser();
+  return clerkUser?.id;
+}
+
 export async function getCurrent() {
-  const { clerkUser: userId } = auth();
-  if (!userId) {
+  const clerkId = await getClerkId();
+  if (!clerkId) {
     return null;
   }
 
   const user = await prisma.user.findUnique({
     where: {
-      clerkId: userId,
+      clerkId,
     },
   });
   return user;
