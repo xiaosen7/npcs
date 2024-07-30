@@ -41,7 +41,7 @@ jobs:
       - name: Login Registry
         if: github.ref == 'refs/heads/main'
         run: |
-          echo ${{ secrets.PAT }} | docker login ${{ secrets.REGISTRY }} -u ${{ github.actor }} --password-stdin
+          echo ${{ secrets.PAT }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Build Docker Image
         id: docker_build
