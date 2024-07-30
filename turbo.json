@@ -32,6 +32,7 @@
         "app/**/*",
         "next.config.mjs",
         "tailwind.config.ts",
+        "postcss.*",
         "prisma/**/*"
       ],
       "outputs": [".next/**", "!.next/cache/**"],
@@ -51,7 +52,12 @@
       "cache": false
     },
     "compile": {
-      "inputs": ["src/**/*"],
+      "inputs": [
+        "src/**/*",
+        "postcss.config.*",
+        "rollup.config.*",
+        "tailwind.config.ts"
+      ],
       "outputs": ["esm/**"],
       "dependsOn": ["^compile"]
     },
