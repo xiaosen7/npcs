@@ -16,9 +16,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-
     - name: Login Registry
       if: github.ref == 'refs/heads/main'
       run: |
