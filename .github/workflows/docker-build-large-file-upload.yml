@@ -1,0 +1,25 @@
+# app-template-ci.yml
+name: Docker Build Notes
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Call Docker Build Action
+        uses: ./.github/actions/docker-build
+        with:
+          APP_DIR: apps/large-file-upload
+          APP_PACKAGE_NAME: "@npcs/large-file-upload"
+          IMAGE_NAME: ghcr.io/${{ github.actor }}/npcs-large-file-upload:latest
+          PAT: ${{ secrets.PAT }}
+          REGISTRY: ghcr.io
+          TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+          TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+          DOCKERFILE: ${{ secrets.DOCKERFILE }}
