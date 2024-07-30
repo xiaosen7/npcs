@@ -33,6 +33,7 @@ runs:
   steps:
     - name: Login Registry
       if: github.ref == 'refs/heads/main'
+      shell: bash
       run: |
         echo ${{ inputs.PAT }} | docker login ${{ inputs.REGISTRY }} -u ${{ github.actor }} --password-stdin
 
@@ -52,7 +53,8 @@ runs:
           APP_DIR=${{ inputs.APP_DIR }}
           APP_PACKAGE_NAME=${{ inputs.APP_PACKAGE_NAME }}
 
-    - run: |
+    - shell: bash
+      run: |
         echo "Docker Image ID: ${{ steps.docker_build.outputs.imageid }}"
         echo "Docker Image digest: ${{ steps.docker_build.outputs.digest }}"
         echo "Docker Image metadata: ${{ steps.docker_build.outputs.metadata }}"
