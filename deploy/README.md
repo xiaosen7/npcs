@@ -2,12 +2,17 @@
 
 ## Deploy by hand
 
-Requirements to run `start.sh`: docker, docker compose, yq, and some environment variables.
-
-Add your env vars to `~/.env.local`, see `.env.local.example` to get the detail. `start.sh` will auto load them.
+### Cheat sheet
 
 ```bash
-bash ./start.sh
+# Load env vars
+export $(grep -v '^#' ~/.env.local | xargs)
+# Pull the latest image
+docker compose pull <app>
+# Restart container
+docker compose up -d <app>
+# Clear unused images
+docker image prune -f
 ```
 
 To kill all containers in current machine.

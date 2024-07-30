@@ -85,6 +85,7 @@ pnpm turbo compile:watch
 | Do e2e test in CI                                          |          |            |
 | CI file reuse                                              | 1        |            |
 | CI refactor                                                |          | 1          |
+| SENTRY                                                     |          |            |
 
 ## References
 

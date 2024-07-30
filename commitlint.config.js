@@ -10,5 +10,6 @@ module.exports = {
     enableMultipleScopes: true,
     defaultScope: scopes.then((x) => (x.join(",").length > 70 ? [] : x)),
     allowEmptyScopes: false,
+    defaultSubject: "update",
   },
 };

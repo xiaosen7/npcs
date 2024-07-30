@@ -1,11 +1,11 @@
-name: Monorepo Integrity
+name: Integrity
 
 on:
   push:
     paths:
-      - 'package.json'
-      - 'pnpm-lock.yaml'
-      - '.github/**'
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/integrity.yml"
 
 jobs:
   check:
@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: 📥 install
+      - name: 📥 Install dependencies
         uses: ./.github/actions/setup
 
       - name: 👬🏽 Check for duplicate dependencies in lock file

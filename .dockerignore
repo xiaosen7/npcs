@@ -11,3 +11,8 @@ tests
 deploy
 build.sh
 CHANGELOG.md
+.github
+deploy
+.husky
+.vscode
+volumes

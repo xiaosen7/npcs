@@ -1,0 +1,24 @@
+name: Quality
+
+on:
+  push:
+
+env:
+  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 📥 Install dependencies
+        uses: ./.github/actions/setup
+
+      - name: Run check tasks with Turbo
+        run: |
+          # To fix the file or directory not find error emmittied by prisma
+          pnpm turbo prisma-generate --concurrency 1
+          pnpm turbo typecheck
+          pnpm turbo lint test
