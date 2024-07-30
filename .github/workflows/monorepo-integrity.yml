@@ -5,7 +5,7 @@ on:
     paths:
       - 'package.json'
       - 'pnpm-lock.yaml'
-      - '.github/**
+      - '.github/**'
 
 jobs:
   check:
