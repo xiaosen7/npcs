@@ -22,7 +22,7 @@ jobs:
           APP_PACKAGE_NAME: "@npcs/template"
           IMAGE_NAME: ghcr.io/${{ github.actor }}/npcs-template:latest
           PAT: ${{ secrets.PAT }}
-          REGISTRY: ${{ secrets.REGISTRY }}
+          REGISTRY: ghcr.io
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           DOCKERFILE: ${{ secrets.DOCKERFILE }}
