@@ -27,6 +27,9 @@ inputs:
   DOCKERFILE:
     description: "Path to Dockerfile"
     required: true
+  push:
+    description: "Push to Docker registry"
+    required: true
 
 runs:
   using: "composite"

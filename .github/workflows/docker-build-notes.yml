@@ -1,5 +1,5 @@
 # app-template-ci.yml
-name: Docker Build Template
+name: Docker Build Notes
 
 on:
   push:
@@ -15,9 +15,9 @@ jobs:
       - name: Call Docker Build Action
         uses: ./.github/actions/docker-build
         with:
-          APP_DIR: apps/template
-          APP_PACKAGE_NAME: "@npcs/template"
-          IMAGE_NAME: ghcr.io/${{ github.actor }}/npcs-template:latest
+          APP_DIR: apps/notes
+          APP_PACKAGE_NAME: "@npcs/notes"
+          IMAGE_NAME: ghcr.io/${{ github.actor }}/npcs-notes:latest
           PAT: ${{ secrets.PAT }}
           REGISTRY: ghcr.io
           TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
