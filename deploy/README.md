@@ -2,8 +2,6 @@
 
 ## Deploy by hand
 
-Add your env vars to `~/.env.local`, see `.env.local.example` to get the detail.
-
 ### Cheat sheet
 
 ```bash
