@@ -1,10 +1,6 @@
 name: Docker build template
 
 on:
-  workflow_run:
-    workflows: ["Quality", "Integrity"]
-    types:
-      - completed
   push:
     branches:
       - main
@@ -24,6 +20,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
       - name: Login Registry
         run: |
           echo ${{ secrets.PAT }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
@@ -32,13 +29,13 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v6
         with:
-          push: true
+          push: false
           tags: ${{ env.IMAGE_NAME }}
           cache-from: type=registry,ref=${{ env.IMAGE_NAME }}
           cache-to: type=inline
           context: .
           file: ${{ env.DOCKERFILE }}
-          build-args: TURBO_TEAM,TURBO_TOKEN,APP_DIR,APP_PACKAGE_NAME
+          build-args: TURBO_TEAM,TURBO_TOKEN,APP_DIR,APP_PACKAGE_NAME="@npcs/template"
 
       - run: |
           echo "Docker Image ID: ${{ steps.docker_build.outputs.imageid }}"
