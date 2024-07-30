@@ -1,5 +1,5 @@
-import { createLog, ILog } from "@npcs/log";
 import { Command as _Command } from "commander";
+import { consola, ConsolaInstance } from "consola";
 import { z } from "zod";
 
 // TODO fix any
@@ -12,7 +12,7 @@ export abstract class Command<
   readonly cmd;
   readonly cwd = process.cwd();
   options?: TOptions;
-  log: ILog;
+  log: ConsolaInstance;
 
   constructor(
     readonly name: string,
@@ -20,7 +20,7 @@ export abstract class Command<
     readonly optionsValidation: TOptionsValidation,
   ) {
     const cmd = new _Command(this.name);
-    this.log = createLog(this.name);
+    this.log = consola.withTag(name);
 
     // options
     Object.entries(this.optionsValidation.shape).forEach(([key, option]) => {

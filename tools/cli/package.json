@@ -2,7 +2,6 @@
   "name": "@npcs/cli",
   "version": "0.6.2",
   "scripts": {
-    "clean": "npcs clean",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "compile:watch": "rollup -c --watch",
@@ -17,7 +16,6 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
-    "@npcs/log": "workspace:^",
     "@npcs/storybook-config": "workspace:^",
     "@pnpm/filter-workspace-packages": "^10.0.1",
     "@pnpm/find-workspace-dir": "^7.0.1",
@@ -41,6 +39,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "commander": "^12.1.0",
+    "consola": "^3.2.3",
     "exec-sh": "^0.4.0",
     "fast-glob": "^3.3.2",
     "filesize": "^10.1.4",

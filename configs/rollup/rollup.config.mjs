@@ -50,6 +50,7 @@ export default {
     if (warning.code === "MODULE_LEVEL_DIRECTIVE") return;
     warn(warning);
   },
+  logLevel: "warn",
 };
 
 /**
