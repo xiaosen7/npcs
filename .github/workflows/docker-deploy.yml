@@ -33,6 +33,6 @@ jobs:
           envs: REPO_NAME
           script: |
             cd ${{ secrets.VPS_WORK_DIR }}/deploy
-            docker compose pull
-            docker compose up -d
+            docker-compose pull ${{ github.event.client_payload.app }}
+            docker-compose up -d ${{ github.event.client_payload.app }}
             docker image prune -f
