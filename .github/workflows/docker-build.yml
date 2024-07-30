@@ -1,10 +1,7 @@
-# .github/workflows/docker-build.yml
 name: Docker Build
 
 on:
   push:
-    branches:
-      - "**"
 
 jobs:
   generate-matrix:
