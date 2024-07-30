@@ -1,0 +1,61 @@
+# .github/actions/docker-build/action.yml
+name: "Docker Build and Push"
+description: "Build and push Docker images for different branches"
+
+inputs:
+  REGISTRY:
+    description: "Docker registry"
+    required: true
+  PAT:
+    description: "Personal access token for Docker registry"
+    required: true
+  APP_DIR:
+    description: "Application directory"
+    required: true
+  APP_PACKAGE_NAME:
+    description: "Application package name"
+    required: true
+  DOCKERFILE:
+    description: "Path to Dockerfile"
+    required: true
+  IMAGE_NAME:
+    description: "Docker image name"
+    required: true
+  TURBO_TEAM:
+    description: "Turbo team"
+    required: true
+  TURBO_TOKEN:
+    description: "Turbo token"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Login Registry
+      if: github.ref == 'refs/heads/main'
+      run: |
+        echo ${{ inputs.PAT }} | docker login ${{ inputs.REGISTRY }} -u ${{ github.actor }} --password-stdin
+
+    - name: Build Docker Image
+      id: docker_build
+      uses: docker/build-push-action@v6
+      with:
+        push: ${{ github.ref == 'refs/heads/main' && 'true' || 'false' }}
+        tags: ${{ inputs.IMAGE_NAME }}
+        cache-from: type=registry,ref=${{ inputs.IMAGE_NAME }}
+        cache-to: type=inline
+        context: .
+        file: ${{ inputs.DOCKERFILE }}
+        build-args: |
+          TURBO_TEAM=${{ inputs.TURBO_TEAM }}
+          TURBO_TOKEN=${{ inputs.TURBO_TOKEN }}
+          APP_DIR=${{ inputs.APP_DIR }}
+          APP_PACKAGE_NAME=${{ inputs.APP_PACKAGE_NAME }}
+
+    - run: |
+        echo "Docker Image ID: ${{ steps.docker_build.outputs.imageid }}"
+        echo "Docker Image digest: ${{ steps.docker_build.outputs.digest }}"
+        echo "Docker Image metadata: ${{ steps.docker_build.outputs.metadata }}"
