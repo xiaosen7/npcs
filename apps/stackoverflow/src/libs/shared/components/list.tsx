@@ -1,5 +1,6 @@
+import { IComponentBaseProps } from "@npcs/ui";
 import React from "react";
-import { IComponentBaseProps, ISafeAny } from "../types";
+import { ISafeAny } from "../types";
 import { cn, mp } from "../utils";
 import { Filter, IFilterProps, IModelFilterProps, ModelFilter } from "./filter";
 import { PagePagination } from "./page-pagination";

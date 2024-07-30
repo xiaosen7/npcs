@@ -23,7 +23,7 @@
     },
     "test": {
       "inputs": ["src/**/*", "libs/**/*", "app/**/*", "tests/**/*"],
-      "dependsOn": ["lint", "typecheck", "compile"]
+      "dependsOn": ["compile"]
     },
     "build": {
       "inputs": [

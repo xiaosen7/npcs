@@ -1,4 +1,4 @@
-import { createLog, ILog } from "@npcs/shared/log";
+import { createLog, ILog } from "@npcs/log";
 import { Command as _Command } from "commander";
 import { z } from "zod";
 

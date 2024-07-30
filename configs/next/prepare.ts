@@ -1,6 +1,6 @@
 // @ts-check
 
-import { createLog } from "@npcs/shared/log";
+import { createLog } from "@npcs/log";
 import dotenv from "dotenv";
 import exec from "exec-sh";
 import createJiti from "jiti";
@@ -46,11 +46,11 @@ function loadAndCheckEnv(isDev: boolean) {
 
   // check
   const { env: server } = jiti(
-    "@npcs/shared/env/server.js",
-  ) as typeof import("@npcs/shared/env/server.js");
+    "@npcs/env/server",
+  ) as typeof import("@npcs/env/server");
   const { env: client } = jiti(
-    "@npcs/shared/env/client.js",
-  ) as typeof import("@npcs/shared/env/client.js");
+    "@npcs/env/client",
+  ) as typeof import("@npcs/env/client");
 
   printEnv(server, "server");
   printEnv(client, "client");

@@ -1,5 +1,5 @@
 "use client";
-import { mp } from "@npcs/shared/react-helpers";
+import { mp } from "@npcs/ui";
 import { useControllableValue } from "ahooks";
 import React, { ComponentProps } from "react";
 

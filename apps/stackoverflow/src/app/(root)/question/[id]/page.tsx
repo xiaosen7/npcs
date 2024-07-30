@@ -9,6 +9,7 @@ import {
   QuestionMetrics,
   QuestionTitle,
 } from "@/question";
+import { ISearchParams } from "@/search-params";
 import {
   DownVote,
   EditAndDelete,
@@ -25,7 +26,8 @@ import { UserAvatar } from "@/user";
 import { NextPage } from "next";
 import { redirect } from "next/navigation";
 
-export interface IQuestionDetailPageProps extends IPageProps<{ id: string }> {}
+interface IQuestionDetailPageProps
+  extends IPageProps<{ id: string }, ISearchParams> {}
 
 const QuestionDetailPage: NextPage<IQuestionDetailPageProps> = async (
   props,

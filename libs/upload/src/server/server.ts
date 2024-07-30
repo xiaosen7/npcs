@@ -1,4 +1,4 @@
-import { createLog } from "@npcs/shared/log";
+import { createLog } from "@npcs/log";
 import { createServer } from "node:http";
 import { Server } from "socket.io";
 import { IUploadClientActions } from "../shared/actions";

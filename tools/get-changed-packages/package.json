@@ -24,7 +24,7 @@
     "@npcs/tailwind-config": "workspace:*",
     "@npcs/typescript-config": "workspace:*",
     "@npcs/vitest-config": "workspace:^",
-    "@types/node": "^20.14.10",
+    "@types/node": "*",
     "eslint": "^8.57.0",
     "rimraf": "^6.0.1",
     "rollup": "^4.18.1",

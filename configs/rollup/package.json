@@ -20,7 +20,7 @@
     "rollup-plugin-typescript-paths": "^1.5.0"
   },
   "devDependencies": {
-    "@types/node": "^20.14.10",
+    "@types/node": "*",
     "rimraf": "^6.0.1",
     "rollup": "^4.18.1"
   },

@@ -1,7 +1,7 @@
 import { mock } from "@/mock";
 import { prisma } from "@/prisma";
 import { IQuestion, IUser } from "@/shared";
-import { createLog } from "@npcs/shared/log";
+import { createLog } from "@npcs/log";
 import { random } from "lodash-es";
 import { createLogUpdate } from "log-update";
 import os from "node:os";

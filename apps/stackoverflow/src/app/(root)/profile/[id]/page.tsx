@@ -6,7 +6,7 @@ import {
   ProfileStats,
   ProfileTopQuestionCard,
 } from "@/profile";
-import { ESearchParamKey } from "@/search-params";
+import { ESearchParamKey, ISearchParams } from "@/search-params";
 import {
   IPageProps,
   PagePagination,
@@ -17,10 +17,9 @@ import {
 } from "@/shared";
 import React from "react";
 
-const ProFileDetailPage: React.FC<IPageProps<{ id: string }>> = async ({
-  params: { id },
-  searchParams,
-}) => {
+const ProFileDetailPage: React.FC<
+  IPageProps<{ id: string }, ISearchParams>
+> = async ({ params: { id }, searchParams }) => {
   const profileUser = await prisma.user.findUniqueOrThrow({
     where: {
       id,

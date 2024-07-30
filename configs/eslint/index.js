@@ -19,11 +19,13 @@ module.exports = defineConfig({
     ],
     "no-console": "error",
   },
-  overrides: [
-    // {
-    //   files: ["*.ts", "*.tsx"],
-    //   rules: {
-    //   }
-    // },
+  ignorePatterns: [
+    ".next",
+    "public",
+    "**/esm",
+    "dist",
+    ".turbo",
+    ".rollup.cache",
+    "node_modules",
   ],
 });

@@ -7,7 +7,7 @@ import { ImageFirstNote } from "@libs/components/image/first-note";
 import { InfoButton } from "@libs/components/info";
 import { HeaderLayout } from "@libs/components/layout/header";
 import { prisma } from "@libs/prisma/client";
-import { IPageProps } from "@npcs/shared/react-helpers";
+import { IPageProps } from "@npcs/ui";
 import Link from "next/link";
 import React from "react";
 

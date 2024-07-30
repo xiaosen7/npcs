@@ -4,7 +4,6 @@ import {
   startWebsocketServer,
   Upload,
 } from "@npcs/upload";
-import "@npcs/upload/styles.css";
 import path from "path";
 
 configuration.set({

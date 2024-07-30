@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { cn, mp } from "@npcs/shared/react-helpers";
+import { cn, mp } from "@npcs/ui";
 
 export interface IIconButtonProps extends React.ComponentProps<"button"> {
   children: React.ReactNode;

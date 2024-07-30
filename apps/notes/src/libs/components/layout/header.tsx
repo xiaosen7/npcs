@@ -1,4 +1,4 @@
-import { cn, IComponentBaseProps, mp } from "@npcs/shared/react-helpers";
+import { cn, IComponentBaseProps, mp } from "@npcs/ui";
 import React from "react";
 
 export interface IHeaderLayoutProps extends IComponentBaseProps {

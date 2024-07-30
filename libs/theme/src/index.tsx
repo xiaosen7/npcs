@@ -1,6 +1,6 @@
 "use client";
 
-import { mp } from "@npcs/shared/react-helpers";
+import { mp } from "@npcs/ui";
 import { useEffect, useRef, useTransition } from "react";
 import { useStore } from "zustand";
 import { IOptions, ISyncElementClass, IToggleTheme, IUseTheme } from "./shared";

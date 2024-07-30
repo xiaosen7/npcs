@@ -1,1 +1,1 @@
-export * from "@npcs/shared/jsx";
+export * from "@npcs/ui";

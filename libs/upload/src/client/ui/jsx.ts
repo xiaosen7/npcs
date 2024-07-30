@@ -1,4 +1,4 @@
-import { cn } from "@npcs/shared/jsx";
+import { cn } from "@npcs/ui";
 import React from "react";
 
 /**

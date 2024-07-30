@@ -1,4 +1,4 @@
-import { IComponentBaseProps, mp } from "@npcs/shared/react-helpers";
+import { IComponentBaseProps, mp } from "@npcs/ui";
 import Image from "next/image";
 import React from "react";
 

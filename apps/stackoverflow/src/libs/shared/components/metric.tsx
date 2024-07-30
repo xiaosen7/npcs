@@ -2,7 +2,7 @@ import { isNumber } from "lodash-es";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { IComponentBaseProps } from "../types";
+import { IComponentBaseProps } from "../ui";
 import { cn, formatNumber, mp } from "../utils";
 
 export interface IMetricProps extends IComponentBaseProps {

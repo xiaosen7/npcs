@@ -4,7 +4,7 @@ import { InputSearch } from "@libs/components/input/search";
 import { HeaderLayout } from "@libs/components/layout/header";
 import { prisma } from "@libs/prisma/client";
 import { Back } from "@libs/router/back";
-import { IPageProps } from "@npcs/shared/react-helpers";
+import { IPageProps } from "@npcs/ui";
 import React from "react";
 
 export const dynamic = "force-dynamic";

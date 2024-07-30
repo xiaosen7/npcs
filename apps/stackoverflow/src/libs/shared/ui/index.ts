@@ -1,1 +1,1 @@
-export * from "@npcs/shared/components";
+export * from "@npcs/ui";

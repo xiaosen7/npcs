@@ -2,7 +2,7 @@ import { NoteEdit } from "@libs/components/edit/edit";
 import { ENoteEditMode } from "@libs/components/edit/types";
 import { INoteValidationInfer } from "@libs/components/edit/validation";
 import { prisma } from "@libs/prisma/client";
-import { IPageProps } from "@npcs/shared/react-helpers";
+import { IPageProps } from "@npcs/ui";
 import { redirect } from "next/navigation";
 import React from "react";
 

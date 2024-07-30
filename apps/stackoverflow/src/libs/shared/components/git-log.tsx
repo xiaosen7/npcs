@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { IComponentBaseProps } from "../types";
+import { IComponentBaseProps } from "../ui";
 import { mp } from "../utils";
 
 export interface IGitLogProps extends IComponentBaseProps {}

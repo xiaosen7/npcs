@@ -4,7 +4,7 @@ import { ImageSearch } from "@/shared/assets/icons/search";
 import { useDebounceEffect, useMemoizedFn } from "ahooks";
 import { omit } from "lodash-es";
 import React, { useState } from "react";
-import { IComponentBaseProps, Input, InputProps, mp, useNextRouter } from "..";
+import { IComponentBaseProps, Input, InputProps, mp, useRouter } from "../ui";
 
 export interface ISearchInputSyncQueryProps
   extends IComponentBaseProps,
@@ -20,7 +20,7 @@ export const SearchInputSyncQuery: React.FC<ISearchInputSyncQueryProps> = (
   props,
 ) => {
   const { placeholder, searchParamKey = ESearchParamKey.Q } = props;
-  const { router, pathname, searchParams } = useNextRouter();
+  const { router, pathname, searchParams } = useRouter();
 
   const searchParamValue = searchParams?.get(searchParamKey) ?? "";
   const [value, setValue] = useState(searchParamValue);

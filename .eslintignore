@@ -1,6 +1,6 @@
 .next
 public
-esm
+**/esm
 dist
 .turbo
 .rollup.cache

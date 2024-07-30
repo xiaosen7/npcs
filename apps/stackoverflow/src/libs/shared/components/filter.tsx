@@ -4,15 +4,15 @@ import { Prisma } from ".prisma/client";
 import { ESearchParamKey } from "@/search-params";
 import { useMemoizedFn } from "ahooks";
 import React from "react";
-import { useNextRouter } from "../hooks";
-import { IComponentBaseProps } from "../types";
 import {
   Button,
+  IComponentBaseProps,
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
+  useRouter,
 } from "../ui";
 import { cn, getModelFilterOptions, getUrl, mp } from "../utils";
 
@@ -32,7 +32,7 @@ export interface IFilterOption {
 
 export const Filter: React.FC<IFilterProps> = (props) => {
   const { variant = "default" } = props;
-  const { searchParams, router } = useNextRouter();
+  const { searchParams, router } = useRouter();
 
   const filter = searchParams.get(ESearchParamKey.Filter) ?? undefined;
 

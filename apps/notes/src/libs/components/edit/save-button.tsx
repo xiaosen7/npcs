@@ -1,10 +1,6 @@
 import { ButtonIcon, IIconButtonProps } from "@libs/components/button/icon";
 import { IconSave } from "@libs/components/icon/save";
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-} from "@npcs/shared/components/dialog.js";
+import { Dialog, DialogContent, DialogTrigger } from "@npcs/ui";
 import { Button } from "../button/button";
 import { IconWarn } from "../icon/warn";
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 // @ts-check
-import { createLog } from "@npcs/shared/log";
+import { createLog } from "@npcs/log";
 import { Command as Commander } from "commander";
 import * as commands from "../esm/index.js";
 import { Command } from "../esm/index.js";

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { IComponentBaseProps } from "../types";
+import { IComponentBaseProps } from "../ui";
 import { mp } from "../utils";
 
 export interface ILinkableProps extends IComponentBaseProps {

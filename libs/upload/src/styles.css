@@ -1,4 +1,4 @@
-@import url("@npcs/shared/styles.css");
+@import url("@npcs/ui/styles.css");
 
 @tailwind base;
 @tailwind components;

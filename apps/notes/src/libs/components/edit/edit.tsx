@@ -12,9 +12,9 @@ import {
   FormControl,
   FormField,
   FormItem,
-} from "@npcs/shared/components";
-import { useForm } from "@npcs/shared/hooks/form";
-import { useRouter } from "@npcs/shared/router/hooks/index.js";
+  useForm,
+  useRouter,
+} from "@npcs/ui";
 import { useControllableValue, useRequest } from "ahooks";
 import React from "react";
 import { HeaderLayout } from "../layout/header";

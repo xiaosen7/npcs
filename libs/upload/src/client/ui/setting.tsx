@@ -1,10 +1,4 @@
-import {
-  Label,
-  Slider,
-  ToggleGroup,
-  ToggleGroupItem,
-} from "@npcs/shared/components";
-import { cn } from "@npcs/shared/jsx";
+import { cn, Label, Slider, ToggleGroup, ToggleGroupItem } from "@npcs/ui";
 
 import { useControllableValue } from "ahooks";
 import { values } from "lodash-es";

@@ -2,7 +2,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { createUserIfNeeded } from "@libs/actions/user";
 import { SyncElementClass } from "@libs/theme";
-import { cn } from "@npcs/shared/jsx";
+import { cn } from "@npcs/ui";
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";

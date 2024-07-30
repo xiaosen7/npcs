@@ -11,7 +11,11 @@ import { typescriptPaths } from "rollup-plugin-typescript-paths";
 
 /** @type {import('rollup').RollupOptions} */
 export default {
-  input: fg.sync(["./src/**/*.{ts,tsx,css}", "!**/stories/**"]),
+  input: fg.sync([
+    "./src/**/*.{ts,tsx,css}",
+    "!**/*.stories.*",
+    "!**/*.test.*",
+  ]),
   output: [
     {
       format: "esm",
@@ -31,7 +35,7 @@ export default {
         incremental: false,
         jsx: "react-jsx",
       },
-      exclude: ["**/stories/**"],
+      exclude: ["**/*.stories.*", "**/*.test.*"],
     }),
     resolve(),
     typescriptPaths(),

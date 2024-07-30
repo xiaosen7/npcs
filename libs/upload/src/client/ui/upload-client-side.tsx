@@ -17,8 +17,7 @@ import { Observable } from "rxjs";
 import { IUploadClientActions, IWrapServerActions } from "../../shared/actions";
 import { IUploadSetting, UploadSetting } from "./setting";
 
-import { Badge, Input, Progress } from "@npcs/shared/components";
-import { cn } from "@npcs/shared/jsx";
+import { Badge, cn, Input, Progress } from "@npcs/ui";
 import { configuration } from "@shared/configuration";
 import { useIsClient } from "@shared/next";
 import { io } from "socket.io-client";

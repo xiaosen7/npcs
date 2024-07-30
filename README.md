@@ -91,3 +91,4 @@ pnpm turbo compile:watch
 - [blitz](https://github.com/blitz-js/blitz/tree/main)
 - [Next-js-Boilerplate](https://github.com/ixartz/Next-js-Boilerplate/tree/main)
 - [create-t3-app](https://github.com/t3-oss/create-t3-app/blob/main/.github/workflows/ci.yml)
+- [nextjs-monorepo-example](https://github.com/belgattitude/nextjs-monorepo-example)

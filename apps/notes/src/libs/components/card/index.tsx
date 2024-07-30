@@ -5,8 +5,10 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from "@npcs/shared/components/carousel.js";
-import { cn, IComponentBaseProps, mp } from "@npcs/shared/react-helpers";
+  cn,
+  IComponentBaseProps,
+  mp,
+} from "@npcs/ui";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";

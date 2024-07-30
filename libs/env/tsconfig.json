@@ -1,0 +1,11 @@
+{
+  "extends": "@npcs/typescript-config",
+  "compilerOptions": {
+    "types": ["vitest/globals"],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["./**/*"],
+  "exclude": ["./node_modules", "./esm", "./.rollup.cache"]
+}

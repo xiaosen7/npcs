@@ -1,9 +1,7 @@
 "use client";
 
 import { IconClose } from "@libs/components/icon/close";
-import { IComponentBaseProps } from "@npcs/shared/component-type";
-import { mp } from "@npcs/shared/jsx";
-import { useRouter } from "@npcs/shared/router/hooks/index.js";
+import { IComponentBaseProps, mp, useRouter } from "@npcs/ui";
 import { useControllableValue, useDebounceEffect } from "ahooks";
 import { omit } from "lodash-es";
 import React, { ComponentProps, useTransition } from "react";
