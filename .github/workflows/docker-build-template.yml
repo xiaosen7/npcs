@@ -29,27 +29,7 @@ jobs:
           echo ${{ secrets.PAT }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
 
       - name: Build
-        id: docker_build_api
-        uses: docker/build-push-action@v6
-        env:
-          IMAGE_NAME: ${{ env.REGISTRY }}/${{ github.actor }}/turbo-with-docker-api:latest
-          FILE: ./Dockerfile
-        with:
-          push: false
-          tags: ${{ env.IMAGE_NAME }}
-          cache-from: type=registry,ref=${{ env.IMAGE_NAME }}
-          cache-to: type=inline
-          context: .
-          file: ${{ env.FILE }}
-          build-args: TURBO_TEAM,TURBO_TOKEN,APP_DIR,APP_PACKAGE_NAME
-
-      - run: |
-          echo "Docker Image ID: ${{ steps.docker_build_api.outputs.imageid }}"
-          echo "Docker Image digest: ${{ steps.docker_build_api.outputs.digest }}"
-          echo "Docker Image metadata: ${{ steps.docker_build_api.outputs.metadata }}"
-
-      - name: Build and push for web
-        id: docker_build_web
+        id: docker_build
         uses: docker/build-push-action@v6
         with:
           push: true
@@ -61,6 +41,6 @@ jobs:
           build-args: TURBO_TEAM,TURBO_TOKEN,APP_DIR,APP_PACKAGE_NAME
 
       - run: |
-          echo "Docker Image ID: ${{ steps.docker_build_web.outputs.imageid }}"
-          echo "Docker Image digest: ${{ steps.docker_build_web.outputs.digest }}"
-          echo "Docker Image metadata: ${{ steps.docker_build_web.outputs.metadata }}"
+          echo "Docker Image ID: ${{ steps.docker_build.outputs.imageid }}"
+          echo "Docker Image digest: ${{ steps.docker_build.outputs.digest }}"
+          echo "Docker Image metadata: ${{ steps.docker_build.outputs.metadata }}"
