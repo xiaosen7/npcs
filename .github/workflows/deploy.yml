@@ -15,11 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: ./.github/actions/setup
-
-      - name: Check Dependencies
-        # Todo depchek
-        run: pnpm manypkg check
+      - name: 📥 install
+        uses: ./.github/actions/setup
 
       - name: Run check tasks with Turbo
         run: |

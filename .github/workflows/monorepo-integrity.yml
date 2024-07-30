@@ -1,0 +1,22 @@
+name: Monorepo Integrity
+
+on:
+  push:
+    paths:
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - '.github/**
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 📥 install
+        uses: ./.github/actions/setup
+
+      - name: 👬🏽 Check for duplicate dependencies in lock file
+        run: |
+          pnpm manypkg check
+          pnpm dedupe --check
