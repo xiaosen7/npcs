@@ -3,6 +3,8 @@ name: Docker Build
 
 on:
   push:
+    branches:
+      - "**"
 
 jobs:
   generate-matrix:
@@ -66,6 +68,6 @@ jobs:
         run: |
           curl -X POST \
           -H "Accept: application/vnd.github+json" \
-          -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"\
-          https://api.github.com/repos/${{ github.repository }}/dispatches \
-          -d "{\"event_type\":\"deploy\",\"client_payload\":{\"app\":\"${{ matrix.app-dir }}\"}}"
+          -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          -d "{\"event_type\":\"deploy\",\"client_payload\":{\"app\":\"${{ matrix.app-dir }}\"}}" \
+          https://api.github.com/repos/${{ github.repository }}/dispatches
