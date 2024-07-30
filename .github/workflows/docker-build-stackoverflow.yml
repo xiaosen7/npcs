@@ -3,7 +3,13 @@ name: Docker Build Stackoverflow
 
 on:
   push:
-
+    paths:
+      - "apps/stackoverflow/**"
+      - "libs/**"
+      - "configs/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "turbo.json"
 jobs:
   build:
     runs-on: ubuntu-latest

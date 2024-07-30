@@ -3,6 +3,13 @@ name: Docker Build Template
 
 on:
   push:
+    paths:
+      - "apps/template/**"
+      - "libs/**"
+      - "configs/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "turbo.json"
 
 jobs:
   build:

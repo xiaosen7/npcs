@@ -3,6 +3,13 @@ name: Docker Build Notes
 
 on:
   push:
+    paths:
+      - "apps/notes/**"
+      - "libs/**"
+      - "configs/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "turbo.json"
 
 jobs:
   build:

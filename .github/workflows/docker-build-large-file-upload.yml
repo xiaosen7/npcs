@@ -3,6 +3,13 @@ name: Docker Build Large file upload
 
 on:
   push:
+    paths:
+      - "apps/large-file-upload/**"
+      - "libs/**"
+      - "configs/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "turbo.json"
 
 jobs:
   build:
