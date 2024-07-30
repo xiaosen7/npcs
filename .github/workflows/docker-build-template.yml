@@ -1,0 +1,66 @@
+name: Docker build template
+
+on:
+  workflow_run:
+    workflows: ["Quality", "Integrity"]
+    types:
+      - completed
+  push:
+    branches:
+      - main
+
+env:
+  REGISTRY: ghcr.io
+  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  APP_DIR: apps/template
+  APP_PACKAGE_NAME: "@npcs/template"
+  DOCKERFILE: ./Dockerfile
+  IMAGE_NAME: ghcr.io/${{ github.actor }}/npcs-template:latest
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login Registry
+        run: |
+          echo ${{ secrets.PAT }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
+
+      - name: Build
+        id: docker_build_api
+        uses: docker/build-push-action@v6
+        env:
+          IMAGE_NAME: ${{ env.REGISTRY }}/${{ github.actor }}/turbo-with-docker-api:latest
+          FILE: ./Dockerfile
+        with:
+          push: false
+          tags: ${{ env.IMAGE_NAME }}
+          cache-from: type=registry,ref=${{ env.IMAGE_NAME }}
+          cache-to: type=inline
+          context: .
+          file: ${{ env.FILE }}
+          build-args: TURBO_TEAM,TURBO_TOKEN,APP_DIR,APP_PACKAGE_NAME
+
+      - run: |
+          echo "Docker Image ID: ${{ steps.docker_build_api.outputs.imageid }}"
+          echo "Docker Image digest: ${{ steps.docker_build_api.outputs.digest }}"
+          echo "Docker Image metadata: ${{ steps.docker_build_api.outputs.metadata }}"
+
+      - name: Build and push for web
+        id: docker_build_web
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          tags: ${{ env.IMAGE_NAME }}
+          cache-from: type=registry,ref=${{ env.IMAGE_NAME }}
+          cache-to: type=inline
+          context: .
+          file: ${{ env.DOCKERFILE }}
+          build-args: TURBO_TEAM,TURBO_TOKEN,APP_DIR,APP_PACKAGE_NAME
+
+      - run: |
+          echo "Docker Image ID: ${{ steps.docker_build_web.outputs.imageid }}"
+          echo "Docker Image digest: ${{ steps.docker_build_web.outputs.digest }}"
+          echo "Docker Image metadata: ${{ steps.docker_build_web.outputs.metadata }}"
