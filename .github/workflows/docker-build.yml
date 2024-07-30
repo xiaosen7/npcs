@@ -71,3 +71,7 @@ jobs:
           -H "Authorization: Bearer ${{ secrets.PAT }}" \
           -d "{\"event_type\":\"deploy\",\"client_payload\":{\"app\":\"${{ matrix.app-dir }}\"}}" \
           https://api.github.com/repos/${{ github.repository }}/dispatches
+
+      - name: Check Deploy Event
+        run: |
+          echo "Deploy event triggered for app: ${{ matrix.app-dir }}"
