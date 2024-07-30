@@ -1,5 +1,5 @@
 # app-template-ci.yml
-name: Docker Build Notes
+name: Docker Build Large file upload
 
 on:
   push:
