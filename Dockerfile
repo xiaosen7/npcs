@@ -54,4 +54,6 @@ COPY --from=installer --chown=nextjs:nodejs /app/${APP_DIR}/public ./${APP_DIR}/
 
 WORKDIR /app/${APP_DIR}
 
+EXPOSE 3000
+
 CMD ["sh", "-c", "pnpx prisma migrate deploy && node server.js"]
