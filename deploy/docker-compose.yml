@@ -3,7 +3,7 @@ name: nextjs-prictical-cases
 services:
   template:
     container_name: template
-    image: $DOCKER_REGISTRY/$DOCKER_USER/npcs-template:latest
+    image: $DOCKER_REGISTRY/$DOCKER_USER/npcs-template:$DOCKER_TAG
     restart: always
     environment:
       - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/template?pool_timeout=6000
@@ -17,7 +17,7 @@ services:
 
   notes:
     container_name: notes
-    image: $DOCKER_REGISTRY/$DOCKER_USER/npcs-notes:latest
+    image: $DOCKER_REGISTRY/$DOCKER_USER/npcs-notes:$DOCKER_TAG
     restart: always
     environment:
       - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/notes?pool_timeout=6000
@@ -31,7 +31,7 @@ services:
 
   stackoverflow:
     container_name: stackoverflow
-    image: $DOCKER_REGISTRY/$DOCKER_USER/npcs-stackoverflow:latest
+    image: $DOCKER_REGISTRY/$DOCKER_USER/npcs-stackoverflow:$DOCKER_TAG
     restart: always
     environment:
       - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/stackoverflow?pool_timeout=6000
@@ -45,7 +45,7 @@ services:
 
   large-file-upload:
     container_name: large-file-upload
-    image: $DOCKER_REGISTRY/$DOCKER_USER/npcs-large-file-upload:latest
+    image: $DOCKER_REGISTRY/$DOCKER_USER/npcs-large-file-upload:$DOCKER_TAG
     restart: always
     environment:
       - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/large-file-upload?pool_timeout=6000

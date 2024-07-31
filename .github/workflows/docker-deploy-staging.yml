@@ -2,7 +2,7 @@ name: Docker Deploy
 
 on:
   repository_dispatch:
-    types: [deploy]
+    types: [deploy-staging]
 
 jobs:
   deploy:
@@ -15,22 +15,22 @@ jobs:
       - name: Upload to VPS
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          port: ${{ secrets.VPS_PORT }}
+          host: ${{ secrets.VPS_HOST_STAGING }}
+          username: ${{ secrets.VPS_USER_STAGING }}
+          key: ${{ secrets.VPS_SSH_KEY_STAGING }}
+          port: ${{ secrets.VPS_PORT_STAGING }}
           source: ./deploy
-          target: ${{ secrets.VPS_WORK_DIR }}
+          target: ${{ secrets.VPS_WORK_DIR_STAGING }}
 
       - name: Execute deployment via SSH
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          port: ${{ secrets.VPS_PORT }}
+          host: ${{ secrets.VPS_HOST_STAGING }}
+          username: ${{ secrets.VPS_USER_STAGING }}
+          key: ${{ secrets.VPS_SSH_KEY_STAGING }}
+          port: ${{ secrets.VPS_PORT_STAGING }}
           script: |
-            cd ${{ secrets.VPS_WORK_DIR }}/deploy
+            cd ${{ secrets.VPS_WORK_DIR_STAGING }}/deploy
             export $(grep -v '^#' ~/.env.local | xargs)
             docker compose pull ${{ github.event.client_payload.app }}
             docker compose up -d ${{ github.event.client_payload.app }}

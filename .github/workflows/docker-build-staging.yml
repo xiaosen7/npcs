@@ -2,7 +2,7 @@ name: Docker Build
 
 on:
   push:
-    branches: "main"
+    branches: "!main"
 
 jobs:
   generate-matrix:
@@ -20,7 +20,7 @@ jobs:
           matrix="{\"include\":["
           for app in $apps; do
             app_name=$(basename $app)
-            matrix="${matrix}{\"app-dir\":\"${app_name}\",\"app-package-name\":\"@npcs/${app_name}\",\"image-name\":\"ghcr.io/${{ github.actor }}/npcs-${app_name}:latest\"},"
+            matrix="${matrix}{\"app-dir\":\"${app_name}\",\"app-package-name\":\"@npcs/${app_name}\",\"image-name\":\"ghcr.io/${{ github.actor }}/npcs-${app_name}:staging\"},"
           done
           matrix="${matrix%?}]}"
           echo "::set-output name=matrix::${matrix}"
@@ -36,7 +36,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Login Registry
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/develop'
         run: |
           echo ${{ secrets.PAT }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
@@ -62,12 +62,12 @@ jobs:
           echo "Docker Image metadata: ${{ steps.docker_build.outputs.metadata }}"
 
       - name: Trigger Deploy
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/develop'
         run: |
           curl -X POST \
           -H "Accept: application/vnd.github+json" \
           -H "Authorization: Bearer ${{ secrets.PAT }}" \
-          -d "{\"event_type\":\"deploy\",\"client_payload\":{\"app\":\"${{ matrix.app-dir }}\"}}" \
+          -d "{\"event_type\":\"deploy-staging\",\"client_payload\":{\"app\":\"${{ matrix.app-dir }}\"}}" \
           https://api.github.com/repos/${{ github.repository }}/dispatches
 
       - name: Check Deploy Event
