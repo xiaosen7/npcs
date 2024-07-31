@@ -2,7 +2,7 @@ name: Docker Deploy Staging
 
 on:
   repository_dispatch:
-    types: [deploy_staging]
+    types: ["deploy_staging"]
 
 jobs:
   deploy:
