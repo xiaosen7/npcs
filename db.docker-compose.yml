@@ -10,7 +10,7 @@ services:
       - 5432:5432
 
     volumes:
-      - ./volumes/pgdata:/var/lib/postgresql/data
+      - ./node_modules/.cache/pgdata:/var/lib/postgresql/data
 
   # system: PostgreSql
   # server: postgres

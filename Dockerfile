@@ -56,4 +56,4 @@ WORKDIR /app/${APP_DIR}
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "pnpx http-server"]
+CMD ["sh", "-c", "nodee server.js"]
