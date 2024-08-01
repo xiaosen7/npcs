@@ -4,11 +4,11 @@ Next.js practical cases.
 
 ## Apps
 
-| Name                                          | Description                       |
-| --------------------------------------------- | --------------------------------- |
-| [Notes](http://18.138.71.40:3001)             | A Notes application               |
-| [Stackoverflow](http://18.138.71.40:3002)     | Stackoverflow clone               |
-| [large-file-upload](http://18.138.71.40:3003) | Large file upload, chunks enabled |
+| Name              | Description                       | Staging website                              | Production website                   |
+| ----------------- | --------------------------------- | -------------------------------------------- | ------------------------------------ |
+| Notes             | A Notes application               | https://notes.staging.npcs.store             | https://notes.npcs.store             |
+| Stackoverflow     | Stackoverflow clone               | https://stackoverflow.staging.npcs.store     | https://stackoverflow.npcs.store     |
+| large-file-upload | Large file upload, chunks enabled | https://large-file-upload.staging.npcs.store | https://large-file-upload.npcs.store |
 
 ## Develop application
 
@@ -53,6 +53,12 @@ pnpm -w dev
 pnpm turbo compile:watch
 ```
 
+## Deployment
+
+- For production deployment: See [Deploy production](./deploy/production/README.md)
+
+- For staging deployment: See [Deploy staging](./deploy/staging/README.md)
+
 ## Todo list
 
 | Task                                                       | Complete | Developing |
@@ -86,6 +92,14 @@ pnpm turbo compile:watch
 | CI file reuse                                              | 1        |            |
 | CI refactor                                                |          | 1          |
 | SENTRY                                                     |          |            |
+
+## Contributions
+
+Feel free to open issues or submit pull requests if you have any improvements or find any bugs.
+
+## License
+
+This project is licensed under the MIT License.
 
 ## References
 
