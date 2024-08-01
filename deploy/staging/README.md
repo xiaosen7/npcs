@@ -1,4 +1,4 @@
-# next.js-practical-cases - deploy
+# next.js-practical-cases - deploy staging
 
 ## Deploy by hand
 
