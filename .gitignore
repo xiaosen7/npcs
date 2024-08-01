@@ -139,7 +139,7 @@ esm
 *storybook.log
 
 #docker
-volumes
+/volumes
 
 *.pem
 
