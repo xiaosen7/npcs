@@ -73,7 +73,15 @@ function processPrismaDevFlow() {
 
   process.env.DATABASE_URL = `postgresql://postgres:123456@localhost:5432/${APP_NAME.replace("/", "_")}`;
   const hasSeed = !!APP_PACKAGE_JSON?.prisma?.seed;
-  exec(
-    `pnpm prisma migrate dev ${hasSeed ? `&& pnpm prisma db seed` : ""} && pnpm prisma studio -b false`,
-  );
+  const hasPrisma = existsSync(resolve("prisma"));
+
+  if (hasPrisma) {
+    log.info("prisma dir exists, run prisma migrate dev");
+    exec(`pnpm prisma migrate dev && pnpm prisma studio -b false`);
+
+    if (hasSeed) {
+      log.info("prisma seed exists, run prisma seed");
+      exec(`pnpm prisma db seed`);
+    }
+  }
 }

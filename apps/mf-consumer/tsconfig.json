@@ -13,6 +13,6 @@
     "types": ["vitest/globals"],
     "lib": ["dom", "dom.iterable", "esnext"]
   },
-  "include": ["./**/*", "./.storybook/**/*", ".next/types/**/*.ts"],
+  "include": ["./**/*", ".next/types/**/*.ts"],
   "exclude": ["./node_modules", "./.next"]
 }

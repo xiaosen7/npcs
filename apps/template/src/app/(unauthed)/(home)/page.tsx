@@ -1,4 +1,5 @@
 import { UserCountRsc } from "@/features/user/rsc";
+import RemoteDemoPage from "@/libs/mf/remote";
 import { Suspense } from "react";
 
 export default async function Home() {
@@ -9,6 +10,7 @@ export default async function Home() {
       <Suspense fallback="loading...">
         <UserCountRsc />
       </Suspense>
+      <RemoteDemoPage />
     </>
   );
 }
