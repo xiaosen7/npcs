@@ -5,5 +5,7 @@ export const env = createEnv({
   shared: {
     NODE_ENV: z.string().min(1),
   },
-  experimental__runtimeEnv: process.env as any,
+  experimental__runtimeEnv: {
+    NODE_ENV: process.env.NODE_ENV,
+  },
 });

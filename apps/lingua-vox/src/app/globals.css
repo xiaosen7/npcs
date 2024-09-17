@@ -1,0 +1,5 @@
+@import url("@npcs/ui/styles.css");
+@import url("markdown-theme/themes/github.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -23,7 +23,8 @@
     },
     "test": {
       "inputs": ["src/**/*", "libs/**/*", "app/**/*", "tests/**/*"],
-      "dependsOn": ["compile"]
+      "dependsOn": ["compile"],
+      "interactive": true
     },
     "build": {
       "inputs": [

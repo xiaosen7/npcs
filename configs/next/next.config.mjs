@@ -39,6 +39,19 @@ const sharedNextConfig = {
     // Modify the file loader rule to ignore *.svg, since we have it handled now.
     fileLoaderRule.exclude = /\.svg$/i;
 
+    const mdxRule = config.module.rules.find(
+      (/** @type {{ test: { test: (arg0: string) => any; }; }} */ rule) =>
+        rule.test?.test?.(".mdx") && !rule.test.test(".md")
+    );
+
+    // Ignore node-specific modules when bundling for the browser
+    // See https://webpack.js.org/configuration/resolve/#resolvealias
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      sharp$: false,
+      "onnxruntime-node$": false,
+    };
+
     return merge(config, {
       module: {
         rules: [
@@ -46,6 +59,12 @@ const sharedNextConfig = {
             resourceQuery: /raw/,
             type: "asset/source",
           },
+          mdxRule
+            ? {
+                ...mdxRule,
+                test: /\.md$/,
+              }
+            : null,
         ],
       },
     });

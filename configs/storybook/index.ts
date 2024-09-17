@@ -6,7 +6,7 @@ export function getAbsolutePath(value: string): any {
 }
 
 const config: StorybookConfig = {
-  stories: ["../src/stories/**/*.stories.tsx"],
+  stories: ["../src/**/*.stories.tsx"],
   addons: [
     getAbsolutePath("@storybook/addon-onboarding"),
     getAbsolutePath("@storybook/addon-links"),
@@ -19,5 +19,9 @@ const config: StorybookConfig = {
     name: getAbsolutePath("@storybook/nextjs"),
     options: {},
   },
+  env: (config) => ({
+    ...config,
+    NODE_ENV: "development",
+  }),
 };
 export default config;

@@ -17,6 +17,7 @@ const optionsValidation = z.object({
   templatesDir: z
     .string()
     .default("./templates")
+    .optional()
     .describe("Templates directory"),
   publicDir: z.string().default("./public").describe("Public directory"),
   outDir: z
@@ -71,7 +72,10 @@ export class CommandGenerateComponents extends Command<
       this.throwError(`Invalid path: ${url}`);
     }
 
-    const handlebarsFilePath = join(templatesDir, `${dirname(url)}.handlebars`);
+    const handlebarsFilePath = join(
+      templatesDir!,
+      `${dirname(url)}.handlebars`,
+    );
     if (!fsx.existsSync(handlebarsFilePath)) {
       this.log.warn(`Template file not found: ${handlebarsFilePath}`);
       return;

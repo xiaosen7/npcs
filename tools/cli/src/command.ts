@@ -13,6 +13,7 @@ export abstract class Command<
   readonly cwd = process.cwd();
   options?: TOptions;
   log: ConsolaInstance;
+  args?: any[];
 
   constructor(
     readonly name: string,
@@ -26,10 +27,11 @@ export abstract class Command<
     Object.entries(this.optionsValidation.shape).forEach(([key, option]) => {
       // TODO fix ts ignore
       // @ts-ignore
-      const defaultValue = option._def?.defaultValue();
+      const defaultValue = option._def?.defaultValue?.();
+      const isOptional = defaultValue !== undefined;
       cmd.option(
-        `--${key} <${key}>`,
-        defaultValue !== undefined
+        isOptional ? `--${key} [${key}]` : `--${key} <${key}>`,
+        isOptional
           ? // @ts-ignore
             `${option.description} (defaults to ${JSON.stringify(defaultValue)})`
           : // @ts-ignore
@@ -48,7 +50,9 @@ export abstract class Command<
   abstract action(): void;
 
   private createActionWithValidation() {
-    return async (opts: TOptions) => {
+    return async (...args: any[]) => {
+      args.pop(); // pop command
+      const opts: TOptions = args.pop();
       const result = this.optionsValidation.safeParse(opts);
       if (result.error) {
         this.throwError(
@@ -57,6 +61,8 @@ export abstract class Command<
             .join(";"),
         );
       }
+
+      this.args = args;
       this.options = opts;
       await this.action();
     };

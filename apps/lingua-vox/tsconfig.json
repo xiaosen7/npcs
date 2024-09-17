@@ -1,0 +1,19 @@
+{
+  "extends": "@npcs/typescript-config",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@docs/*": ["./docs/*"],
+      "@tests/*": ["./tests/*"]
+    },
+    "types": ["vitest/globals"],
+    "lib": ["dom", "dom.iterable", "esnext"]
+  },
+  "include": ["./**/*", "./.storybook/**/*", ".next/types/**/*.ts"],
+  "exclude": ["./node_modules", "./.next"]
+}

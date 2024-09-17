@@ -53,25 +53,31 @@ describe(Command.name, () => {
   });
 
   describe("options", () => {
-    const createTestCommand = () => {
-      const optionDefaultValue = "./src";
-      const optionName = "inputDir";
-      const optionDescription = "option description";
+    const createTestCommand = (option?: {
+      name?: string;
+      description?: string;
+      defaultValue?: string;
+    }) => {
+      const optionDefaultValue = Object.hasOwn(option ?? {}, "defaultValue")
+        ? option?.defaultValue
+        : "./src";
+      const optionName = option?.name ?? "inputDir";
+      const optionDescription = option?.description ?? "option description";
+
       const { commander, command } = createCommand(
         z.object({
           [optionName]: z
             .string()
-            .default(optionDefaultValue)
+            .default(optionDefaultValue as any)
             .describe(optionDescription),
         }),
       );
-      const option = commander.options[0];
       return {
         commander,
         optionName,
         optionDefaultValue,
         optionDescription,
-        option,
+        option: commander.options[0],
         command,
       };
     };
@@ -84,6 +90,18 @@ describe(Command.name, () => {
       expect(command.options).toEqual({
         [optionName]: optionDefaultValue,
       });
+    });
+
+    test("should set optional=true if set default value", () => {
+      const { option } = createTestCommand();
+      expect(option.optional).toEqual(true);
+    });
+
+    test("should set optional=false if do not set default value", () => {
+      const { option } = createTestCommand({
+        defaultValue: undefined,
+      });
+      expect(option.optional).toEqual(false);
     });
 
     test("should set option description", () => {

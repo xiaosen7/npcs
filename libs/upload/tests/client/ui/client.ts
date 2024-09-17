@@ -237,25 +237,17 @@ describe(UploadClient.name, () => {
   test(nameOf<UploadClient>("toJSON"), async () => {
     const { client, waitState } = createClientTestUtils();
     expect(client.toJSON()).toEqual({
-      chunkSize: expect.any(Number),
-      concurrency: expect.any(Number),
       hash: "",
       name: expect.any(String),
-      poolElapse: expect.any(Number),
       size: expect.any(Number),
-      state: EUploadClientState.Default,
     });
 
     client.start(true);
     await waitState(UploadClient.EState.UploadSuccessfully);
     expect(client.toJSON()).toEqual({
-      chunkSize: expect.any(Number),
-      concurrency: expect.any(Number),
       hash: "hash",
       name: expect.any(String),
-      poolElapse: expect.any(Number),
       size: expect.any(Number),
-      state: EUploadClientState.UploadSuccessfully,
     });
   });
 

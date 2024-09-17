@@ -13,18 +13,6 @@ export const Base: StoryObj<typeof Button> = {
   args: {},
 };
 
-export const Primary: StoryObj<typeof Button> = {
-  args: {
-    variant: "primary",
-  },
-};
-
-export const PrimaryGradient: StoryObj<typeof Button> = {
-  args: {
-    variant: "primary-gradient",
-  },
-};
-
 export const Secondary: StoryObj<typeof Button> = {
   args: {
     variant: "secondary",
